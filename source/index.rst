@@ -31,7 +31,7 @@ Documentation
     build-perms
     chest-protection
     host-keys
-    troubleshooting
+    troubleshooting/index
     developer/index
     support
     source-code
