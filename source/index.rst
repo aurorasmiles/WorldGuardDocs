@@ -22,16 +22,16 @@ Documentation
     :maxdepth: 3
     :titlesonly:
 
-    user-guide/install
-    user-guide/config
-    user-guide/permissions
-    user-guide/commands
-    user-guide/blacklist/index
-    user-guide/regions/index
-    user-guide/build-perms
-    user-guide/chest-protection
-    user-guide/host-keys
-    user-guide/troubleshooting
+    install
+    config
+    permissions
+    commands
+    blacklist/index
+    regions/index
+    build-perms
+    chest-protection
+    host-keys
+    troubleshooting
     developer/index
     support
     source-code
