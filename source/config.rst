@@ -2,6 +2,11 @@
 Configuration
 =============
 
+Many of WorldGuard's features exist as configuration options (potion blocking, scuba mode with pumpkins, etc.). Every configuration option available is listed on this page.
+
+Configuration Files
+===================
+
 Once you have run your server with WorldGuard installed, you will find the main configuration file inside the **plugins/WorldGuard** folder:
 
 * ``config.yml``
