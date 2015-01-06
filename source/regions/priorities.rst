@@ -51,7 +51,7 @@ Priorities can be set with ``/rg setpriority``::
 Inheritance
 ===========
 
-Following from the pub example above, what if you want to allow *both* builders and pub members to build in the pub? You could add the builders group to the pub region, or you instead, you could have the pub *inherit* its members from the spawn region.
+Following from the pub example above, what if you want to allow *both* builders and pub members to build in the pub? You could add the builders group to the pub region, or instead, you could have the pub *inherit* its members from the spawn region.
 
 When a region is given a parent:
 
