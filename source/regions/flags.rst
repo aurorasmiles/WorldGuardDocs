@@ -143,6 +143,12 @@ Mobs, Fire, and Explosions
     entity-painting-destroy,state,Whether non-player entities can destroy paintings
     entity-item-frame-destroy,state,Whether non-player entities can destroy item frames
 
+.. topic:: Example: Preventing sheep and cows from spawning at spawn
+
+    The entity types must be specified::
+
+        /rg flag spawn deny-spawn cow,pig
+
 Natural Events
 ~~~~~~~~~~~~~~
 
@@ -199,6 +205,25 @@ Map Making
 
 .. warning::
     The healing, feeding, greeting, and farewell message flags require that the "use player move event" option **not** be disabled in the :doc:`configuration <../config>`.
+
+.. topic:: Example: Blocking the "/tp" and "/teleport" commands at spawn
+    
+    The commands in question can be blocked with::
+
+        /rg flag spawn blocked-cmds /tp,/teleport
+
+.. topic:: Example: Preventing non-members of a "secret_club" region from entering it
+    
+    The key is to set the region group to "nonmembers"::
+
+        /rg flag secret_club entry -g nonmembers deny
+
+.. topic:: Example: In a "hospital" region, heal players one heart every second up to half their health bar
+    
+    Without any buffs, the player's maximum health is 20, so 10 is half of that::
+
+        /rg flag hospital heal-amount 2
+        /rg flag hospital heal-max-health 10
 
 Miscellaneous
 ~~~~~~~~~~~~~

@@ -22,5 +22,7 @@ Contents
     quick-start
     flags
     priorities
+    global-region
+    commands
     claiming
     storage
