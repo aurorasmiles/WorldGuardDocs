@@ -2,10 +2,9 @@
 Permissions
 ===========
 
-In order for yourself, moderators, and players to use WorldGuard, you must provide the proper permissions. One way is to provide op to moderators and administrators (unless disabled in the :doc:`configuration <config>`), but providing the permission nodes on this page (through a permissions plugin) is the more flexible.
+By default, no one In order for yourself, moderators, and players to use WorldGuard, you must provide the proper permissions. One way is to provide op to moderators and administrators (unless disabled in the :doc:`configuration <config>`), but providing the permission nodes on this page (through a permissions plugin) is the more flexible.
 
-.. tip::
-    You can give the ``worldguard.*`` permission to give yourself and other administrators full access to WorldGuard.
+You can give the ``worldguard.*`` permission to give yourself and other administrators full access to WorldGuard.
 
 Moderator
 =========
@@ -91,12 +90,15 @@ The following commands support a base permission (such as ``worldguard.region.re
     worldguard.region.removemember.*,"Be able to use  ``/rg removemember``."
     worldguard.region.removeowner.*,"Be able to use  ``/rg removeowner``."
 
-.. hint::
-    If you wanted players to only look up information for regions that they are the owner or member of, you would provide the following permission::
+.. topic:: Example: Letting players look up information on only regions that they own
+    
+    Use the own.* form of the permission::
 
         worldguard.region.info.own.*
     
-    If you wanted to allow everyone to use ``/rg teleport`` for the region named "city," you would use::
+.. topic:: Example: Allowing every player to use ``/rg teleport city``
+
+    The region name can be specified in the permission::
 
         worldguard.region.teleport.city.*
 
@@ -119,8 +121,9 @@ However, rather than providing that encompassing permission, you can provide the
 
     * ``worldguard.region.flag.flags.<flag name>.<region name>.*``
 
-.. hint::
-    If you wanted players to be able to (1) only set flags for their own regions and (2) only be able to set the ``use`` and ``chest-access`` flags, you would provide the following permissions::
+.. topic:: Example: Letting players be able to only change flags on regions that they own, and limit the flags that they can change to ``use`` and ``chest-access``
+
+    You would need to provide the following permissions::
 
         worldguard.region.flag.regions.own.*
         worldguard.region.flag.flags.use.*

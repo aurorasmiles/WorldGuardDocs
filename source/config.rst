@@ -132,6 +132,13 @@ physics.*
     allow-portal-anywhere,FALSE,"Whether portal blocks can be placed in invalid locations."
     disable-water-damage-blocks,[],"A list of block types that will not be broken by water."
 
+.. topic:: Example: Preventing Redstone and Redstone torches from being damanged by water
+
+    Material names are from `Bukkit's Material list <http://jd.bukkit.org/rb/apidocs/org/bukkit/Material.html>`_::
+
+        physics:
+            disable-water-damage-blocks: [redstone_wire, redstone_torch]
+
 ignition.*
 ~~~~~~~~~~
 

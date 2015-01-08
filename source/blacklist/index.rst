@@ -149,14 +149,14 @@ In this case, ``message`` is an option that overrides the message used by the "t
 Examples
 ========
 
-.. topic:: Block all bucket use
+.. topic:: Example: Blocking all bucket use
 
     .. code-block:: ini
 
         [lavabucket,waterbucket,bucket]
         on-use=deny,tell
 
-.. topic:: Kick players using TNT and notify administrators
+.. topic:: Example: Kicking players using TNT and notify administrators
 
     .. code-block:: ini
 
@@ -164,7 +164,7 @@ Examples
         ignore-groups=admins
         on-place=deny,notify,kick
 
-.. topic:: Allow only the people in the "obsidian" group and administrators to use obsidian
+.. topic:: Example: Allowing only the people in the "obsidian" group and administrators to use obsidian
 
     .. code-block:: ini
 

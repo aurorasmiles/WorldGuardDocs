@@ -71,7 +71,7 @@ To remove a parent, don't specify a parent name::
 
     /rg setparent region_name
 
-WorldGuard will detect circular inheritence and prevent it.
+WorldGuard will detect circular inheritance and prevent it.
 
 .. topic:: Example: Creating a "mall" with multiple plots inside of it
 

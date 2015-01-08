@@ -2,7 +2,7 @@
 Region Flags
 ============
 
-By default, the main purpose of a created region is to prevent anyone that is not on the member list from making changes to the blocks within the region. However, regions can serve other purposes unrelated to protection through the addition of the proper flags. A large number of built-in flags are provided for a wide range of situations, some of which include:
+Regions can have flags set upon it. Some uses of flags include:
 
 * Blocking player versus combat with the ``pvp`` flag
 * Denying entry to a region using the ``entry`` flag
@@ -205,6 +205,12 @@ Map Making
 
 .. warning::
     The healing, feeding, greeting, and farewell message flags require that the "use player move event" option **not** be disabled in the :doc:`configuration <../config>`.
+
+.. topic:: Example: Changing the message players receive when an action they try is blocked
+    
+    Set the ``deny-message`` flag::
+
+        /rg flag spawn deny-message Sorry! You are at spawn. If you want to find a place to call home, use the rail station to leave spawn.
 
 .. topic:: Example: Blocking the "/tp" and "/teleport" commands at spawn
     
