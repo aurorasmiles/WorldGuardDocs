@@ -26,3 +26,4 @@ Contents
     commands
     claiming
     storage
+    scope
