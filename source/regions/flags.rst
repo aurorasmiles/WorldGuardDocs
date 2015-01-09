@@ -41,6 +41,9 @@ The group can be specified using the ``-g`` marker as illustrated below::
 
 It is **not** possible to set the same flag to different values for more than one group on the same region. If you need that functionality, consider making several regions.
 
+.. note::
+    When there are multiple overlapping regions, a player must be a member of the region *on which the flag is set* or *on one of the region's child regions* (when region inheritance is involved). This is explained further in :doc:`priorities`.
+
 .. tip::
     In previous versions of WorldGuard, if the region group was not set, some flags would default to "nonmembers" while others would default to "everyone." Starting with WorldGuard 6, it is *always* "everyone" by default. 
 

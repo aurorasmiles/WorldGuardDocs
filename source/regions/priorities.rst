@@ -123,6 +123,39 @@ However, you may want the template region to *not actually physically exist*, si
         /rg flag plot_template chest-access deny
 
 Inheritance versus Priorities
-=============================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A higher priority parent region will override its children, so inheritance only properly works when the children are of the same or higher priority compared to their parent regions.
+
+Region Groups and Overlapping Regions
+=====================================
+
+As you may be aware, flags can be made to apply to only certain groups::
+
+    /rg flag mall pvp -g nonmembers deny
+
+When there is only one region, it's clear which players are members and which are not. However, it's less obvious when there are overlapping regions: does a player only need to be a member of one of the regions?
+
+The answer is no. The player must be a member of the region *on which the flag is set*. 
+
+For example, let's imagine two overlapping regions:
+
+* Spawn, with flag ``pvp -g nonmembers deny`` and no members
+* Market, with member "sk89q"
+
+PvP would be denied for sk89q because sk89q is not a member of spawn.
+
+In the Context of Inheritance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When a region has a parent set, both flags and the list of members are inherited, so a player *can* be a member of one of the child regions too.
+
+For example, if there are two regions:
+
+* Market, with flag ``pvp -g nonmembers deny`` and no members
+* Shop1, with member "sk89q," **inheriting** from the market
+
+Is sk89q a member? Yes, so sk89q is allowed to PvP.
+
+.. note::
+    As mentioned previously, parent regions should **not** have a higher priority than their children, otherwise this will not work correctly. PvP would be denied for sk89q because the parent region would override the child.
