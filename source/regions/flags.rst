@@ -118,6 +118,7 @@ Protection-Related
     vehicle-place,state,"Whether vehicles (boats, minecarts) can be placed"
     vehicle-destroy,state,Whether vehicles can be destroyed
     lighter,state,Whether flint and steel can be used
+    ride,state,Whether vehicles (including animals) can be mounted
 
 .. tip::
     If the ``build`` flag is set to ``allow``, then these flags will do nothing because the build flag explicitly allows any interaction. If the build flag is set to ``deny``, then these flags can override the build flag. Between these flags, however, (for example, both `use` and `interact` overlap in regards to a door), then ``deny`` on one flag always overrides ``allow`` on another flag.
