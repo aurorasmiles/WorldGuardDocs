@@ -17,14 +17,24 @@ Then for every world, you will find per-world configuration files:
 * ``worlds/world_nether/config.yml``
 * ``worlds/mining_world/config.yml``
 
-If you open up the per-world configuration files, they will be nearly empty. When you wish to override a setting, you would copy it into the world's configuration file. This will be explained later.
+If you open up the per-world configuration files, they will be nearly empty. When you wish to override a setting, you would copy it into the world's configuration file.
 
-You can open all the files with any text editor (like Notepad), but Windows users should at least use `Notepad++ <http://notepad-plus-plus.org/>`_ (for Windows). Configuration files are written in `YAML <http://www.yaml.org/>`_, a powerful but very finicky type of code.
+.. topic:: Example: Making a configuration option per-world
 
-.. warning::
-  You will often need to indent in YAML files, which you can do using your keyboard's TAB key. However, be careful: text editors may either (1) insert spaces or (2) insert an actual "tab character." Most editors usually emit the tab character, which YAML refuses to process. Therefore, be sure to look through your text editor's settings to change it to insert spaces rather than tabs.
+    In the main configuration file, you may have set ``block-creeper-block-damage`` to true::
 
-  Notepad++ users can find the option in "Tab Settings" under the preferences.
+        mobs:
+            block-creeper-explosions: false
+            block-creeper-block-damage: true
+            block-wither-explosions: false
+
+    But you want to set it to ``false`` in your nether world. Open up ``orlds/world_nether/config.yml`` and replace the file with::
+
+        mobs:
+            block-creeper-block-damage: false
+
+    Only the relevant line, as well as any parent sections, needs to be copied over.
+
 
 Settings
 ========
@@ -63,7 +73,7 @@ build-permission-nodes.*
     :widths: 12, 5, 30
 
     enable,FALSE,A feature that lets you block building based on giving players the proper permissions. See :doc:`build-perms`.
-    deny-message,,The message that is sent when permission is denied.
+    deny-message,,"Concerning build permissions, this is the message that is sent when permission is denied. If a message is not set, a default one is used."
 
 event-handling.*
 ~~~~~~~~~~~~~~~~
@@ -75,6 +85,12 @@ event-handling.*
     block-entity-spawns-with-untraceable-cause,FALSE,"As Bukkit does not always tell plugins the exact reason that an entity was spawned, it may be possible for a player to bypass protection to spawn an entity (such as with a spawn egg). This option blocks cases where the true cause cannot be determined. It is recommended that this option is left off because the number of cases where the cause is not known is quite large."
     interaction-whitelist,[],"A list of block types that should not be protected. For example, if chests were added to this list, then they would never be protected with :doc:`region protection <regions/index>`. This setting is useful primarily when non-vanilla functionality is present (game features added by other plugins or mods) and you don't want it blocked."
     emit-block-use-at-feet,[],"A list of items that, if used, will also require that the player have the permission to *theoretically* modify the block at his or her feet. This setting is useful primarily when there is some item from some plugin or mod that uses a projectile (that affects the world) but does not test permission with WorldGuard. However, this is not a proper solution because the player can still stand in an area where he or she has permission and shoot *into* the desired area."
+
+.. topic:: Example: Disabling protection on workbenches
+
+    The ``interaction-whitelist`` option can be used::
+
+        interaction-whitelist: [workbench]
 
 protection.*
 ~~~~~~~~~~~~
@@ -97,6 +113,12 @@ gameplay.*
 
     block-potions,[],A list of potion types that cannot be used. The list of possible potion types can be `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_.
     block-potions-overly-reliably,FALSE,Whether WorldGuard should try extra hard to block the list of potions mentioned in `block-potions`. This is geneerally not needed and enabling this may block more than you want.
+
+.. topic:: Example: Blocking the use of night vision and speed potions
+
+    The naems `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_ are used::
+
+        block-potions: [night_vision, speed]
 
 simulation.sponge.*
 ~~~~~~~~~~~~~~~~~~~
@@ -319,6 +341,15 @@ regions.*
     claim-only-inside-existing-regions,FALSE,"Whether players can only claim within existing regions."
     max-region-count-per-player:,,"The maximum number of regions that can be claimed by a player (via :doc:`self-serve region claiming <regions/claiming>`). This setting can differ per permission-group if new entries are added below (like for 'default'). 'default' is the default limit. If a player is a member of several groups that are listed, then the player receives the highest limit."
     "    default",7,(See above.)
+
+.. topic:: Example: Setting different region count limits per group
+
+    Each permission group is given its own entry::
+
+        max-region-count-per-player:
+            default: 7
+            builders: 20
+            moderators: 40
 
 .. warning::
     There are also some additional settings in this category, but we do not recommend changing them:
