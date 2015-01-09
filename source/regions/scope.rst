@@ -34,6 +34,8 @@ Some sensible defaults are used that permit certain activities from non-members:
 
 These exceptions can be removed globally or per-region by adjusting :doc:`flags`.
 
+However, hoppers are one exception that cannot be changed. A hopper adjacent to a protected region can place items into a chest inside the region, so chests should not be placed on the edge of regions. This behavior is used because the preivous situation (where hoppers were protected) was a source of frequent confusion, though the exception may be removed in the future.
+
 Additional exceptions can also be added per-region by adjusting flags, or globally by using the ``interaction-whitelist`` option in the :doc:`../config`.
 
 .. topic:: Example: Allowing everyone to use doors, levels, buttons, and pressure plates even in protected regions
@@ -64,6 +66,18 @@ Additional exceptions can also be added per-region by adjusting flags, or global
         DOESN'T WORK: /rg flag __global__ exp-drops -g nonmembers deny
 
     This is because regions do not inherit from ``__global__``, so "nonmembers" on ``__global__`` implies non-members of **specifically** the global region.
+
+Blocks and Entities
+===================
+
+One very important feature of how WorldGuard protects regions is how it handles blocks and entities. Players can obviously be either be added as a member of a protected region, but WorldGuard see blocks and entities the same way: they can either also be a member of a region.
+
+However, entities and blocks cannot be explicitly added as member to a region. Instead, an entity or block is considered a member of a region if *it's within the region*. That's why, for example, a piston from outside a protected region cannot push into the region. It's because the piston is considered a non-member, and of course, someone or something that isn't a member cannot change blocks. On the other hand, a piston within a protected region can push blocks within the region because it's considered a member of the region.
+
+WorldGuard also attempts to track the true *cause* of an event. For example, if a gravel block is placed above a protected region so that it falls into the protected region, WorldGuard considers the final placed block (that would exist after the gravel fell to the ground) to have been placed by the *falling block entity*, and the falling block entity to have been created by *the original gravel block high up*. (It's not as easy to determine who placed the original gravel block, however.) Because the original gravel block started outside the region, it cannot fall into the protected region because the original block was not a member.
+
+.. hint::
+    When the ``build`` flag is set to ``deny`` on a region, no one can build and pistons don't work. That's because the build flag will even prevent non-members from building, as as detailed above, pistons can be regular members of a region like any other player.
 
 Mod Support
 ===========
