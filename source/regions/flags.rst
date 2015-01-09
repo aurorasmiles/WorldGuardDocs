@@ -118,8 +118,6 @@ Protection-Related
     vehicle-place,state,"Whether vehicles (boats, minecarts) can be placed"
     vehicle-destroy,state,Whether vehicles can be destroyed
     lighter,state,Whether flint and steel can be used
-    item-pickup,state,Whether items can be picked up
-    item-drop,state,Whether items can be dropped
 
 .. tip::
     If the ``build`` flag is set to ``allow``, then these flags will do nothing because the build flag explicitly allows any interaction. If the build flag is set to ``deny``, then these flags can override the build flag. Between these flags, however, (for example, both `use` and `interact` overlap in regards to a door), then ``deny`` on one flag always overrides ``allow`` on another flag.
@@ -181,6 +179,9 @@ Map Making
     :header: Flag, Type, description
     :widths: 10, 5, 30
 
+    item-pickup,state,Whether items can be picked up
+    item-drop,state,Whether items can be dropped
+    exp-drops,state,Whether XP drops are permitted
     deny-message,string,The message issued to players that are denied an action
     entry,state,Whether players can enter the region
     exit,state,Whether players can exit the region
@@ -198,8 +199,7 @@ Map Making
     feed-min-hunger,integer,"See equivalent heal flag, except this is for food"
     feed-max-hunger,integer,"See equivalent heal flag, except this is for food"
     teleport,location,The location to teleport to when the ``/rg teleport`` command is used within the region
-    spawn,location,The location to teleport to when a player dies withint he region
-    exp-drops,state,Whether XP drops are permitted
+    spawn,location,The location to teleport to when a player dies within the region
     blocked-cmds,set of strings,A list of commands to block
     allowed-cmds,set of strings,A list of commands to permit
 
