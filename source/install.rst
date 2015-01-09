@@ -2,13 +2,20 @@
 Installation
 ============
 
-WorldGuard will only run if you have `Bukkit <http://dl.bukkit.org/>`_ or Bukkit-compatible server such as Cauldron, Glowstone, or Spigot. However, WorldGuard will not run on the plain Minecraft server that comes from Mojang.
+Requirements
+============
+
+WorldGuard requires a version of the Minecraft server that supports the `Bukkit API <http://dl.bukkit.org/>`_, which includes CraftBukkit, MCPC+, Cauldron, and Spigot. The official Minecraft server is not supported. 
+
+The other requirement is the `WorldEdit <http://www.enginehub.org/worldedit>`_ Bukkit plugin, a very lightweight in-game map editor, also made by us. Please note that you cannot use the Forge version of WorldEdit.
 
 .. note::
-    Due to a `controversy and the following legal debacle <https://www.reddit.com/r/Minecraft/comments/2fkz55/as_one_of_the_original_contributors_to_bukkit>`_, you can no longer download Bukkit.
+    Due to a `controversy and the following legal debacle <https://www.reddit.com/r/Minecraft/comments/2fkz55/as_one_of_the_original_contributors_to_bukkit>`_, you can no longer download the official Bukkit server. An alternative for Minecraft 1.8+ is the version provided by the Spigot team.
 
-.. note::
-    WorldGuard requires that you have `WorldEdit <http://www.enginehub.org/worldedit>`_ installed too.
+Installation
+============
+
+WorldGuard can be `downloaded from the Bukkit dev site <dev.bukkit.org/bukkit-plugins/worldguard/>`_.
 
 1. If you downloaded WorldGuard as a ZIP file, extract it to find "WorldGuard.jar" inside. Otherwise, you should already have a .jar file.
 2. In your server folder, create a "plugins" folder if one does not yet exist.
