@@ -128,3 +128,12 @@ However, rather than providing that encompassing permission, you can provide the
         worldguard.region.flag.regions.own.*
         worldguard.region.flag.flags.use.*
         worldguard.region.flag.flags.chest-access.*
+
+Subpages
+========
+ 
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+
+    build-perms

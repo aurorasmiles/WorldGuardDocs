@@ -363,3 +363,12 @@ regions.sql.*
     username,worldguard,The username to connect to the database with.
     password,worldguard,The password to connect to the database with.
     table-prefix,,The table prefix.
+
+Subpages
+========
+ 
+.. toctree::
+    :maxdepth: 3
+    :titlesonly:
+
+    host-keys

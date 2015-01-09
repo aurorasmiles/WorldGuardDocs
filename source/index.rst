@@ -28,9 +28,7 @@ Documentation
     commands
     blacklist/index
     regions/index
-    build-perms
     chest-protection
-    host-keys
     troubleshooting/index
     developer/index
     support
