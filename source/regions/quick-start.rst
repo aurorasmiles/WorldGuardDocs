@@ -58,6 +58,9 @@ Region data is periodically saved, so you do not need to use a save command.
 
         /rg addmember spawn g:builders
 
+.. hint::
+    Your changes to regions will automatically be saved after a small delay. However, region data can be force saved using ``/rg save``. All saves are done in the background and will not pause the server.
+
 Other Commands
 ~~~~~~~~~~~~~~
 
