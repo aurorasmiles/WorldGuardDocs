@@ -56,7 +56,7 @@ However, it is not always possible to track the true cause of an event. Sometime
 Displaying Internal Events
 ==========================
 
-There is only a hanful of internal events that are used to funnel Bukkit's events. It's possible to output these events as they are created to the server log, which allows you to:
+There is only a handful of internal events that are used to funnel Bukkit's events. It's possible to output these events as they are created to the server log, which allows you to:
 
 * Figure out which blacklist event is being triggered for certain actions
 * See whether WorldGuard is handling an action at all
