@@ -64,6 +64,9 @@ There is only a hanful of internal events that are used to funnel Bukkit's event
 
 To use this mode, specify ``-Dworldguard.debug.listener=true`` on the command line.
 
+.. tip::
+    This feature should be enabled on a private test server as it will emit many log entries on a busy server.
+
 .. topic:: Example: Enabling the mode in a Batch file on Windows
 
     If your batch file reads like::
@@ -93,7 +96,7 @@ Let's take the example of placing gravel above a protected region. You'd see, in
     * PLACE GRAVEL @0,99,0 [Player{sk89q}] :BlockPlaceEvent
     * SPAWN FALLING_BLOCK  [Block{0,99,0}] @-0,99,0 :EntityChangeBlockEvent
     * PLACE GRAVEL @       [Block{0,99,0} | FallingSand] :EntityChangeBlockEvent [CANCELLED]
-    * SPAWN DROPPED_ITEM   [Block{0,0,0} | Block{0,99,0} | FallingSand] @-0,0,0 :EntityChangeBlockEvent
+    * SPAWN DROPPED_ITEM   [Block{0,99,0} | FallingSand] @-0,0,0 :EntityChangeBlockEvent
 
 .. note::
     The output has been been condensed and formatted for purposes of explanation.
