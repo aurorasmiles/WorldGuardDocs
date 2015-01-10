@@ -9,3 +9,4 @@ Troubleshooting
     startup-errors
     commands
     protection
+    event-logging
