@@ -79,20 +79,39 @@ WorldGuard also attempts to track the true *cause* of an event. For example, if 
 .. hint::
     When the ``build`` flag is set to ``deny`` on a region, no one can build and pistons don't work. That's because the build flag will even prevent non-members from building, as as detailed above, pistons can be regular members of a region like any other player.
 
-Mod Support
-===========
+Mod and Plugin Support
+======================
+
+Some mods add new game mechanics, such as by adding new blocks, new items, new entities, or by adding new behavior to existing blocks, items, or entities. Mods be be written as Bukkit plugins or as mods for other modding platforms (such as Forge or LiteLoader).
+
+Generally, Bukkit plugins tend to be better at respecting protection added by other Bukkit plugins, but this is not always the case. Non-Bukkit mods, however, tend to have extremely poor support. This section concerns mods that do not properly respect mods and plugins that aim to restrict access to an area, like WorldGuard.
+
+Best-Effort Protection
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. sidebar:: What to watch out for
     
     * Blocks or entities that change other blocks and entities
     * Weapons, spells, or tools that shoot projectiles
 
-WorldGuard can protect custom blocks and entities added by mods or plugins in most cases. Protection is primarily handled by preventing the right click or left click of unknown blocks and entities on the server, which is usually sufficient as these are the only ways to interact with most blocks and entities.
+WorldGuard is able to extend protection to most custom blocks and entities in most cases. Protection in this case is primarily handled by preventing the right click or left click of unknown blocks and entities on the server, which is usually sufficient as these are the only ways to interact with most blocks and entities.
 
 However, WorldGuard cannot protect blocks or entities that open GUIs on the client (which you can usually tell on a multiplayer server if the GUI opens much quicker than inventories) because they send data in a separate channel that WorldGuard is not aware of.
 
-In addition, WorldGuard inherently cannot effectively control actions *done* on behalf of custom blocks or entities (such as a theoretical block mining drone), at least with high granularity. Base Minecraft itself does have blocks that can affect the world (like the piston), but the Bukkit team (or the maintainer of the server software that you use) properly notifies plugins when base game blocks change the world. However, mod-added blocks and entities rarely do so, so WorldGuard is unable to deal with those cases.
+In addition, WorldGuard inherently cannot effectively control actions (like dig blocks) on behalf of custom blocks or entities (such as a theoretical block mining drone), at least with high granularity. Base Minecraft itself does have blocks that can affect the world (like the piston), but the Bukkit team (or the maintainer of the server software that you use) properly notifies plugins when base game blocks change the world. However, mod-added blocks and entities rarely do so, so WorldGuard is unable to deal with those cases.
 
-Some mods "fake" a player in order to perform some actions on behalf of blocks and entities. The convention for these fake players is have their name be of the format ``[ModName]``. However, this information is rarely useful beyond telling which mod is making the change so cannot be used by WorldGuard. For that reason, WorldGuard allows these fake players to bypass all protection. This behavior can be changed with ``fake-player-build-override`` in the :doc:`../config` but this effectively prevents blocks that change the world from working at all in a protected region if their mod uses a fake player.
+Some mods "fake" a player in order to perform some actions on behalf of blocks and entities. The convention for these fake players is have their name be of the format ``[ModName]``. However, this information is rarely useful beyond identifying which mod is making the change, which makes it impossible for WorldGuard to determine whether an action should be permitted or denied. To allow the mods to work at all in protected areas, fake players are given a free pass and can bypass all protection. This behavior can be disabled by setting ``fake-player-build-override`` in the :doc:`../config` but doing so prevents mods of this nature from working within a protected area.
 
 Projectiles (and magic mods with projectile effects) are a major concern. This is because the mod likely does not notify plugins of effects of the projectile. WorldGuard has a workaround -- the ``emit-block-use-at-feet`` setting in the :doc:`../config` that lets you configure a list of item types -- that will *pretend* that listed items are trying to change the block at a player's feet. That effectively prevents a player *in* a protected region from firing his or her weapon because the player will be prevented from using the item in the region, but it does not prevent the player from firing into the protected region from *outside*.
+
+Solutions
+~~~~~~~~~
+
+If the mod in question is a Bukkit plugin, please ask its developers to add support for protection plugins. That can be done by either firing appropriate Bukkit events or by using the :doc:`../developer/index`.
+
+If the mod is not a Bukkit plugin, it is rare that you will be able to convince the developers to add support for Bukkit.
+
+Alternatives to actually fixing protection are:
+
+* To ignore the problem if you have a trustworthy userbase.
+* To disable the items or blocks in question.
