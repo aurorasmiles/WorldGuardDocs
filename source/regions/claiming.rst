@@ -4,7 +4,7 @@ Claiming
 
 A rudimentary player-oriented claiming system is available for use in WorldGuard. It creates regions like ``/rg define`` would, but players must use a special command with separate permissions. WorldEdit selections are still required for selecting the physical area of the region, although only the ``worldedit.selection`` permission is necessary for that.
 
-Regions can claim selected regions using the ``/rg claim`` command::
+Player can claim selected regions using the ``/rg claim`` command::
 
     /rg claim region_name owner1 owner2
 
