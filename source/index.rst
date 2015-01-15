@@ -29,8 +29,9 @@ Documentation
     blacklist/index
     regions/index
     chest-protection
-    troubleshooting/index
     developer/index
+    advanced/index
+    faq
     support
     source-code
 

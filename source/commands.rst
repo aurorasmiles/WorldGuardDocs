@@ -67,6 +67,8 @@ Emergency
     /stoplag,-c [-s],"Disable the 'stop lag' mode. ``-s`` can be provided to make the toggle not issue an announcement in chat."
     /stoplag,-i,"Display the status of the 'stop lag' mode."
 
+.. _troubleshooting:
+
 Troubleshooting
 ===============
 
