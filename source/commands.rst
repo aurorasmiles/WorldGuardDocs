@@ -77,6 +77,11 @@ Troubleshooting
     :widths: 8, 8, 25
 
     /wg report,[-p],"Writes a report file (placed at ``plugins/WorldGuard/report.txt``) detailing information about the server setup (list of plugins, their versions, world settings) as well as WorldGuard's configuration. This command is to easily provide information to others for support purposes. The report does not contain sensitive data. Use ``-p`` to also submit the report to a pastebin site and have a link generated that you can give to others."
+    /wg profile,[-p] [-t <name>] [<minutes>],"Starts profiling CPU usage of the current running server, and runs the profiler for the given duration (defaulting to 5 minutes if a duration is not specified). The profiler is based on `WarmRoast <https://github.com/sk89q/warmroast>`_.
+
+    By default, results are only collected for the main thread where the world is 'ticked', but ``-t`` can be specified to filter by a different thread name (case in-sensitive). An asterisk (``*``) can be specified instead to profile all threads (i.e. ``-t *``).
+
+    Use ``-p`` to also submit the profiling result to a pastebin site and have a link generated that you can give to others. This is recommended because the output of the profiler is formatted by the pastebin site to make it readable."
     /wg debug testbreak,[-t] <player>,"Simulates a 'block break' event. This is explained below."
     /wg debug testplace,[-t] <player>,"Simulates a 'block place' event. This is explained below."
     /wg debug testinteract,[-t] <player>,"Simulates a 'block interact' event. This is explained below."
