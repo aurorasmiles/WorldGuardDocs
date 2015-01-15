@@ -2,21 +2,23 @@
 WorldGuard Documentation
 ========================
 
-WorldGuard is a toolbox of various functions, useful for multiplayer servers, that lets you:
+WorldGuard has a host of functions for server owners, server map makers, regular survival servers, and everyone else in between.
 
-* Protect your server from a number of problems.
-* Block fire spread, lava spread, Endermen block moving, and more.
-* Flag areas as "no PvP" or "no TNT."
-* Assign ownership to areas so only selected individuals can build.
-* Use a number of useful commands.
-
-WorldGuard is `open source <https://github.com/sk89q/worldguard>`_.
+* :doc:`Create zones in your world <regions/index>` that only permit mods or certain players from building within
+* Set :doc:`additional game rules <config>` on your server (deny wither block damage, falling damage, etc.)
+* Set :doc:`game rules on specific areas <regions/flags>` (food regen, health regen, disable PvP, TNT, control mob damage) in your world
+* :doc:`Blacklist certain items <blacklist/index>` and blocks so they can't be used
+* Dump useful statistics and information about your server (/wg report -p)
+* CPU profile your server (/wg profile -p)
+* Add :doc:`useful commands <commands>` like an immediate "STOP ALL FIRE SPREAD" command.
+* Works, more or less, :doc:`with other plugins and mods <regions/scope>` (other Bukkit plugins and FTB mods)
+* Protects :doc:`against many types of abuse <regions/scope>` (tree growth, TNT cannons, piston machines, etc.)
+* Certain interactions can also be allowed (door and lever usage, etc.)
+* `Open source <http://www.github.com/sk89q/WorldGuard>`_, and one of the oldest Minecraft projects (older than Bukkit!)
+* Enable only features you want! **Everything is off by default.** You can just install WorldGuard and configure it later.
 
 Documentation
 =============
-
-.. tip::
-    This documentation is still a work in progress. Please consider using the `older wiki <http://wiki.sk89q.com/wiki/WorldGuard>`_ for missing pages.
  
 .. toctree::
     :maxdepth: 3
