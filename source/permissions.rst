@@ -55,6 +55,7 @@ Regions
     :header: Permission, Explanation
     :widths: 15, 25
 
+    worldguard.region.wand.*,"Be able to use the :doc:`regions/wand`."
     worldguard.region.load.*,"Be able to use  ``/rg load``."
     worldguard.region.save.*,"Be able to use  ``/rg save``."
     worldguard.region.migratedb.*,"Be able to use  ``/rg migratedb``."

@@ -20,6 +20,7 @@ Contents
     :titlesonly:
 
     quick-start
+    wand
     flags
     priorities
     global-region
