@@ -28,3 +28,4 @@ Contents
     claiming
     storage
     scope
+    common-scenarios

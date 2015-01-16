@@ -6,6 +6,9 @@ Common Questions
     :local:
     :backlinks: none
 
+.. tip::
+    Be sure to also to check out the :doc:`regions/common-scenarios` page for solutions to common issues regarding region protection.
+
 General
 =======
 
@@ -112,3 +115,16 @@ If WorldGuard is blocking an action, it's still possible for a different plugin 
 You can use the "testbreak" and "testplace" commands described in :doc:`commands` to identify the causing plugin. If you see any plugin above WorldGuard on the list with "ALLOW" next to its line, then that plugin is the cause.
 
 Another possibility is that your version of Bukkit, Spigot, or Cauldron has a bug. Be sure to use the latest available version. If you still cannot figure out the cause, :doc:`look into getting help <support>`.
+
+Region Protection
+=================
+
+Why do pistons not work?
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+You probably set the ``build`` flag to ``deny`` when you probably should not have. Check out the :doc:`regions/common-scenarios` page for more information.
+
+How do I do __________ with region protection?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Check out the :doc:`regions/common-scenarios` page.

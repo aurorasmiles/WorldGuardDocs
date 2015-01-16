@@ -129,3 +129,8 @@ Read the :doc:`flags` guide for more information.
     4. Builders cannot build in the arena because they aren't a member of the arena region, even if they are a member of the spawn region (if you have been following these examples). However, you created the arena region to set the PvP flag, not to protect the area, so set the ``passthrough`` flag to ``allow`` to make it transparent to build checks::
 
         /rg flag arena passthrough allow
+
+Common Scenarios
+================
+
+If you're wondering how to do something (like allow the usage of doors, levers, pressure plates, etc.), check out the :doc:`common-scenarios` page.
