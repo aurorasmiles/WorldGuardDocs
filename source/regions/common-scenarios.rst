@@ -28,7 +28,7 @@ If you want to apply it to **all** regions, set it on the :doc:`global-region`::
 How do I let people ride horses and Minecarts?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-If you want everyone to be able to use all vehicles,, set the ``ride`` flag::
+If you want everyone to be able to use all vehicles, set the ``ride`` flag::
 
     /rg flag REGION_NAME ride allow
 
@@ -69,7 +69,7 @@ In the :doc:`../config`, adjust the ``interaction-whitelist`` setting and add th
 How do I allow mining but prevent block breaking?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Set the ``block-break`` flag to ``allow``:
+Set the ``block-break`` flag to ``allow``::
 
 * /rg flag mining_area block-break allow
 
