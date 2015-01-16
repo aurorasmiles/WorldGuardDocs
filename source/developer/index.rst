@@ -10,4 +10,5 @@ You can access WorldGuard's data through its API, as documented here.
 
     dependency
     build-checks
-    regions
+    regions/index
+    native-objects
