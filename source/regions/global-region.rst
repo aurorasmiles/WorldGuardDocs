@@ -28,6 +28,9 @@ If you change the ``passthrough`` :doc:`flag <flags>` to deny, making the global
 
 Because the global region is considered the lowest priority region, any other normal regions made will override the global region and thus allow building if a player is a member of that region.
 
+.. note::
+    The passthrough flag has nothing to do with movement. It means "passthrough of build permissions," as better explained in :doc:`flags`.
+
 .. topic:: Example: Preventing building in the "wilderness"
 
     The ``passthrough`` flag can be set to ``deny``::
