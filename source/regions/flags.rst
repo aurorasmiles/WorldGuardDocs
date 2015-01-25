@@ -24,6 +24,8 @@ List flags by using the "info" command::
 
     /region info spawn
 
+.. _region-groups:
+
 Region Groups
 =============
 
@@ -94,14 +96,16 @@ Overrides
     :header: Flag, Type, description
     :widths: 10, 5, 30
 
-    passthrough,state,Make the region a non-protection region (explained below)
-    build,state,Protection override (explained below)
+    passthrough,state,"This flag is short for 'passthrough build'. It has nothing to do with movement.
 
-.. warning::
-    If you want to protect a region, do **not** set either of the flags above. Protection is on *by default*. The situations where you may want to adjust those flags is explained below.
+    * If not set **(default)**, then the region protects it area.
+    * If set to ``deny``, then the region protects its area.
+    * If set to ``allow``, then the region **no longer** protects its area.
 
-    * **When would you use PASSTHROUGH?** Let's say you want to make a "hospital" area that auto-heals players. Since the hospital is in the marketplace, where you have already given some builders permission, you *don't* want the hospital region to affect protection and deny the builders. Therefore, you would use ``/region flag hospital passthrough allow`` to make the hospital a non-protection region. (Note: Setting the flag to "deny" does nothing.)
-    * **When would you use BUILD?** Let's say you want to make a "mine" area that overlaps your "spawn" region and permits *everyone* to mine or place blocks. You would use ``/region flag mine build allow``. On the other hand, if you have "admin" region that overlaps various other regions and you want to block building for *everyone*, use "deny". The purpose of the ``build`` flag is to **override** overlapping regions.
+    Where does the flag come into use?
+
+    * When you are using other flags (PvP, healing, etc.) and you don't want to prevent building.
+    * Why not set ``build`` to ``allow`` (explained later) instead? That would override other regions and let people build!"
 
 Protection-Related
 ~~~~~~~~~~~~~~~~~~
@@ -110,21 +114,59 @@ Protection-Related
     :header: Flag, Type, description
     :widths: 10, 5, 30
 
+    build,state,"Everything:
+
+    * Whether blocks can be mined or placed
+    * Whether doors, levers, etc. (but not inventories) can be used
+    * Whether entities and blocks can be interacted with
+    * Whether player versus player combat is permitted
+    * Whether sleeping in a bed is permitted
+    * Whether inventories can be accessed
+    * Whether vehicles (boats, minecarts) can be placed
+    * etc."
+    interact,state,"Everything that involves 'using' a block or entity:
+
+    * Whether doors, levers, etc. (but not inventories) can be used
+    * Whether inventories can be accessed
+    * Whether vehicles (including animals) can be mounted
+    * etc."
     block-break,state,Whether blocks can be mined
     block-place,state,Whether blocks can be placed
     use,state,"Whether doors, levers, etc. (but not inventories) can be used"
-    interact,state,"Whether entities and blocks can be interacted with"
+    chest-access,state,Whether inventories can be accessed
+    ride,state,Whether vehicles (including animals) can be mounted
     pvp,state,Whether player versus player combat is permitted
     sleep,state,Whether sleeping in a bed is permitted
     tnt,state,Whether TNT detonation or damage is permitted
-    chest-access,state,Whether inventories can be accessed
     vehicle-place,state,"Whether vehicles (boats, minecarts) can be placed"
     vehicle-destroy,state,Whether vehicles can be destroyed
     lighter,state,Whether flint and steel can be used
-    ride,state,Whether vehicles (including animals) can be mounted
+
+.. warning::
+    None of these flags are player-specific. For example, the block-break flag, if set to deny, **prevents pistons from breaking blocks**.
+
+    To understand why, consider the fact that players can fling TNT into a region from outside, or a player can build an inchworm piston machine that moves into another region. While these actions were caused by a player, realistically attempting to figure which player built the TNT cannon or used it is much more difficult. However, you still want to prevent someone from blowing up spawn with a TNT cannon.
+
+    Outright blocking TNT cannons or pistons is the wrong solution. Pistons and TNT cannons should be allowed in *some* cases. For example, a TNT cannon or piston inside should work *within* the region.
+
+    First off, remember who can build in regions: it's **not** players, it's **members**. When we consider pistons or TNT, it should be no different. How does WorldGuard figure out whether a piston machine or TNT cannon is a member of a region? **If it's inside the region,** of course!
+
+    When you create a region, before setting any flags on it:
+
+    * Members may build
+    * Non-members may **not** build
+
+    TNT cannons and pistons inside are allowed to work because they are "members." An imaginary player, "Bobby," who isn't a member yet, is unable to place or break blocks. Once you add Bobby to the region, then Bobby can build.
+
+    When you set the protection flags, you override this behavior. If you set ``block-break`` to ``deny``, then even members are unable to break blocks. Bobby cannot break blocks. A TNT cannon inside cannot break blocks. A piston inside cannot break blocks. **You break pistons.**
+
+    That begs two questions:
+
+    * **How do I prevent players from placing or breaking blocks?** Don't do anything. Don't change any flags! Remember, only members can build by default.
+    * **How do I change a flag to only affect players?** You probably mean: how do you make a flag only affect *non-members*? Well, that's easy: use :ref:`region-groups`.
 
 .. tip::
-    If the ``build`` flag is set to ``allow``, then these flags will do nothing because the build flag explicitly allows any interaction. If the build flag is set to ``deny``, then these flags can override the build flag. Between these flags, however, (for example, both `use` and `interact` overlap in regards to a door), then ``deny`` on one flag always overrides ``allow`` on another flag.
+    Note: If the ``build`` flag is set to ``allow`` or ``deny``, it can still be overriden with a different flag (``block-break``, ``interact``, etc.). This is only the case with the build flag.
 
 Mobs, Fire, and Explosions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
