@@ -61,7 +61,7 @@ Regions
     worldguard.region.save.*,"Be able to use  ``/rg save``."
     worldguard.region.migratedb.*,"Be able to use  ``/rg migratedb``."
     worldguard.region.migrateuuid.*,"Be able to use  ``/rg migrateuuid``."
-    worldguard.region.define.*,"Be able to use  ``/rg redefine``."
+    worldguard.region.define.*,"Be able to use  ``/rg define``."
     worldguard.region.claim.*,"Be able to use  ``/rg claim``."
     worldguard.region.unlimited.*,"Bypass claiming limits."
     worldguard.region.list.*,"Be able to use  ``/rg list``."
@@ -80,7 +80,7 @@ The following commands support a base permission (such as ``worldguard.region.re
     :header: Permission, Explanation
     :widths: 15, 25
 
-    worldguard.region.redefine.*,"Be able to use  ``/rg define``."
+    worldguard.region.redefine.*,"Be able to use  ``/rg redefine``."
     worldguard.region.remove.*,"Be able to use  ``/rg remove``."
     worldguard.region.setpriority.*,"Be able to use  ``/rg setpriority``."
     worldguard.region.setparent.*,"Be able to use  ``/rg setparent``."
