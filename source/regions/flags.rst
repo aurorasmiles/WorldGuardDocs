@@ -133,6 +133,7 @@ Protection-Related
     block-break,state,Whether blocks can be mined
     block-place,state,Whether blocks can be placed
     use,state,"Whether doors, levers, etc. (but not inventories) can be used"
+    damage-animals,state,"Whether players can harm friendly animals (cows, sheep, etc)"
     chest-access,state,Whether inventories can be accessed
     ride,state,Whether vehicles (including animals) can be mounted
     pvp,state,Whether player versus player combat is permitted
