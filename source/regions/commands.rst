@@ -76,6 +76,78 @@ Claim
 
 Claims a region, which is for self-serve player-created regions. See :doc:`claiming` for more information.
 
+Editing Memberships
+===================
+
+Add Member
+~~~~~~~~~~
+
+.. code-block:: text
+
+    /rg addmember [-w <world>] [-n] <id> <members...>
+    /rg addmem (...)
+    /rg am (...)
+
+Adds any number of members to a region. Using ``g:<member>`` will add a permission group instead of a player.
+
+* ``-w <world>`` can be specified to run this command for a different world or from console
+* ``-n`` tells WorldGuard to add players as names instead of UUIDs. Players added as names only will lose their membership if they change their Minecraft name.
+
+.. topic:: Example: Adding the "builder" group and the player "sk89q" as members of a "spawn" region of the "lobby" world.
+
+    .. code-block:: text
+
+        /rg addmember -w lobby spawn g:builder sk89q
+
+Add Owner
+~~~~~~~~~
+
+.. code-block:: text
+
+    /rg addowner [-w <world>] [-n] <id> <owners...>
+    /rg ao (...)
+
+Adds any number of owners to a region. Using ``g:<owner>`` will add a permission group instead of a player.
+
+* ``-w <world>`` can be specified to run this command for a different world or from console
+* ``-n`` tells WorldGuard to add players as names instead of UUIDs. Players added as names only will lose their ownership if they change their Minecraft name.
+
+.. topic:: Example: Adding the "admins" group and the player "eduardo" as members of a "spawn" region of the "lobby" world.
+
+    .. code-block:: text
+
+        /rg addowner -w lobby spawn g:admins eduardo
+
+Remove Member
+~~~~~~~~~~~~~
+
+.. code-block:: text
+
+    /rg removemember [-w <world>] [-n] [-a] <id> <members...>
+    /rg remmember (...)
+    /rg remmem (...)
+    /rg rm (...)
+
+Removes any number of members from a region. As in the add command, use ``g:<member>`` to specify a permission group.
+
+* ``-w <world>`` can be specified to run this command for a different world or from console
+* ``-n`` will remove a player who was added by name instead of UUID.
+* ``-a`` will remove all members from the region, ignoring the <members...> argument
+
+Remove Owner
+~~~~~~~~~~~~
+
+.. code-block:: text
+
+    /rg removeowner [-w <world>] [-n] [-a] <id> <owners...>
+    /rg ro (...)
+
+Removes any number of owners from a region. As in the add command, use ``g:<owner>`` to specify a permission group.
+
+* ``-w <world>`` can be specified to run this command for a different world or from console
+* ``-n`` will remove a player who was added by name instead of UUID.
+* ``-a`` will remove all owners from the region, ignoring the <owners...> argument
+
 Getting Information
 ===================
 

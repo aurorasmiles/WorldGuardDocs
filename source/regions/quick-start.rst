@@ -34,12 +34,14 @@ Rather than using ``/region``, you can also use ``/rg`` as a shortcut::
 
 The newly created region **automatically prevents building** within it. To let specific players build, add members or *owners* to the region. The main reason why you'd have separate owners or members is because you can set :doc:`permissions to use commands separately for owners and members <../permissions>`.
 
-Either players or permission groups can be a member or owner. To specify a permission group, prefix the name of the group with ``g:``. The relavant add and remove commands are illustrated below::
+Either players or permission groups can be a member or owner. To specify a permission group, prefix the name of the group with ``g:``. The relevant add and remove commands are illustrated below::
 
     /rg addmember town Notch sk89q g:builders
     /rg addowner town sk89q
     /rg removemember town g:builders
     /rg removeowner town sk89q
+
+Full documentation for these commands can be found on the :doc:`commands` page.
 
 Lastly, when you create a region, you can also conveniently specify the owners::
 
