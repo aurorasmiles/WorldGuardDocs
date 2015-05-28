@@ -39,7 +39,7 @@ Sometimes, it may be desired for a flag to only apply to a certain group of play
 
 The group can be specified using the ``-g`` marker as illustrated below::
 
-    /region flag spawn pvp deny -g nonmembers
+    /region flag spawn -g nonmembers pvp deny
 
 It is **not** possible to set the same flag to different values for more than one group on the same region. If you need that functionality, consider making several regions.
 
