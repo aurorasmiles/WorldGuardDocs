@@ -72,7 +72,7 @@ Claim
 
 .. code-block:: text
 
-    /rg claim <id> <owner1> [<owner2>] [... <ownerN>]
+    /rg claim <id>
 
 Claims a region, which is for self-serve player-created regions. See :doc:`claiming` for more information.
 

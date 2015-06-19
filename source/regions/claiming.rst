@@ -6,8 +6,9 @@ A rudimentary player-oriented claiming system is available for use in WorldGuard
 
 Player can claim selected regions using the ``/rg claim`` command::
 
-    /rg claim region_name owner1 owner2
+    /rg claim region_name
 
+The player running the command will automatically be added as a region owner.
 Access to the command is provided by the ``worldguard.region.claim`` permission.
 
 Rules
@@ -25,4 +26,4 @@ Rules
 Other Commands
 ==============
 
-You can give players the ability to use other commands (like setting flags and adding members) by setting the approriate :doc:`../permissions`.
+You can give players the ability to use other commands (like setting flags and adding members) by setting the appropriate :doc:`../permissions`.
