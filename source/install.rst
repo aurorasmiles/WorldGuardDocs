@@ -15,7 +15,7 @@ The other requirement is the `WorldEdit <http://www.enginehub.org/worldedit>`_ B
 Installation
 ============
 
-WorldGuard can be `downloaded from the Bukkit dev site <dev.bukkit.org/bukkit-plugins/worldguard/>`_.
+WorldGuard can be `downloaded from the Bukkit dev site <http://dev.bukkit.org/bukkit-plugins/worldguard/>`_.
 
 1. If you downloaded WorldGuard as a ZIP file, extract it to find "WorldGuard.jar" inside. Otherwise, you should already have a .jar file.
 2. In your server folder, create a "plugins" folder if one does not yet exist.
