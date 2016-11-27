@@ -47,7 +47,7 @@ It is **not** possible to set the same flag to different values for more than on
     When there are multiple overlapping regions, a player must be a member of the region *on which the flag is set* or *on one of the region's child regions* (when region inheritance is involved). This is explained further in :doc:`priorities`.
 
 .. tip::
-    In previous versions of WorldGuard, if the region group was not set, some flags would default to "nonmembers" while others would default to "everyone." Starting with WorldGuard 6, it is *always* "everyone" by default. 
+    The entry and exit flags default to "non-member", meaning setting them to "deny" will prevent non-members from entering/exiting the region. The teleport and spawn location flags default to "members", which means that only members can take advantage of them by default. All other flags provided by WorldGuard default to "everyone".
 
 Types of Flags
 ==============
@@ -58,9 +58,9 @@ Each flag is of a certain type that determines what kind of values it may take. 
     :header: Type, Kind of values
     :widths: 5, 30
 
-    state, "Either 'allow' or 'deny' (explaind later)"
+    state, "Either 'allow' or 'deny' (explained later)"
     string, "Any form of text"
-    integer, "An number that does not have decimals (5, but not 5.5)"
+    integer, "A number that does not have decimals (5, but not 5.5)"
     double, "Numbers that may have decimals (5, 5.5, 2.425)"
     location, "A location in a world"
     boolean, "True or false"

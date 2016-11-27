@@ -50,7 +50,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
         }
 
         dependencies {
-            compile 'com.sk89q:worldguard:VERSION'
+            compile 'com.sk89q.worldguard:worldguard-legacy:VERSION'
         }
 
 Modifying plugin.yml

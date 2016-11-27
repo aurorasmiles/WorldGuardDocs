@@ -142,7 +142,7 @@ Region groups can be set by calling ``getRegionGroupFlag()`` on a flag to get it
 Custom Flags
 ~~~~~~~~~~~~
 
-At this time, custom flags are not officially supported. There are, however, unofficial, third-party implementations of custom flags for WorldGuard.
+As of version 6.2, plugins can add their own flags and session handlers. See the :doc:`custom-flags` page.
 
 Creating Regions
 ================

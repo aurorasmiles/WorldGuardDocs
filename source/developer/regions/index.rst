@@ -19,6 +19,7 @@ Region data can be accessed via the :doc:`RegionContainer <managers>`. Every reg
 
     managers
     protected-region
+    custom-flags
     spatial-queries
     flag-calculation
     protection-query

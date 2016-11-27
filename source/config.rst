@@ -112,11 +112,11 @@ gameplay.*
     :widths: 12, 5, 30
 
     block-potions,[],A list of potion types that cannot be used. The list of possible potion types can be `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_.
-    block-potions-overly-reliably,FALSE,Whether WorldGuard should try extra hard to block the list of potions mentioned in `block-potions`. This is geneerally not needed and enabling this may block more than you want.
+    block-potions-overly-reliably,FALSE,Whether WorldGuard should try extra hard to block the list of potions mentioned in `block-potions`. This is generally not needed and enabling this may block more than you want.
 
 .. topic:: Example: Blocking the use of night vision and speed potions
 
-    The naems `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_ are used::
+    The names `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_ are used::
 
         block-potions: [night_vision, speed]
 
@@ -127,7 +127,7 @@ simulation.sponge.*
     :header: Setting, Default, Description
     :widths: 12, 5, 30
 
-    enable,FALSE,"Whether to simulate sponge blocks simular to the way they worked in Minecraft Classic. Between the introduction of survival Minecraft and Minecraft 1.8 (several years), sponges did not work, but this setting is now obsolete and its use is no longer recommended."
+    enable,FALSE,"Whether to simulate sponge blocks similar to the way they worked in Minecraft Classic. Between the introduction of survival Minecraft and Minecraft 1.8 (several years), sponges did not work, but this setting is now obsolete and its use is no longer recommended."
     radius,3,The radius of the sponge's action.
     redstone,FALSE,Whether Redstone can control the simulated Sponge blocks.
 
