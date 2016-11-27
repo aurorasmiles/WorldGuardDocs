@@ -61,7 +61,10 @@ Unlike custom flags, your custom session handlers can be registered at any time.
                     return new CustomHandler(session);
                 }
             }
-
+            // construct with your desired flag to track changes
+            public CustomHandler(Session session) {
+                super(session, MyPlugin.MY_CUSTOM_FLAG);
+            }
             // ... override handler methods here
         }
 
