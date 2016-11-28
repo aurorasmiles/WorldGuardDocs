@@ -44,7 +44,7 @@ In general, your flags will be used in event handlers by :doc:`querying values <
 * Running some method periodically on all players in regions with the given flag (e.g. heal flag)
 * Responding to a player entering or leaving a region with the flag set (e.g. greeting flag)
 
-Unlike custom flags, your custom session handlers can be registered at any time. A handler is instantiated by a factory method for each session (player) when it is created. There are also some methods in the Handler class which your custom handler has to override. If you are using a handler for the second type of behavior, it is recommended that you extend the FlagValueChangeHandler class instead, which handles a lot of the region-border-crossing logic for you.
+Custom handlers can be registered any time after WorldGuard enables. A handler is instantiated by a factory method for each session (player) when it is created. There are also some methods in the Handler class which your custom handler has to override. If you are using a handler for the second type of behavior, it is recommended that you extend the FlagValueChangeHandler class instead, which handles a lot of the region-border-crossing logic for you.
 
 .. topic:: Example: Creating and registering a custom handler
 
