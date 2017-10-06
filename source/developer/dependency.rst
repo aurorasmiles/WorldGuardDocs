@@ -17,7 +17,7 @@ Build Script Dependency
 If you compile your plugin or mod using something like `Maven <https://maven.apache.org/>`_ or `Gradle <https://www.gradle.org/>`_ (which you should!), you will need to add WorldGuard to the list of dependencies. You can find WorldGuard's artifacts in sk89q's Maven repository.
 
 * Maven repository: ``http://maven.sk89q.com/repo/``
-* Artifact: ``com.sk89q:worldguard:VERSION`` (where VERSION is your desired version of WorldGuard)
+* Artifact: ``com.sk89q.worldguard:worldguard-legacy:VERSION`` (where VERSION is your desired version of WorldGuard)
 
 The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories.
 
@@ -34,8 +34,8 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
 
         <dependencies>
             <dependency>
-                <groupId>com.sk89q</groupId>
-                <artifactId>worldguard</artifactId>
+                <groupId>com.sk89q.worldguard</groupId>
+                <artifactId>worldguard-legacy</artifactId>
                 <version>VERSION</version>
             </dependency>
         </dependencies>
