@@ -4,9 +4,9 @@ Getting Help
 
 If you have a question,
 
-* `Ask on our forum <http://forum.sk89q.com/>`_
+* `Join our Discord <https://discord.gg/YKbmj7V>`_
 * `Join us on IRC <http://wiki.sk89q.com/wiki/IRC>`_
-* `Contact @sk89q on Twitter <http://twitter.com/sk89q>`_
+* `Ask on our forum <http://forum.sk89q.com/>`_
 
 If you have a feature request or bug report,
 
