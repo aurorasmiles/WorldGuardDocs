@@ -29,7 +29,7 @@ The query cache stores the last query result for at most one or two seconds, whi
     .. code-block:: java
 
         Location loc = new Location(world, 10, 64, 100);
-        RegionContainer container = getWorldGuard().getRegionContainer();
+        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
         ApplicableRegionSet set = query.getApplicableRegions(loc);
 
@@ -47,7 +47,7 @@ Given an `RegionManager`, ``getApplicableRegions(Vector)`` can be used to perfor
 
 .. code-block:: java
 
-    Vector position = new Vector(20, 10, 4);
+    BlockVector3 position = BlockVector3.at(20, 10, 4);
     ApplicableRegionSet set = regions.getApplicableRegions(position);
 
 .. topic:: Example: Getting regions at (10, 64, 100)
@@ -55,7 +55,7 @@ Given an `RegionManager`, ``getApplicableRegions(Vector)`` can be used to perfor
     .. code-block:: java
 
         Location loc = new Location(world, 10, 64, 100);
-        RegionContainer container = getWorldGuard().getRegionContainer();
+        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regions = container.get(loc.getWorld());
         // Check to make sure that "regions" is not null
         ApplicableRegionSet set = regions.getApplicableRegions(BukkitUtil.toVector(loc));
@@ -64,8 +64,8 @@ If the goal is to find a list of regions that overlap another, use ``getApplicab
 
 .. code-block:: java
 
-    Vector min = new Vector(0, 0, 0);
-    Vector max = new Vector(10, 10, 10);
+    BlockVector3 min = BlockVector3.at(0, 0, 0);
+    BlockVector3 max = BlockVector3.at(10, 10, 10);
     ProtectedRegion test = new ProtectedCuboidRegion("dummy", min, max);
     ApplicableRegionSet set = regions.getApplicableRegions(test);
 

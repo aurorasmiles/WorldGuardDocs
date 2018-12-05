@@ -9,6 +9,5 @@ You can access WorldGuard's data through its API, as documented here.
     :titlesonly:
 
     dependency
-    build-checks
     regions/index
     native-objects

@@ -7,9 +7,9 @@ In order to use WorldGuard's API in your plugin, you need to add WorldGuard as a
 API Versions
 ============
 
-Within major versions (5.x, 6.x), WorldGuard's API is extremely stable. Deprecation tends to occur over a period of at least 3 months, but more typically over at 6 months.
+Within major versions (5.x, 6.x, 7.x), WorldGuard's API is extremely stable. Deprecation tends to occur over a period of at least 3 months, but more typically over at 6 months.
 
-Currently, we recommend that you use some recent version of 6.x. The API had a partial overhaul in 6.x to fix some long-standing problems without breaking a significant amount of backwards compatibility.
+Currently, we recommend that you use some recent version of 7.x. The API had a partial overhaul in 6.x to fix some long-standing problems without breaking a significant amount of backwards compatibility, with more changes occurring in 7.x.
 
 Build Script Dependency
 =======================
@@ -17,9 +17,9 @@ Build Script Dependency
 If you compile your plugin or mod using something like `Maven <https://maven.apache.org/>`_ or `Gradle <https://www.gradle.org/>`_ (which you should!), you will need to add WorldGuard to the list of dependencies. You can find WorldGuard's artifacts in sk89q's Maven repository.
 
 * Maven repository: ``http://maven.sk89q.com/repo/``
-* Artifact: ``com.sk89q.worldguard:worldguard-legacy:VERSION`` (where VERSION is your desired version of WorldGuard)
+* Artifacts: ``com.sk89q.worldguard:worldguard-core:VERSION`` and ``com.sk89q.worldguard:worldguard-legacy:VERSION`` (where VERSION is your desired version of WorldGuard)
 
-The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories.
+The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`
 
 .. topic:: Example: Configuring a Maven pom.xml
 
@@ -31,6 +31,14 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
                 <url>http://maven.sk89q.com/repo/</url>
             </repository>
         </repositories>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.sk89q.worldguard</groupId>
+                <artifactId>worldguard-core</artifactId>
+                <version>VERSION</version>
+            </dependency>
+        </dependencies>
 
         <dependencies>
             <dependency>
@@ -50,6 +58,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
         }
 
         dependencies {
+            compile 'com.sk89q.worldguard:worldguard-core:VERSION'
             compile 'com.sk89q.worldguard:worldguard-legacy:VERSION'
         }
 
@@ -70,10 +79,9 @@ If you choose to make it a soft dependency instead, WorldGuard will load first i
 Accessing WorldGuard From Your Plugin
 =====================================
 
-There are two ways to get a reference to the WorldGuardPlugin object:
+Most WorldGuard APIs can be accessed using the ``WorldGuard.getInstance()`` method, however some that require a copy of the WorldGuardPlugin for your platform.
 
-* Through Bukkit's plugin manager
-* By using the ``WGBukkit`` class
+On Bukkit, this is done through the Plugin Manager.
 
 Using the Plugin Manager
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -93,15 +101,6 @@ Using the Plugin Manager
 
         return (WorldGuardPlugin) plugin;
     }
-
-Using ``WGBukkit``
-~~~~~~~~~~~~~~~~~~
-
-.. code-block:: java
-
-    import com.sk89q.worldguard.bukkit.WGBukkit;
-
-    WorldGuardPlugin plugin = WGBukkit.getPlugin();
 
 Classpath Woes with Soft Dependencies
 =====================================

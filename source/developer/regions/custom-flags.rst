@@ -21,9 +21,9 @@ Registering has to be done after WorldGuard is Loaded (in the Bukkit plugin life
         public static final Flag MY_CUSTOM_FLAG = new StateFlag("my-custom-flag", true);
 
         public boolean onLoad() {
-            // ... do your own plugin things, get the WorldGuard object, etc
+            // ... do your own plugin things, etc
 
-            FlagRegistry registry = worldGuardPlugin.getFlagRegistry();
+            FlagRegistry registry = WorldGuard.getInstance().getFlagRegistry();
             try {
                 // register our flag with the registry
                 registry.register(MY_CUSTOM_FLAG);
@@ -71,7 +71,7 @@ Custom handlers can be registered any time after WorldGuard enables. A handler i
 
     .. code-block:: java
 
-        SessionManager sessionManager = worldGuardPlugin.getSessionManager();
+        SessionManager sessionManager = WorldGuard.getInstance().getSessionManager();
          // second param allows for ordering of handlers - see the JavaDocs
         sessionManager.registerHandler(MyCustomHandler.FACTORY, null);
 

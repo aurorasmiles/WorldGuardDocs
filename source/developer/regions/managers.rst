@@ -9,7 +9,7 @@ Region data can be accessed via the ``RegionContainer`` object:
 
 .. code-block:: java
 
-    RegionContainer container = getWorldGuard().getRegionContainer();
+    RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
 
 Every world has separate lists of regions. To access the regions for a particular world, the container has a ``getWorld(World)`` method:
 
@@ -39,7 +39,7 @@ In addition:
 
     .. code-block:: java
 
-        RegionContainer container = getWorldGuard().getRegionContainer();
+        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regions = container.get(world);
         if (regions != null) {
             return regions.getRegion("spawn");
@@ -54,7 +54,7 @@ Once you've created an instance of a :doc:`ProtectedRegion <protected-region>`, 
 
 .. code-block:: java
 
-    RegionContainer container = getWorldGuard().getRegionContainer();
+    RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
     RegionManager regions = container.get(world);
     regions.addRegion(region);
 
