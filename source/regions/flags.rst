@@ -227,16 +227,18 @@ Movement
     :header: Flag, Type, description
     :widths: 10, 5, 30
 
+    entry,state,Whether players can enter the region
+    exit,state,Whether players can exit the region
+    exit-via-teleport,state,"Whether players can exit the region via teleport.
+    
+    This only takes effect if the player is otherwise denied exiting the region"
+    exit-override,boolean,Whether to always allow a player to exit
+    entry-deny-message,string,The message issued to players that are denied entry
+    exit-deny-message,string,The message issued to players that are denied exit
+    notify-enter,boolean,Whether players with the ``worldguard.notify`` permission are notified when another player enters the region
+    notify-leave,boolean,Whether players with the ``worldguard.notify`` permission are notified when another player leaves the region
     greeting,string,The message that appears upon entering the region
     farewell,string,The message that appears upon leaving the region
-    entry,state,Whether players can enter the region
-    entry-deny-message,string,The message issued to players that are denied entry
-    notify-enter,boolean,Whether players with the ``worldguard.notify`` permission are notified when another player enters the region
-    exit,state,Whether players can exit the region
-    exit-deny-message,string,The message issued to players that are denied exit
-    notify-leave,boolean,Whether players with the ``worldguard.notify`` permission are notified when another player leaves the region
-    exit-override,boolean,Whether to always allow a player to exit
-    exit-via-teleport,state,Whether players can exit the region via teleport
     enderpearl,state,Whether enderpearls can be used
     chorus-fruit-teleport,state,Whether chorus fruits can be used to teleport
     teleport,location,The location to teleport to when the ``/rg teleport`` command is used within the region
