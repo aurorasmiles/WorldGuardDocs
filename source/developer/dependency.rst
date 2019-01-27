@@ -37,6 +37,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
                 <groupId>com.sk89q.worldguard</groupId>
                 <artifactId>worldguard-core</artifactId>
                 <version>VERSION</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
 
@@ -45,6 +46,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
                 <groupId>com.sk89q.worldguard</groupId>
                 <artifactId>worldguard-legacy</artifactId>
                 <version>VERSION</version>
+                <scope>provided</scope>
             </dependency>
         </dependencies>
 
