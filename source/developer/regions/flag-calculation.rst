@@ -12,14 +12,14 @@ One issue with query flags given a list of regions is that there may be several 
 Getting All Values
 ~~~~~~~~~~~~~~~~~~
 
-``queryAllValues(RegionAssociable, Flag)`` can be used to get all the values that have been set for a flag. Flags can be obtained from ``DefaultFlag``.
+``queryAllValues(RegionAssociable, Flag)`` can be used to get all the values that have been set for a flag. Flags can be obtained from ``Flags``.
 
 .. topic:: Example: Getting the greeting message flag, given a player
 
     .. code-block:: java
 
         LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
-        Collection<String> greetings = set.queryAllValues(localPlayer, DefaultFlag.GREET_MESSAGE);
+        Collection<String> greetings = set.queryAllValues(localPlayer, Flags.GREET_MESSAGE);
 
 Getting One Value
 ~~~~~~~~~~~~~~~~~
@@ -31,7 +31,7 @@ Getting One Value
     .. code-block:: java
 
         LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
-        String greeting = set.queryValue(localPlayer, DefaultFlag.GREET_MESSAGE);
+        String greeting = set.queryValue(localPlayer, Flags.GREET_MESSAGE);
 
 The returned value may be ``null`` if the flag is not set on any regions.
 
@@ -50,7 +50,7 @@ You can still use ``queryValue``, but you can only specify one flag at a time.
     .. code-block:: java
 
         LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
-        if (!set.testState(localPlayer, DefaultFlag.BUILD)) {
+        if (!set.testState(localPlayer, Flags.BUILD)) {
             event.setCancelled(true);
         }
 
@@ -63,7 +63,7 @@ If you are trying to lookup a flag that doesn't use a player (for example, the `
 
     .. code-block:: java
 
-        if (!set.testState(null, DefaultFlag.CREEPER_EXPLOSION)) {
+        if (!set.testState(null, Flags.CREEPER_EXPLOSION)) {
             event.setCancelled(true);
         }
 
@@ -81,16 +81,16 @@ The methods described on this page are also conveniently available directly on i
 
         LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
         Location loc = new Location(world, 10, 64, 100);
-        RegionContainer container = getWorldGuard().getRegionContainer();
+        RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
 
         // No need to bother:
         // ApplicableRegionSet set = query.getApplicableRegions(loc);
 
         // Just directly test the flag
-        query.testState(loc, localPlayer, DefaultFlag.BUILD);
+        query.testState(loc, localPlayer, Flags.BUILD);
 
-In addition, you can use ``testBuild`` and so on as a shortcut to ``testState(..., DefaultFlag.BUILD, your flags)``.
+In addition, you can use ``testBuild`` and so on as a shortcut to ``testState(..., Flags.BUILD, your flags)``.
 
 Non-Player Actors
 =================
@@ -144,10 +144,10 @@ There is also:
             if (cause instanceof Player) {
                 return getWorldGuard().wrapPlayer((Player) cause);
             } else if (cause instanceof Entity) {
-                RegionQuery query = getWorldGuard().getRegionContainer().createQuery();
+                RegionQuery query = WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
                 return new DelayedRegionOverlapAssociation(query, ((Entity) cause).getLocation());
             } else if (cause instanceof Block) {
-                RegionQuery query = getWorldGuard().getRegionContainer().createQuery();
+                RegionQuery query = WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
                 return new DelayedRegionOverlapAssociation(query, ((Block) cause).getLocation());
             } else {
                 return Associables.constant(Association.NON_MEMBER);

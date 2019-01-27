@@ -56,16 +56,16 @@ Regions
     :header: Permission, Explanation
     :widths: 15, 25
 
-    worldguard.region.wand.*,"Be able to use the :doc:`regions/wand`."
-    worldguard.region.load.*,"Be able to use  ``/rg load``."
-    worldguard.region.save.*,"Be able to use  ``/rg save``."
-    worldguard.region.migratedb.*,"Be able to use  ``/rg migratedb``."
-    worldguard.region.migrateuuid.*,"Be able to use  ``/rg migrateuuid``."
-    worldguard.region.define.*,"Be able to use  ``/rg define``."
-    worldguard.region.claim.*,"Be able to use  ``/rg claim``."
-    worldguard.region.unlimited.*,"Bypass claiming limits."
-    worldguard.region.list.*,"Be able to use  ``/rg list``."
-    worldguard.region.list.own.*,"Be able to use  ``/rg list`` and have it show one own's regions."
+    worldguard.region.wand,"Be able to use the :doc:`regions/wand`."
+    worldguard.region.load,"Be able to use  ``/rg load``."
+    worldguard.region.save,"Be able to use  ``/rg save``."
+    worldguard.region.migratedb,"Be able to use  ``/rg migratedb``."
+    worldguard.region.migrateuuid,"Be able to use  ``/rg migrateuuid``."
+    worldguard.region.define,"Be able to use  ``/rg define``."
+    worldguard.region.claim,"Be able to use  ``/rg claim``."
+    worldguard.region.unlimited,"Bypass claiming limits."
+    worldguard.region.list,"Be able to use  ``/rg list``."
+    worldguard.region.list.own,"Be able to use  ``/rg list`` and have it show one own's regions."
 
 Per-Region Commands
 ~~~~~~~~~~~~~~~~~~~

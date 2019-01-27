@@ -72,7 +72,7 @@ Owners and members (``region.getOwners()`` and ``region.getMembers()``) are sepa
                 MoreExecutors.listeningDecorator(Executors.newCachedThreadPool());
 
         String[] input = new String[] { "sk89q", "g:admins" };
-        ProfileService profiles = getWorldGuard().getProfileService();
+        ProfileService profiles = WorldGuard.getInstance().getProfileService();
         DomainInputResolver resolver = new DomainInputResolver(profiles, input);
         resolver.setLocatorPolicy(UserLocatorPolicy.UUID_AND_NAME);
         ListenableFuture<DefaultDomain> future = executor.submit(resolver);
@@ -95,22 +95,22 @@ Owners and members (``region.getOwners()`` and ``region.getMembers()``) are sepa
 Flags
 =====
 
-Flags can be read by calling ``getFlag(Flag flag)``. You can find static ``Flag`` objects on ``DefaultFlag``:
+Flags can be read by calling ``getFlag(Flag flag)``. You can find static ``Flag`` objects on ``Flags``:
 
 .. code-block:: java
 
-    DefaultFlag.BUILD
-    DefaultFlag.PVP
-    DefaultFlag.LEAF_DECAY
-    DefaultFlag.LIGHTNING
+    Flags.BUILD
+    Flags.PVP
+    Flags.LEAF_DECAY
+    Flags.LIGHTNING
 
-The returned value will be of the data type of the flag. For example, if you were to use ``DefaultFlag.GREET_MESSAGE``, which is a ``StringFlag``, a ``String`` will be returned.
+The returned value will be of the data type of the flag. For example, if you were to use ``Flags.GREET_MESSAGE``, which is a ``StringFlag``, a ``String`` will be returned.
 
 .. topic:: Example: Getting the greeting message
 
     .. code-block:: java
 
-        String message = region.getFlag(DefaultFlag.GREET_MESSAGE);
+        String message = region.getFlag(Flags.GREET_MESSAGE);
         player.sendMessage(message);
 
 If the given flag is not set, ``null`` will be returned.
@@ -122,7 +122,7 @@ Flags can be set using ``setFlag(Flag flag, ? value)``. The value that you use m
 
 .. code-block:: java
 
-    region.setFlag(DefaultFlag.GREET_MESSAGE, "Hi there!");
+    region.setFlag(Flags.GREET_MESSAGE, "Hi there!");
 
 Flags can be removed by using ``null`` for the value.
 
@@ -130,14 +130,14 @@ Region groups can be set by calling ``getRegionGroupFlag()`` on a flag to get it
 
 .. code-block:: java
 
-    RegionGroupFlag flag = DefaultFlag.PVP.getRegionGroupFlag();
+    RegionGroupFlag flag = Flags.PVP.getRegionGroupFlag();
 
 .. topic:: Example: Setting the region group of the ``use`` flag:
 
     .. code-block:: java
 
-        region.setFlag(DefaultFlag.USE, StateFlag.State.ALLOW);
-        region.setFlag(DefaultFlag.USE.getRegionGroupFlag(), RegionGroup.MEMBERS);
+        region.setFlag(Flags.USE, StateFlag.State.ALLOW);
+        region.setFlag(Flags.USE.getRegionGroupFlag(), RegionGroup.MEMBERS);
 
 Custom Flags
 ~~~~~~~~~~~~
@@ -160,8 +160,8 @@ To create a new cuboid region, two opposite corners are required. Any two opposi
 
 .. code-block:: java
 
-    BlockVector min = new BlockVector(-10, 5, -4);
-    BlockVector max = new BlockVector(5, -8, 10);
+    BlockVector3 min = BlockVector3.at(-10, 5, -4);
+    BlockVector3 max = BlockVector3.at(5, -8, 10);
     ProtectedRegion region = new ProtectedCuboidRegion("spawn", min, max);
 
 2D Polygon
@@ -171,10 +171,10 @@ Only 2D polygons are supported. These are polygons that have been extended verti
 
 .. code-block:: java
 
-    List<BlockVector2D> points = Lists.newArrayList(); // Call from Guava
-    points.add(new BlockVector2D(3, 4, 5));
-    points.add(new BlockVector2D(0, 0, 0));
-    points.add(new BlockVector2D(19, 3, 4));
+    List<BlockVector2> points = Lists.newArrayList(); // Call from Guava
+    points.add(BlockVector2.at(3, 4));
+    points.add(BlockVector2.at(0, 0));
+    points.add(BlockVector2.at(19, 3));
     int minY = 0;
     int maxY = 54;
     ProtectedRegion region = new ProtectedPolygonalRegion("spawn", points, minY, maxY);
@@ -207,7 +207,7 @@ Testing Point Containment
 
     .. code-block:: java
 
-        region.contains(new Vector(20, 0, 30));
+        region.contains(BlockVector3.at(20, 0, 30));
 
 Finding Intersecting Regions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
