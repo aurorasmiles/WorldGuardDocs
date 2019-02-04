@@ -51,7 +51,7 @@ Custom handlers can be registered any time after WorldGuard enables. A handler i
     .. code-block:: java
 
         public class CustomHandler extends FlagValueChangeHandler<State> {
-            public static final Factory FACTORY = new Factor();
+            public static final Factory FACTORY = new Factory();
             public static class Factory extends Handler.Factory<CustomHandler> {
                 @Override
                 public CustomHandler create(Session session) {
@@ -76,7 +76,7 @@ Custom handlers can be registered any time after WorldGuard enables. A handler i
         sessionManager.registerHandler(MyCustomHandler.FACTORY, null);
 
 .. tip::
-     WorldGuard's inbuilt handlers can be found in the `com.sk89q.worldguard.session.handler <https://github.com/sk89q/WorldGuard/tree/master/worldguard-legacy/src/main/java/com/sk89q/worldguard/session/handler>`_ package. These should serve as good examples for implementing your own handlers.
+     WorldGuard's inbuilt handlers can be found in the `com.sk89q.worldguard.session.handler <https://github.com/EngineHub/WorldGuard/tree/master/worldguard-core/src/main/java/com/sk89q/worldguard/session/handler>`_ package. These should serve as good examples for implementing your own handlers.
 
 .. note::
     Not all of WorldGuard's Session uses are flag-related. WorldGuard also uses Sessions to manage god mode, for example.
