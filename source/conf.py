@@ -48,7 +48,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'WorldGuard'
-copyright = u'2015, WorldGuard Team'
+copyright = u'2015-2019, WorldGuard Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -296,7 +296,7 @@ texinfo_documents = [
 epub_title = u'WorldGuard Documentation'
 epub_author = u'WorldGuard Team'
 epub_publisher = u'WorldGuard Team'
-epub_copyright = u'2015, WorldGuard Team'
+epub_copyright = u'2019, WorldGuard Team'
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = u'WorldGuard Documentation'
