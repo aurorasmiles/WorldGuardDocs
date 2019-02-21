@@ -14,8 +14,9 @@ Due to legacy reasons, WorldGuard uses its own internal player object called ``L
 Vectors
 =======
 
-Many operations need WorldEdit vectors. Bukkit ``Locations`` can be converted to ``Vectors`` using methods on ``BukkitUtil``.
+Many operations need WorldEdit vectors, worlds, and so on. Bukkit ``Locations`` and other objects can be converted to ``Vectors`` using methods in ``com.sk89q.worldedit.bukkit.BukkitAdapter``.
 
 .. code-block:: java
 
-    BukkitUtil.toVector(location);
+    BukkitAdapter.adapt(location);
+    BukkitAdapter.adapt(world);
