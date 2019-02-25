@@ -161,7 +161,7 @@ Protection-Related
 
     When you set the protection flags, you override this behavior. If you set ``block-break`` to ``deny``, then even members are unable to break blocks. Bobby cannot break blocks. A TNT cannon inside cannot break blocks. A piston inside cannot break blocks. **You break pistons.**
 
-    That begs two questions:
+    That raises two questions:
 
     * **How do I prevent players from placing or breaking blocks?** Don't do anything. Don't change any flags! Remember, only members can build by default.
     * **How do I change a flag to only affect players?** You probably mean: how do you make a flag only affect *non-members*? Well, that's easy: use :ref:`region-groups`.
@@ -268,7 +268,7 @@ Map Making
     fall-damage,state,Whether entities receive fall damage
     firework-damage,state,Whether entities receive damage from fireworks
     game-mode,gamemode,"The gamemode (survival, creative, adventure) that will be applied to players that enter the region"
-    time-lock,integer,"Time of day in ticks (between 0 and 24000) that players will see the world as while in the region. Use + or - for time relative to the world time."
+    time-lock,string,"Time of day in ticks (between 0 and 24000) that players will see the world as while in the region. Use + or - for time relative to the world time."
     weather-lock,weather,Type of weather players will see when in the region. This does not affect world mechanics. Valid values are ``downfall`` and ``clear``.
     heal-delay,integer,The number of seconds between heals (if ``heal-amount`` is set)
     heal-amount,integer,The amount of half hearts to heal (...or hurt if negative) the player at the rate of ``heal-delay``
