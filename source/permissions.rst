@@ -14,7 +14,7 @@ Moderator
     :widths: 15, 25
 
     worldguard.notify.*,"Receive notification with the 'notify' :doc:`blacklist <blacklist/index>` action and the 'notify' :doc:`region flags <regions/flags>`."
-    worldguard.region.bypass.<world>,"Bypass region protection for a given world, which includes bypassing no-PvP flags."
+    worldguard.region.bypass.<world>,"Bypass region protection for a given world, except for PvP deny flags."
     worldguard.chest-protection.override.*,"Bypass :doc:`chest-protection` and open protected chests."
 
 .. warning::

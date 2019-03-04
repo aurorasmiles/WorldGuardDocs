@@ -71,7 +71,7 @@ Custom handlers can be registered any time after WorldGuard enables. A handler i
 
     .. code-block:: java
 
-        SessionManager sessionManager = WorldGuard.getInstance().getSessionManager();
+        SessionManager sessionManager = WorldGuard.getInstance().getPlatform().getSessionManager();
          // second param allows for ordering of handlers - see the JavaDocs
         sessionManager.registerHandler(MyCustomHandler.FACTORY, null);
 
