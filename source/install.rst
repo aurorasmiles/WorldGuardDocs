@@ -17,9 +17,8 @@ Installation
 
 WorldGuard can be `downloaded from the Bukkit dev site <http://dev.bukkit.org/bukkit-plugins/worldguard/>`_.
 
-1. If you downloaded WorldGuard as a ZIP file, extract it to find "WorldGuard.jar" inside. Otherwise, you should already have a .jar file.
-2. In your server folder, create a "plugins" folder if one does not yet exist.
-3. Copy the WorldGuard .jar file into the plugins folder.
-4. Start your server.
+1. In your server folder, create a "plugins" folder if one does not yet exist.
+2. Copy the WorldGuard .jar file into the plugins folder. (Make sure you get WorldEdit as well!)
+3. Start your server.
 
-Check your server log for errors. If you encounter errors, see the :doc:`troubleshooting <troubleshooting/index>` page.
+Check your server log for errors. If you encounter errors, see the :doc:`FAQ <faq>` page.

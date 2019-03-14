@@ -86,7 +86,7 @@ The provided regions do not need to overlap.
     ApplicableRegionSet set = new RegionResultSet(regions, null); // No global region
 
 .. warning::
-    Your list of regions may be re-ordered in-place. After you have given a list of regions to the instance, it should no longer be used. In the future, ``RegionResultSet`` make take an ``ImmutableList`` instead (from Google's Guava library).
+    Your list of regions may be re-ordered in-place. After you have given a list of regions to the instance, it should no longer be used.
 
 Using a ApplicableRegionSet
 ===========================

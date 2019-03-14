@@ -18,7 +18,7 @@ Getting All Values
 
     .. code-block:: java
 
-        LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
+        LocalPlayer localPlayer = WorldGuardPlugin.inst().wrapPlayer(player);
         Collection<String> greetings = set.queryAllValues(localPlayer, Flags.GREET_MESSAGE);
 
 Getting One Value
@@ -30,7 +30,7 @@ Getting One Value
 
     .. code-block:: java
 
-        LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
+        LocalPlayer localPlayer = WorldGuardPlugin.inst().wrapPlayer(player);
         String greeting = set.queryValue(localPlayer, Flags.GREET_MESSAGE);
 
 The returned value may be ``null`` if the flag is not set on any regions.
@@ -49,7 +49,7 @@ You can still use ``queryValue``, but you can only specify one flag at a time.
 
     .. code-block:: java
 
-        LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
+        LocalPlayer localPlayer = WorldGuardPlugin.inst().wrapPlayer(player);
         if (!set.testState(localPlayer, Flags.BUILD)) {
             event.setCancelled(true);
         }
@@ -79,7 +79,7 @@ The methods described on this page are also conveniently available directly on i
 
     .. code-block:: java
 
-        LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
+        LocalPlayer localPlayer = WorldGuardPlugin.inst().wrapPlayer(player);
         Location loc = new Location(world, 10, 64, 100);
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
@@ -142,7 +142,7 @@ There is also:
 
         private RegionAssociable createRegionAssociable(Object cause) {
             if (cause instanceof Player) {
-                return getWorldGuard().wrapPlayer((Player) cause);
+                return WorldGuardPlugin.inst().wrapPlayer((Player) cause);
             } else if (cause instanceof Entity) {
                 RegionQuery query = WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
                 return new DelayedRegionOverlapAssociation(query, ((Entity) cause).getLocation());
@@ -161,7 +161,7 @@ There is also:
         @EventHandler
         public void onPlayerBucketFill(PlayerBucketFillEvent event) {
             Player player = event.getPlayer();
-            RegionAssociable associable = createRegionAssociable(getWorldGuard().wrapPlayer(player));
+            RegionAssociable associable = createRegionAssociable(WorldGuardPlugin.inst().wrapPlayer(player));
 
             if (!set.testState(associable, /* flags here */)) {
                 event.setCancelled(true);

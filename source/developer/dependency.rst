@@ -9,12 +9,14 @@ API Versions
 
 Within major versions (5.x, 6.x, 7.x), WorldGuard's API is extremely stable. Deprecation tends to occur over a period of at least 3 months, but more typically over at 6 months.
 
-Currently, we recommend that you use some recent version of 7.x. The API had a partial overhaul in 6.x to fix some long-standing problems without breaking a significant amount of backwards compatibility, with more changes occurring in 7.x.
+Currently, we recommend that you use some recent version of 7.x. The API had a partial overhaul in 6.x to fix some long-standing problems without breaking a significant amount of backwards compatibility. Version 7.x has a large refactoring to reduce platform dependence and add Minecraft 1.13 compatibility.
 
 Build Script Dependency
 =======================
 
 If you compile your plugin or mod using something like `Maven <https://maven.apache.org/>`_ or `Gradle <https://www.gradle.org/>`_ (which you should!), you will need to add WorldGuard to the list of dependencies. You can find WorldGuard's artifacts in sk89q's Maven repository.
+
+Note that some :doc:`objects that WorldGuard uses <native-objects>` come from WorldEdit. If you need to use those directly, you should also add WorldEdit as a compilation dependency.
 
 * Maven repository: ``http://maven.sk89q.com/repo/``
 * Artifacts: ``com.sk89q.worldguard:worldguard-core:VERSION`` and ``com.sk89q.worldguard:worldguard-legacy:VERSION`` (where VERSION is your desired version of WorldGuard)
@@ -81,28 +83,9 @@ If you choose to make it a soft dependency instead, WorldGuard will load first i
 Accessing WorldGuard From Your Plugin
 =====================================
 
-Most WorldGuard APIs can be accessed using the ``WorldGuard.getInstance()`` method, however some that require a copy of the WorldGuardPlugin for your platform.
+Most WorldGuard APIs can be accessed using the ``WorldGuard.getInstance()`` method, however some methods require a copy of the WorldGuardPlugin for your platform.
 
-On Bukkit, this is done through the Plugin Manager.
-
-Using the Plugin Manager
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: java
-
-    import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-    import org.bukkit.plugin.Plugin;
-
-    private WorldGuardPlugin getWorldGuard() {
-        Plugin plugin = getServer().getPluginManager().getPlugin("WorldGuard");
-
-        // WorldGuard may not be loaded
-        if (plugin == null || !(plugin instanceof WorldGuardPlugin)) {
-            return null; // Maybe you want throw an exception instead
-        }
-
-        return (WorldGuardPlugin) plugin;
-    }
+On Bukkit, you can access this via ``WorldGuardPlugin.inst()``.
 
 Classpath Woes with Soft Dependencies
 =====================================

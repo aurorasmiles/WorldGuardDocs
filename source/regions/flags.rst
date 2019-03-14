@@ -15,6 +15,7 @@ A region can have several different flags set at one time, although a certain fl
     /region flag spawn pvp deny
     /region flag spawn greeting Welcome to spawn!
     /region flag hospital heal-amount 2
+    /region flag hospital heal-delay 1
 
 Remove a flag by not specifying a value::
 
@@ -167,7 +168,7 @@ Protection-Related
     * **How do I change a flag to only affect players?** You probably mean: how do you make a flag only affect *non-members*? Well, that's easy: use :ref:`region-groups`.
 
 .. tip::
-    Note: If the ``build`` flag is set to ``allow`` or ``deny``, it can still be overriden with a different flag (``block-break``, ``interact``, etc.). This is only the case with the build flag.
+    Note: If the ``build`` flag is set to ``allow`` or ``deny``, it can still be overriden with a different flag (``block-break``, ``interact``, etc.).
 
 Mobs, Fire, and Explosions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -314,14 +315,3 @@ Miscellaneous
     send-chat,state,Whether players can send chat
     receive-chat,state,Whether players can receive chat
     potion-splash,state,Whether potions can have splash effects
-
-Unused
-~~~~~~
-
-.. csv-table::
-    :header: Flag, Type, description
-    :widths: 10, 5, 30
-
-    allow-shop,state,"Not used by WorldGuard at this time, but third-party plugins may use it"
-    buyable,boolean,"Not used by WorldGuard at this time, but third-party plugins may use it"
-    price,double,"Not used by WorldGuard at this time, but third-party plugins may use it"

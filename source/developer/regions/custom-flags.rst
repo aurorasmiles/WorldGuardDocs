@@ -30,8 +30,9 @@ Registering has to be done after WorldGuard is Loaded (in the Bukkit plugin life
             } catch (FlagConflictException e) {
                 // some other plugin registered a flag by the same name already.
                 // you may want to re-register with a different name, but this
-                // could cause issues with saved flags in region files. it's better
-                // to print a message to let the server admin know of the conflict
+                // could cause issues with saved flags in region files. if you don't mind
+                // sharing a flag, consider making your field non-final and assigning it:
+                MY_CUSTOM_FLAG = registry.get("my-custom-flag"); // non-final!
             }
 
 Once your flag is registered, WorldGuard will take care of loading and saving it from the region database, allowing users to set it via the ``/rg flag`` commands, and so on. Even if your plugin is removed from the server, WorldGuard will keep the flag saved to any regions it was set on, but it will be rendered inert until your plugin is loaded again.

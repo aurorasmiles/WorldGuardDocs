@@ -58,30 +58,9 @@ Lines starting with ``#`` are ignored by WorldGuard. You can use this to place n
 Matching Syntax
 ~~~~~~~~~~~~~~~
 
-Items and blocks can be matched by either their (legacy) ID number or by specifying one of the entries on `Bukkit's material list <http://jd.bukkit.org/rb/apidocs/org/bukkit/Material.html>`_. Multiple items and blocks can be matched by separating each entry by a comma::
+Items and blocks can be matched by either their (legacy) ID number or by specifying one of the entries on `Bukkit's material list <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_. Multiple items and blocks can be matched by separating each entry by a comma::
     
     [wood,brick,glass]
-
-Data values, while being phased out by Minecraft, can be specified in the blacklist by appending ``:#`` as so::
-
-    [wood:0]
-
-Multiple data values can be matched by separating each one with a semicolon (;)::
-
-    [wood:0;2;3]
-
-In addition, ranges of data values are supported (they are inclusive)::
-
-    [wood:2-3]
-
-Lastly, both greater than (``>=``) and less than (``<=``) are accepted::
-
-    [wood:>=2,<=3]
-
-.. tip::
-    You can combine all of these matchers as seen below::
-
-        [wood:0;>=2,grass:1-2]
 
 Events
 ======
@@ -119,7 +98,7 @@ Multiple actions can be specified for each event.
     :widths: 7, 30
 
     deny,Denies the action (only if the blacklist **not** in "whitelist mode" (explained later))
-    allow,Permits the action (only if the blacklist is in "whiteist mode")
+    allow,Permits the action (only if the blacklist is in "whitelist mode")
     notify,Notify admins with the ``worldguard.notify`` permission
     log,"Log to console, file, or database"
     tell,Tell the player that the action was not allowed
@@ -145,6 +124,14 @@ In this case, ``message`` is an option that overrides the message used by the "t
     ignore-perms,Comma-separated list of permissions to not affect -- make up your very own permissions!
     comment,Message for yourself that is printed with ``log`` and ``notify`` actions (to override the default message)
     message,Message to show the user (to override the default message). Put %s in the message to have it be replaced with the item name (in English)
+
+
+Whitelist Mode
+==================
+
+Switching the blacklist to whitelist mode (via the :doc:`../config`) will invert the behavior. Only entries with the ``allow`` action will be permitted.
+
+.. tip:: Whitelist mode may seem very restrictive. To place a block, you would  need to allow using the block (the item in the player's hand), interacting with the existing block (in the world, that's being clicked to place "on"), and placing the block. You may find :doc:`../build-perms` easier to use since it supports wildcards (in permission nodes) depending on your use case.
 
 Examples
 ========

@@ -4,14 +4,18 @@ Querying Protection
 
 To query protection, the ``Flags.BUILD`` flag can be tested using the methods explained in :doc:`flag-calculation`.
 
-.. tip::
-    You can also use the shortcut methods as explained in :doc:`../build-checks`.
+.. warning::
+    Region queries do not check if a player has bypass permissions. Depending on your use case, you may want to check that separately.
+
+    .. code-block:: java
+
+        boolean canBypass = WorldGuard.getInstance().getPlatform().getSessionManager().hasBypass(player, player.getWorld());
 
 .. topic:: Example: Querying build permission using the query cache
 
     .. code-block:: java
 
-        LocalPlayer localPlayer = getWorldGuard().wrapPlayer(player)
+        LocalPlayer localPlayer = WorldGuardPlugin.inst().wrapPlayer(player);
         Location loc = new Location(world, 10, 64, 100);
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();

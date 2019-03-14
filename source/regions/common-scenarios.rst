@@ -36,6 +36,10 @@ If you want to apply it to **all** regions, set it on the :doc:`global-region`::
 
     /rg flag __global__ ride allow
 
+.. warning::
+
+    This would allow players to take horses from others' regions! Only use this if you want that, or have other protections against stealing horses.
+
 How do I prevent building in the wilderness?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -48,7 +52,7 @@ Do **not** set the ``build`` flag.
 How can I only deny exit for non-members?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You want to set the region group of the flag::
+You want to set the region group of the flag (note that this is the default)::
 
     /rg addmember example_region sk89q
     /rg flag example_region exit -g nonmembers deny
@@ -59,12 +63,12 @@ How can I let players exit one side of an exit=deny region?
 Make two regions:
 
 * One region would have ``exit=deny``.
-* The other region would overlap the side of the deny region, extending a bit outside, on the sides that you want to let players exit out of. This region would have ``exit=allow``.
+* The other region would border the side of the deny region, extending a bit outside, on the sides that you want to let players exit out of. This region would have ``exit-overide=true``.
 
 How do I unprotect all enchantment tables?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the :doc:`../config`, adjust the ``interaction-whitelist`` setting and add the enchantment table. Get the proper names that you can use from `Bukkit's Material <http://jd.bukkit.org/rb/apidocs/org/bukkit/Material.html>`_.
+In the :doc:`../config`, adjust the ``interaction-whitelist`` setting and add the enchantment table. Get the proper names that you can use from `Bukkit's Material <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_.
 
 How do I allow mining but prevent block breaking?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

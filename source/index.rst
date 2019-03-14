@@ -14,7 +14,7 @@ WorldGuard has a host of functions for server owners, server map makers, regular
 * Works, more or less, :doc:`with other plugins and mods <regions/scope>` (other Bukkit plugins and FTB mods)
 * Protects :doc:`against many types of abuse <regions/scope>` (tree growth, TNT cannons, piston machines, etc.)
 * Certain interactions can also be allowed (door and lever usage, etc.)
-* `Open source <http://www.github.com/sk89q/WorldGuard>`_, and one of the oldest Minecraft projects (older than Bukkit!)
+* `Open source <https://www.github.com/EngineHub/WorldGuard>`_, and one of the oldest Minecraft projects (older than Bukkit!)
 * Enable only features you want! **Everything is off by default.** You can just install WorldGuard and configure it later.
 
 Documentation
