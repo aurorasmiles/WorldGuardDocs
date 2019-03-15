@@ -25,8 +25,8 @@ Setup is done using the :doc:`config`::
        your_username: bagels.play.example.com
        moderator1_name: manoverboard.play.example.com
 
-.. note::
-    Host keys do not support UUIDs yet.
+.. tip::
+    Host keys support uuids, and it's recommended you assign players' uuids to host keys instead of usernames in case they change their username.
 
 DNS Configuration
 ~~~~~~~~~~~~~~~~~
