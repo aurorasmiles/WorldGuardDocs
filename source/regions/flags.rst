@@ -143,6 +143,7 @@ Protection-Related
     vehicle-place,state,"Whether vehicles (boats, minecarts) can be placed"
     vehicle-destroy,state,Whether vehicles can be destroyed
     lighter,state,Whether flint and steel can be used
+    block-trampling,state,Whether farmland and turtle eggs can be trampled
 
 .. warning::
     None of these flags are player-specific. For example, the block-break flag, if set to deny, **prevents pistons from breaking blocks**.
@@ -183,6 +184,7 @@ Mobs, Fire, and Explosions
     other-explosion,state,Whether explosions can do damage
     fire-spread,state,Whether fire can spread
     enderman-grief,state,Whether endermen will grief
+    snowman-trail,state,Whether snowmen will create snow beneath them
     mob-damage,state,Whether mobs can hurt players
     mob-spawning,state,Whether mobs can spawn
     deny-spawn,set of entity types,A list of entity types that cannot spawn
@@ -215,7 +217,7 @@ Natural Events
     leaf-decay,state,Whether leaves will decay
     grass-growth,state,Whether grass will grow
     mycelium-spread,state,Whether mycelium will spread
-    vine-growth,state,Whether vines will grow
+    vine-growth,state,Whether vines (and kelp) will grow
     soil-dry,state,Whether soil will dry
 
 .. warning::

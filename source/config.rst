@@ -28,7 +28,7 @@ If you open up the per-world configuration files, they will be nearly empty. Whe
             block-creeper-block-damage: true
             block-wither-explosions: false
 
-    But you want to set it to ``false`` in your nether world. Open up ``orlds/world_nether/config.yml`` and replace the file with::
+    But you want to set it to ``false`` in your nether world. Open up ``worlds/world_nether/config.yml`` and replace the file with::
 
         mobs:
             block-creeper-block-damage: false
@@ -276,7 +276,7 @@ dynamics.*
     disable-leaf-decay,FALSE,"Whether the decay of leaves should be disabled."
     disable-grass-growth,FALSE,"Whether the growth of grass should be disabled."
     disable-mycelium-spread,FALSE,"Whether the spread of mycelium should be disabled."
-    disable-vine-growth,FALSE,"Whether the growth of vines should be disabled."
+    disable-vine-growth,FALSE,"Whether the growth of vines and kelp should be disabled."
     disable-soil-dehydration,FALSE,"Whether the dehydration of soil should be disabled."
     snow-fall-blocks,[],"If set (as a list of block types), the only blocks on which snow can fall on would be the ones in the list."
 
@@ -332,7 +332,7 @@ regions.*
     :header: Setting, Default, Description
     :widths: 18, 5, 26
 
-    wand,334,"The ID of the item that is used to right click a block to inspect the regions affecting it. By default, this item is cow leather. Before, it was string but Minecraft added a use for string."
+    wand,leather,"The ID of the item that is used to right click a block to inspect the regions affecting it. By default, this item is cow leather. Before, it was string but Minecraft added a use for string."
     invincibility-removes-mobs,FALSE,"If enabled, if a player is attacked while he or she is invincible due to the invincibility :doc:`region flag <regions/flags>`, then the attacking mob is removed from the world."
     fake-player-build-override,TRUE,"Whether players with a name that start with ``[`` and end with ``]`` should bypass all protection. This is only the case with third-party plugins and mods that use 'fake players' in lieu of firing the proper events."
     explosion-flags-block-entity-damage,TRUE,"Whether the various ``-explosion`` :doc:`region flags <regions/flags>` should also disable entity damage when enabled."
