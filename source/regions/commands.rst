@@ -182,6 +182,19 @@ Displays information about a specified region, or if no region is specified, the
 
         /rg info __global__
 
+Flags
+~~~~~
+
+.. code-block:: text
+
+    /rg flags [-w <world>] <id> [<page>]
+
+Displays a paginated, interactive list of flags for the given region.
+
+Explicitly set flags are shown with white values, flags inherited from a parent region are shown in light gray, and unset flags are shown with their default value in dark gray.
+
+Clicking on the values allows you to quickly set and unset flags, and the arrows at the bottom next to the page number can be used to navigate the list.
+
 List
 ~~~~
 
