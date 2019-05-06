@@ -21,9 +21,11 @@ Remove a flag by not specifying a value::
 
     /region flag spawn pvp
 
-List flags by using the "info" command::
+List flags by using the "flags" command::
 
-    /region info spawn
+    /region flags spawn
+
+The output of this command is interactive in-game. Click flag values to change them, and the arrows at the bottom to navigate through pages.
 
 .. _region-groups:
 
@@ -68,6 +70,18 @@ Each flag is of a certain type that determines what kind of values it may take. 
     set, "A list of unique entries"
 
 Internally, there are more types, but it should generally not be of concern.
+
+.. tip::
+    Most string flags will accept ``\n`` as a newline (for example, to send multiple lines via greeting/farewell, or a title and subtitle via greeting-title and farewell-title).
+    They may also accept color codes, either in the old style ``&[0-9a-f]`` or ```[RrYyGgCcBbPp012w]`` for dark-red, red, dark yellow, yellow, etc., and ``[&`][klmnox]`` for obfuscated, bold, strikethrough, underline, and italic text.
+    They may also accept some replacements, such as ``%name%`` for the player's name, ``%world%`` for world name, and ``%online%`` for player count.
+
+.. topic:: Example: Using string formatting options
+
+    Setting spawn's greeting-title to a fancy welcome message::
+
+        /rg flag spawn greeting-title `bWelcome to spawn!\n`YEnjoy your stay in `g`n%world%`x, `C%name%`Y!
+
 
 Conflicting Flags
 =================
@@ -144,6 +158,7 @@ Protection-Related
     vehicle-destroy,state,Whether vehicles can be destroyed
     lighter,state,Whether flint and steel can be used
     block-trampling,state,Whether farmland and turtle eggs can be trampled
+    frosted-ice-form,state,Whether players with frost walker boots will form ice
 
 .. warning::
     None of these flags are player-specific. For example, the block-break flag, if set to deny, **prevents pistons from breaking blocks**.
@@ -213,6 +228,7 @@ Natural Events
     snow-melt,state,Whether snow will melt
     ice-form,state,Whether ice will form
     ice-melt,state,Whether ice will melt
+    frosted-ice-melt,state,Whether frosted ice will melt
     mushroom-growth,state,Whether mushrooms will grow
     leaf-decay,state,Whether leaves will decay
     grass-growth,state,Whether grass will grow
@@ -240,8 +256,10 @@ Movement
     exit-deny-message,string,The message issued to players that are denied exit
     notify-enter,boolean,Whether players with the ``worldguard.notify`` permission are notified when another player enters the region
     notify-leave,boolean,Whether players with the ``worldguard.notify`` permission are notified when another player leaves the region
-    greeting,string,The message that appears upon entering the region
-    farewell,string,The message that appears upon leaving the region
+    greeting,string,The message that appears in chat upon entering the region
+    greeting-title,string,The title that appears upon entering the region. Including a newline (``\n``) will send a subtitle.
+    farewell,string,The message that appears in chat upon leaving the region
+    farewell-title,string,The title that appears upon entering the region. Including a newline (``\n``) will send a subtitle.
     enderpearl,state,Whether enderpearls can be used
     chorus-fruit-teleport,state,Whether chorus fruits can be used to teleport
     teleport,location,The location to teleport to when the ``/rg teleport`` command is used within the region
