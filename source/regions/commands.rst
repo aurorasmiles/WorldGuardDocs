@@ -187,7 +187,7 @@ Flags
 
 .. code-block:: text
 
-    /rg flags [-w <world>] <id> [<page>]
+    /rg flags [-w <world>] [-p <page>] <id>
 
 Displays a paginated, interactive list of flags for the given region.
 
