@@ -277,6 +277,7 @@ dynamics.*
     disable-grass-growth,FALSE,"Whether the growth of grass should be disabled."
     disable-mycelium-spread,FALSE,"Whether the spread of mycelium should be disabled."
     disable-vine-growth,FALSE,"Whether the growth of vines and kelp should be disabled."
+    disable-crop-growth,FALSE,"Whether the growth of wheat, carrots, melons, etc should be disabled."
     disable-soil-dehydration,FALSE,"Whether the dehydration of soil should be disabled."
     snow-fall-blocks,[],"If set (as a list of block types), the only blocks on which snow can fall on would be the ones in the list."
 

@@ -73,7 +73,9 @@ Internally, there are more types, but it should generally not be of concern.
 
 .. tip::
     Most string flags will accept ``\n`` as a newline (for example, to send multiple lines via greeting/farewell, or a title and subtitle via greeting-title and farewell-title).
+
     They may also accept color codes, either in the old style ``&[0-9a-f]`` or ```[RrYyGgCcBbPp012w]`` for dark-red, red, dark yellow, yellow, etc., and ``[&`][klmnox]`` for obfuscated, bold, strikethrough, underline, and italic text.
+
     They may also accept some replacements, such as ``%name%`` for the player's name, ``%world%`` for world name, and ``%online%`` for player count.
 
 .. topic:: Example: Using string formatting options
@@ -234,6 +236,7 @@ Natural Events
     grass-growth,state,Whether grass will grow
     mycelium-spread,state,Whether mycelium will spread
     vine-growth,state,Whether vines (and kelp) will grow
+    crop-growth,state,"Whether crops (wheat, potatoes, melons, etc) will grow"
     soil-dry,state,Whether soil will dry
 
 .. warning::
