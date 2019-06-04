@@ -42,7 +42,8 @@ Links
 
 -  `WorldGuard Homepage <http://www.enginehub.org/worldguard>`_
 -  `Downloads for Bukkit <http://dev.bukkit.org/bukkit-plugins/worldguard/files/>`_
--  `Legacy Wiki <http://wiki.sk89q.com/wiki/WorldGuard>`_
+-  `Experimental Builds <http://builds.enginehub.org/job/worldguard?branch=master>`_
+-  `Discord Server <https://discord.gg/enginehub/>`_
 
 Indices and Tables
 ==================

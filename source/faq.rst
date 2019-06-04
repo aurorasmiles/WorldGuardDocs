@@ -19,7 +19,6 @@ If no commands work, it may because WorldGuard failed to start:
 
 * Make sure that you are running Bukkit (or a server software that supports Bukkit). Use the ``version`` command in console or in-game and make sure that the response has "Bukkit" or "CraftBukkit" in it.
 * Make sure that you have `WorldEdit <http://www.enginehub.org/worldedit>`_ installed.
-* Make sure that, if you had downloaded WorldGuard as a ZIP file, that you have extracted WorldGuard.
 * Make sure that you have the proper version of WorldGuard for your version of Minecraft.
 
 If those solutions do not help you, you will need to look through your startup log:
@@ -37,7 +36,7 @@ WorldGuard began in November 2010 for the "hMod" modding platform by `sk89q <htt
 Who works on WorldGuard?
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-WorldGuard has been developed by many people, and large portions of WorldGuard include contributed code. The list of top contributors can be `found on GitHub <https://github.com/sk89q/WorldGuard/graphs/contributors>`_.
+WorldGuard has been developed by many people, and large portions of WorldGuard include contributed code. The list of top contributors can be `found on GitHub <https://github.com/EngineHub/WorldGuard/graphs/contributors>`_.
 
 Can't Build
 ===========

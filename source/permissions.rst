@@ -2,7 +2,7 @@
 Permissions
 ===========
 
-By default, no one In order for yourself, moderators, and players to use WorldGuard, you must provide the proper permissions. One way is to provide op to moderators and administrators (unless disabled in the :doc:`configuration <config>`), but providing the permission nodes on this page (through a permissions plugin) is the more flexible.
+By default, no one can use WorldGuard. In order for yourself, moderators, and players to use WorldGuard, you must provide the proper permissions. One way is to provide op to moderators and administrators (unless disabled in the :doc:`configuration <config>`), but providing the permission nodes on this page (through a permissions plugin) is the more flexible.
 
 You can give the ``worldguard.*`` permission to give yourself and other administrators full access to WorldGuard.
 
@@ -85,7 +85,7 @@ The following commands support a base permission (such as ``worldguard.region.re
     worldguard.region.setpriority.*,"Be able to use  ``/rg setpriority``."
     worldguard.region.setparent.*,"Be able to use  ``/rg setparent``."
     worldguard.region.select.*,"Be able to use  ``/rg select``."
-    worldguard.region.info.*,"Be able to use  ``/rg info``."
+    worldguard.region.info.*,"Be able to use  ``/rg info`` and ``/rg flags``."
     worldguard.region.teleport.*,"Be able to use  ``/rg teleport``."
     worldguard.region.addmember.*,"Be able to use  ``/rg addmember``."
     worldguard.region.addowner.*,"Be able to use  ``/rg addowner``."

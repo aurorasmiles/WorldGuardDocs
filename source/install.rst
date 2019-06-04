@@ -9,9 +9,6 @@ WorldGuard requires a version of the Minecraft server that supports the `Bukkit 
 
 The other requirement is the `WorldEdit <http://www.enginehub.org/worldedit>`_ Bukkit plugin, a very lightweight in-game map editor, also made by us. Please note that you cannot use the Forge version of WorldEdit.
 
-.. note::
-    Due to a `controversy and the following legal debacle <https://www.reddit.com/r/Minecraft/comments/2fkz55/as_one_of_the_original_contributors_to_bukkit>`_, you can no longer download the official Bukkit server. An alternative for Minecraft 1.8+ is the version provided by the Spigot team.
-
 Installation
 ============
 
