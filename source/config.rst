@@ -103,7 +103,6 @@ protection.*
     item-durability,TRUE,"Set to ``false`` to have items never break."
     remove-infinite-stacks,FALSE,"Remove items with 'infinite' stack sizes, which is essentially any stack size less than 0 (which is the result of a number overflowing the maximum and wrapping into the negatives)."
     disable-xp-orb-drops,FALSE,"Whether to disable XP orb drops."
-    disable-obsidian-generators,FALSE,"Whether to disable obsidian generators."
 
 gameplay.*
 ~~~~~~~~~~
@@ -112,12 +111,12 @@ gameplay.*
     :header: Setting, Default, Description
     :widths: 12, 5, 30
 
-    block-potions,[],A list of potion types that cannot be used. The list of possible potion types can be `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_.
+    block-potions,[],A list of potion types that cannot be used. The list of possible potion types can be `found in Bukkit <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html>`_.
     block-potions-overly-reliably,FALSE,Whether WorldGuard should try extra hard to block the list of potions mentioned in `block-potions`. This is generally not needed and enabling this may block more than you want.
 
 .. topic:: Example: Blocking the use of night vision and speed potions
 
-    The names `found in Bukkit <http://jd.bukkit.org/rb/apidocs/org/bukkit/potion/PotionEffectType.html>`_ are used::
+    The names `found in Bukkit <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html>`_ are used::
 
         block-potions: [night_vision, speed]
 
@@ -157,7 +156,7 @@ physics.*
 
 .. topic:: Example: Preventing Redstone and Redstone torches from being damanged by water
 
-    Material names are from `Bukkit's Material list <http://jd.bukkit.org/rb/apidocs/org/bukkit/Material.html>`_::
+    Material names are from `Bukkit's Material list <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_::
 
         physics:
             disable-water-damage-blocks: [redstone_wire, redstone_torch]
