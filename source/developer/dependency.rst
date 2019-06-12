@@ -16,10 +16,10 @@ Build Script Dependency
 
 If you compile your plugin or mod using something like `Maven <https://maven.apache.org/>`_ or `Gradle <https://www.gradle.org/>`_ (which you should!), you will need to add WorldGuard to the list of dependencies. You can find WorldGuard's artifacts in sk89q's Maven repository.
 
-Note that some :doc:`objects that WorldGuard uses <native-objects>` come from WorldEdit. If you need to use those directly, you should also add WorldEdit as a compilation dependency.
+Note that some :doc:`objects that WorldGuard uses <native-objects>` come from WorldEdit. If you need to use those directly, you should also add WorldEdit as a compilation dependency (though it may be transitively provided depending on your build configuration).
 
 * Maven repository: ``http://maven.sk89q.com/repo/``
-* Artifacts: ``com.sk89q.worldguard:worldguard-core:VERSION`` and ``com.sk89q.worldguard:worldguard-legacy:VERSION`` (where VERSION is your desired version of WorldGuard)
+* Artifacts: ``com.sk89q.worldguard:worldguard-bukkit:VERSION`` (where VERSION is your desired version of WorldGuard); note that this contains the api in the ``worldguard-core`` artifact.
 
 The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`
 
@@ -30,23 +30,14 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
         <repositories>
             <repository>
                 <id>sk89q-repo</id>
-                <url>http://maven.sk89q.com/repo/</url>
+                <url>https://maven.sk89q.com/repo/</url>
             </repository>
         </repositories>
 
         <dependencies>
             <dependency>
                 <groupId>com.sk89q.worldguard</groupId>
-                <artifactId>worldguard-core</artifactId>
-                <version>VERSION</version>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-
-        <dependencies>
-            <dependency>
-                <groupId>com.sk89q.worldguard</groupId>
-                <artifactId>worldguard-legacy</artifactId>
+                <artifactId>worldguard-bukkit</artifactId>
                 <version>VERSION</version>
                 <scope>provided</scope>
             </dependency>
@@ -58,12 +49,11 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
 
         repositories {
             mavenCentral()
-            maven { url "http://maven.sk89q.com/repo/" }
+            maven { url "https://maven.sk89q.com/repo/" }
         }
 
         dependencies {
-            compileOnly 'com.sk89q.worldguard:worldguard-core:VERSION'
-            compileOnly 'com.sk89q.worldguard:worldguard-legacy:VERSION'
+            compileOnly 'com.sk89q.worldguard:worldguard-bukkit:VERSION'
         }
 
 Modifying plugin.yml
