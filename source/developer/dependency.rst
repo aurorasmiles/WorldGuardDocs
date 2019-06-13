@@ -18,7 +18,7 @@ If you compile your plugin or mod using something like `Maven <https://maven.apa
 
 Note that some :doc:`objects that WorldGuard uses <native-objects>` come from WorldEdit. If you need to use those directly, you should also add WorldEdit as a compilation dependency (though it may be transitively provided depending on your build configuration).
 
-* Maven repository: ``http://maven.sk89q.com/repo/``
+* Maven repository: ``https://maven.sk89q.com/repo/``
 * Artifacts: ``com.sk89q.worldguard:worldguard-bukkit:VERSION`` (where VERSION is your desired version of WorldGuard); note that this contains the api in the ``worldguard-core`` artifact.
 
 The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`
@@ -99,7 +99,7 @@ Your plugin would not even load because ``ProtectedCuboidRegion`` could not be f
     class RegionHolder {
         private final ProtectedCuboidRegion region;
 
-        public MyPlugin() {
+        public RegionHolder() {
             region = new ProtectedCuboidRegion(...);
         }
     }
