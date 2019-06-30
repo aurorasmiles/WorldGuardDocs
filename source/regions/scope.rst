@@ -22,7 +22,7 @@ In addition, WorldGuard supports mod-added custom blocks and entities (with some
 
 Water flow and lava flow protection is disabled by default, but it can be enabled in the :doc:`../config`.
 
-.. tip:: If you find a way to bypass protection, please `file a ticket on the issue tracker <http://youtrack.sk89q.com/issues>`_.
+.. tip:: If you find a way to bypass protection, please `file a ticket on the issue tracker <https://dev.enginehub.org/youtrack/issues/WORLDGUARD>`_.
 
 Exceptions
 ==========

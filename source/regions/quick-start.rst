@@ -9,7 +9,7 @@ To create a region, you need to tell WorldGuard the physical area. `WorldEdit <h
 
 .. topic:: New to WorldEdit?
 
-    You can read `WorldEdit's quick start tutorial <http://wiki.sk89q.com/wiki/WorldEdit/Quick_start>`_ to learn how to select areas with WorldEdit.
+    You can read `WorldEdit's quick start tutorial <https://worldedit.rtfd.io/en/latest/quickstart/>`_ to learn how to select areas with WorldEdit.
 
 Regions can take the shape of:
 
