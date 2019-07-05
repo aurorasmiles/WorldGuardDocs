@@ -133,6 +133,15 @@ The goal here is:
 
 Due to the inheritance, the plots inherit the ``use`` flag from the template, which overrides the ``use`` flag on the mall.
 
+How do I allow players to read lectern books, but not take them?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, make sure you are on a build of WorldGuard for MC 1.14+, since lecterns did not exist in Minecraft (and thus, not in Bukkit) in 1.13. Then:
+
+* Set the ``interact`` flag to ``allow``: ``/rg flag <region> interact allow``
+* Set the ``chest-access`` flag to ``deny``, at least for non-members: ``/rg flag <region> chest-access -g nonmembers deny``
+
+
 Problems
 ========
 
@@ -149,9 +158,5 @@ Did you set the ``build`` flag? You probably do not want to do that. Be sure to 
     /rg flag __global__ passthrough deny
 
 .. warning::
-    At this time, it is not possible for a piston to push from one region into another. This issue is tracked as `WORLDGUARD-3234 <http://youtrack.sk89q.com/issue/WORLDGUARD-3234>`_ on the issue tracker.
+    At this time, it is not possible for a piston to push from one region into another. This issue is tracked as `WORLDGUARD-3234 <https://dev.enginehub.org/youtrack/issue/WORLDGUARD-3234>`_ on the issue tracker.
 
-Why aren't mod-added wands and guns being blocked?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-You likely can't (without a lot of work on your part) due to the way things work. See the :doc:`scope` page for more information.

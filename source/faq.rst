@@ -55,7 +55,7 @@ If it does not immediately appear to be WorldGuard,
 
 * Make sure that Minecraft's "spawn protection" is not on. Spawn protection prevents anyone from making any changes within a certain radius of a world's spawn point. To adjust spawn protection, change the ``spawn-protection`` setting in the server.properties file to ``0``.
 * Make sure that you are not testing in adventure mode.
-* Update your version of Bukkit, Spigot, or Cauldron.
+* Update your version of CraftBukkit/Spigot/Paper.
 
 If those steps do not help, there's a simple command in WorldGuard that can simulate an action on behalf of a player and then report the plugin that blocked the action. Use the "testbreak" and "testplace" commands described on the :doc:`commands` page to identify the plugin.
 
@@ -100,7 +100,7 @@ Why is protection not working? Players receive NO message.
 * You have set some other relevant flag (``pvp``, ``ride``, etc.) on the region to "allow."
 * The item in question is from a mod or a third-party plugin (see :doc:`regions/scope`).
 * WorldGuard does not yet protect that particular thing that you are trying to do. This is not the case for simple block place or break. Please make sure that you are using the latest version of WorldGuard, and if it's still a problem, :doc:`file a bug report <support>`.
-* There is a bug in your version of Bukkit, Spigot, or Cauldron.
+* There is a bug in your version of CraftBukkit/Spigot/Paper.
 
 .. _can-build-with-message:
 
@@ -113,7 +113,7 @@ If WorldGuard is blocking an action, it's still possible for a different plugin 
 
 You can use the "testbreak" and "testplace" commands described in :doc:`commands` to identify the causing plugin. If you see any plugin above WorldGuard on the list with "ALLOW" next to its line, then that plugin is the cause.
 
-Another possibility is that your version of Bukkit, Spigot, or Cauldron has a bug. Be sure to use the latest available version. If you still cannot figure out the cause, :doc:`look into getting help <support>`.
+Another possibility is that your version of CraftBukkit/Spigot/Paper has a bug. Be sure to use the latest available version. If you still cannot figure out the cause, :doc:`look into getting help <support>`.
 
 Region Protection
 =================

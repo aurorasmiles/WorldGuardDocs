@@ -5,9 +5,9 @@ Installation
 Requirements
 ============
 
-WorldGuard requires a version of the Minecraft server that supports the `Bukkit API <http://dl.bukkit.org/>`_, which includes CraftBukkit, MCPC+, Cauldron, and Spigot. The official Minecraft server is not supported. 
+WorldGuard requires a version of the Minecraft server that supports the `Bukkit API <http://dl.bukkit.org/>`_, which includes CraftBukkit, Spigot, and Paper. The "vanilla" Minecraft server cannot run plugins. Other server implementations, such as Forge or Sponge, are also not supported by WorldGuard.
 
-The other requirement is the `WorldEdit <http://www.enginehub.org/worldedit>`_ Bukkit plugin, a very lightweight in-game map editor, also made by us. Please note that you cannot use the Forge version of WorldEdit.
+The other requirement is the `WorldEdit <http://www.enginehub.org/worldedit>`_ Bukkit plugin, a very lightweight in-game map editor, also made by us. Please note that you need the Bukkit version of WorldEdit, not another implementation.
 
 Installation
 ============
