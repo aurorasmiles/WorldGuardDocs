@@ -11,29 +11,37 @@ Make sure that you have added WorldGuard as a :doc:`../dependency` first. The or
 
 Flags have to be registered with WorldGuard's ``FlagRegistry`` with the ``register(Flag<?> flag)`` method. The parameter should be an instance of any flag object, whether you use one of the default types or your own type.
 
-Registering has to be done after WorldGuard is Loaded (in the Bukkit plugin lifecycle) but before it is Enabled. Thus, it is highly recommended that you register when your plugin loads. After WorldGuard is enabled, the FlagRegistry is locked and no new flags can be registered.
+Registering has to be done before WorldGuard is **enabled**. Thus, it is highly recommended that you register when your plugin **loads**. After WorldGuard is enabled, the FlagRegistry is locked and no new flags can be registered.
 
 .. topic:: Example: Registering a custom flag
 
     .. code-block:: java
 
-        // StateFlag with the name "my-custom-flag", which defaults to "allow"
-        public static final Flag MY_CUSTOM_FLAG = new StateFlag("my-custom-flag", true);
+        // declare your flag as a field accessible to other parts of your code (so you can use this to check it)
+        // note: if you want to use a different type of flag, make sure you change StateFlag here and below to that type
+        public static StateFlag MY_CUSTOM_FLAG;
 
         public boolean onLoad() {
             // ... do your own plugin things, etc
 
             FlagRegistry registry = WorldGuard.getInstance().getFlagRegistry();
             try {
-                // register our flag with the registry
-                registry.register(MY_CUSTOM_FLAG);
+                // create a flag with the name "my-custom-flag", defaulting to true
+                StateFlag flag = new StateFlag("my-custom-flag", true);
+                registry.register(flag);
+                MY_CUSTOM_FLAG = flag; // only set our field if there was no error
             } catch (FlagConflictException e) {
                 // some other plugin registered a flag by the same name already.
-                // you may want to re-register with a different name, but this
-                // could cause issues with saved flags in region files. if you don't mind
-                // sharing a flag, consider making your field non-final and assigning it:
-                MY_CUSTOM_FLAG = registry.get("my-custom-flag"); // non-final!
+                // you can use the existing flag, but this may cause conflicts - be sure to check type
+                Flag<?> existing = registry.get("my-custom-flag");
+                if (existing instanceof StateFlag) {
+                    MY_CUSTOM_FLAG = (StateFlag) existing;
+                } else {
+                    // types don't match - this is bad news! some other plugin conflicts with you
+                    // hopefully this never actually happens
+                }
             }
+        }
 
 Once your flag is registered, WorldGuard will take care of loading and saving it from the region database, allowing users to set it via the ``/rg flag`` commands, and so on. Even if your plugin is removed from the server, WorldGuard will keep the flag saved to any regions it was set on, but it will be rendered inert until your plugin is loaded again.
 
