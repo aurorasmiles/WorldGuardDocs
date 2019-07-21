@@ -56,7 +56,7 @@ The ``build`` flag **cannot** be set to ``allow`` as there should be no reason t
 Overriding Defaults
 ===================
 
-Flags in WorldEdit come with certain *defaults*. For example, the ``exp-drop`` flag defaults to allow if no regions set it, which means that experience drops are permitted even when a player is not a member or owner of the region.
+Flags in WorldGuard come with certain *defaults*. For example, the ``exp-drop`` flag defaults to allow if no regions set it, which means that experience drops are permitted even when a player is not a member or owner of the region.
 
 If you want to override the ``exp-drops`` flag by setting it to ``deny`` and having it apply to only non-members, setting it on the global region would not work. For example, you may be tempted to use ``/rg flag __global__ exp-drop -g nonmembers deny``, but this will **not** work. When you specify non-members, it refers to non-members of the *global region*. Thus, if you make, for example, a plot region, XP drops would be denied for the plot's members because the plot's members are not members of the global region. (Remember, the global region is of a low priority. However, regions do not inherit from it so flags do not propagate.)
 
