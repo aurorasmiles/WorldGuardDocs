@@ -230,6 +230,7 @@ player-damage.*
     teleport-on-suffocation,FALSE,"Whether players should be teleported to a safe location (if found, and which is usually up) when they are suffocating. This feature potentially allows players to cross vertical barriers."
     disable-void-damage,FALSE,"Whether void damage (falling into the bottom of the world) should be disabled for players."
     teleport-on-void-falling,FALSE,"Whether players should be teleported to a safe location (if found) when they are falling into the void. This feature potentially allows players to enter areas that they normally may not be able to go."
+    reset-fall-on-void-teleport,FALSE,"Resets fall distance on void teleporting. Leaving this off will likely let the player die of fall damage (though their items will not be in the void, at least)."
     disable-explosion-damage,FALSE,"Whether explosion damage should be disabled for players."
     disable-mob-damage,FALSE,"Whether damage from mobs should be disabled for players."
     disable-death-messages,FALSE,"Whether death messages for players should be disabled."
