@@ -294,7 +294,7 @@ Map Making
     game-mode,gamemode,"The gamemode (survival, creative, adventure) that will be applied to players that enter the region"
     time-lock,string,"Time of day in ticks (between 0 and 24000) that players will see the world as while in the region. Use + or - for time relative to the world time."
     weather-lock,weather,Type of weather players will see when in the region. This does not affect world mechanics. Valid values are ``rain`` and ``clear``.
-    heal-delay,integer,The number of seconds between heals (if ``heal-amount`` is set)
+    heal-delay,integer,The number of seconds between heals (if ``heal-amount`` is set). Set to 0 to disable.
     heal-amount,integer,The amount of half hearts to heal (...or hurt if negative) the player at the rate of ``heal-delay``
     heal-min-health,double,The minimum number of half hearts that damage (via ``heal-amount``) will not exceed
     heal-max-health,double,The maximum number of half hearts that healing (via ``heal-amount``) will not exceed
@@ -324,6 +324,7 @@ Map Making
     
     Without any buffs, the player's maximum health is 20, so 10 is half of that::
 
+        /rg flag hospital heal-delay 1
         /rg flag hospital heal-amount 2
         /rg flag hospital heal-max-health 10
 

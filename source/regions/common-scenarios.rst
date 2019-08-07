@@ -77,6 +77,14 @@ Set the ``block-break`` flag to ``allow``::
 
 * /rg flag mining_area block-break allow
 
+How do I allow players to read lectern books, but not take them?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+First, make sure you are on WorldGuard 7.0.1+. Earlier versions of WorldGuard released before 1.14 (and thus before lecterns) existed.
+
+* Set the ``interact`` flag to ``allow``: ``/rg flag <region> interact allow``
+* Set the ``chest-access`` flag to ``deny``, at least for non-members: ``/rg flag <region> chest-access -g nonmembers deny``
+
 How do I allow breaking of only certain block types?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -132,15 +140,6 @@ The goal here is:
 * Since we created the template region, that makes it easy: ``/rg flag shop_template use allow``
 
 Due to the inheritance, the plots inherit the ``use`` flag from the template, which overrides the ``use`` flag on the mall.
-
-How do I allow players to read lectern books, but not take them?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-First, make sure you are on a build of WorldGuard for MC 1.14+, since lecterns did not exist in Minecraft (and thus, not in Bukkit) in 1.13. Then:
-
-* Set the ``interact`` flag to ``allow``: ``/rg flag <region> interact allow``
-* Set the ``chest-access`` flag to ``deny``, at least for non-members: ``/rg flag <region> chest-access -g nonmembers deny``
-
 
 Problems
 ========
