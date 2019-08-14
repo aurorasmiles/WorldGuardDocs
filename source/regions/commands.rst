@@ -311,7 +311,7 @@ Teleports yourself to the location specified by either the ``spawn`` or ``telepo
 * ``-s`` selects the spawn flag rather than the teleport flag
 
 .. note::
-    It is currently not possible to teleport to a region that does not have either of these flags set. Issue `WORLDGUARD-2671 <http://youtrack.sk89q.com/issue/WORLDGUARD-2671>`_ to fix this is pending.
+    It is currently not possible to teleport to a region that does not have either of these flags set. Issue `WORLDGUARD-2671 <https://dev.enginehub.org/youtrack/issue/WORLDGUARD-2671>`_ to fix this is pending.
 
 Management Commands
 ===================

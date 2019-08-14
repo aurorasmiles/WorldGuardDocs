@@ -18,10 +18,10 @@ If you compile your plugin or mod using something like `Maven <https://maven.apa
 
 Note that some :doc:`objects that WorldGuard uses <native-objects>` come from WorldEdit. If you need to use those directly, you should also add WorldEdit as a compilation dependency (though it may be transitively provided depending on your build configuration).
 
-* Maven repository: ``https://maven.sk89q.com/repo/``
+* Maven repository: ``https://maven.enginehub.org/repo/``
 * Artifacts: ``com.sk89q.worldguard:worldguard-bukkit:VERSION`` (where VERSION is your desired version of WorldGuard); note that this contains the api in the ``worldguard-core`` artifact.
 
-The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`
+The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`. Note that ``maven.sk89q.com`` is the same repository under a different domain. The enginehub domain is preferred.
 
 .. topic:: Example: Configuring a Maven pom.xml
 
@@ -30,7 +30,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
         <repositories>
             <repository>
                 <id>sk89q-repo</id>
-                <url>https://maven.sk89q.com/repo/</url>
+                <url>https://maven.enginehub.org/repo/</url>
             </repository>
         </repositories>
 
@@ -49,7 +49,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
 
         repositories {
             mavenCentral()
-            maven { url "https://maven.sk89q.com/repo/" }
+            maven { url "https://maven.enginehub.org/repo/" }
         }
 
         dependencies {
