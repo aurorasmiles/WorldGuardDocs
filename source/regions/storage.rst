@@ -13,11 +13,13 @@ Region data can be stored using either:
     * Easy to backup with the world.
     * Fast full load and full save."
     MySQL,"* Can access data from other systems more easily.
-    * When saving, saves only changed data.
-    * May save quicker due to partial saving."
+    * When saving, saves only changed data."
 
 .. note::
     Other SQL-supporting databases (PostgreSQL, SQL Server, SQLite, etc.) are currently not supported.
+
+.. warning::
+    SQL support for region storage was contributed by a third-party developer and despite large rewrites, there are major issues with using it. It is highly recommended to never use SQL for storing your WorldGuard regions.
 
 Switching Drivers
 =================
