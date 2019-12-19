@@ -77,7 +77,7 @@ However, entities and blocks cannot be explicitly added as member to a region. I
 WorldGuard also attempts to track the true *cause* of an event. For example, if a gravel block is placed above a protected region so that it falls into the protected region, WorldGuard considers the final placed block (that would exist after the gravel fell to the ground) to have been placed by the *falling block entity*, and the falling block entity to have been created by *the original gravel block high up*. (It's not as easy to determine who placed the original gravel block, however.) Because the original gravel block started outside the region, it cannot fall into the protected region because the original block was not a member.
 
 .. hint::
-    When the ``build`` flag is set to ``deny`` on a region, no one can build and pistons don't work. That's because the build flag will even prevent non-members from building, as as detailed above, pistons can be regular members of a region like any other player.
+    When the ``build`` flag is set to ``deny`` on a region, no one can build and pistons don't work. That's because the build flag will even prevent members from building, as as detailed above, pistons can be regular members of a region like any other player.
 
 Mod and Plugin Support
 ======================

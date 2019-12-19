@@ -14,7 +14,7 @@ For legacy reasons and future cross-platform support, WorldGuard uses its own in
 Vectors
 =======
 
-Many operations need WorldEdit vectors, worlds, and so on. Bukkit ``Locations`` and other objects can be converted to ``Vector`` and so on using methods in ``com.sk89q.worldedit.bukkit.BukkitAdapter``.
+Many operations need WorldEdit vectors, worlds, and so on. Bukkit ``Location``s, ``World``s, and other objects can be converted to WorldEdit objects using methods in ``com.sk89q.worldedit.bukkit.BukkitAdapter``.
 
 .. code-block:: java
 

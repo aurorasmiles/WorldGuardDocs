@@ -17,7 +17,7 @@ Getting an ApplicableRegionSet
 Through the Query Cache
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-The query cache stores the last query result for at most one or two seconds, which speeds up repeated lookups for the same a block, a common scenario during event handling. However, the query cache only supports the first type of query, point location. To utilize the cache, a new ``RegionQuery`` instance can be obtained from a ``RegionContainer``:
+The query cache stores the last query result for at most one or two seconds, which speeds up repeated lookups for the same a block, a common scenario during event handling. However, the query cache only supports the first type of query, point location. To utilize the cache, a new ``RegionQuery`` instance can be obtained from a ``RegionContainer`` (see :doc:`../native-objects` for converting from Bukkit locations):
 
 .. code-block:: java
 
@@ -58,7 +58,7 @@ Given an `RegionManager`, ``getApplicableRegions(Vector)`` can be used to perfor
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regions = container.get(loc.getWorld());
         // Check to make sure that "regions" is not null
-        ApplicableRegionSet set = regions.getApplicableRegions(BukkitUtil.toVector(loc));
+        ApplicableRegionSet set = regions.getApplicableRegions(loc);
 
 If the goal is to find a list of regions that overlap another, use ``getApplicableRegions(ProtectedRegion)`` on the manager. Because shape and the region are currently the same objects (coupled together), you have to use a dummy ID:
 
