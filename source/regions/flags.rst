@@ -201,7 +201,7 @@ Mobs, Fire, and Explosions
     other-explosion,state,Whether explosions can do damage
     fire-spread,state,Whether fire can spread
     enderman-grief,state,Whether endermen will grief
-    snowman-trail,state,Whether snowmen will create snow beneath them
+    snowman-trails,state,Whether snowmen will create snow beneath them
     mob-damage,state,Whether mobs can hurt players
     mob-spawning,state,Whether mobs can spawn
     deny-spawn,set of entity types,A list of entity types that cannot spawn
