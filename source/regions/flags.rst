@@ -265,9 +265,12 @@ Movement
     farewell-title,string,The title that appears upon entering the region. Including a newline (``\n``) will send a subtitle.
     enderpearl,state,Whether enderpearls can be used
     chorus-fruit-teleport,state,Whether chorus fruits can be used to teleport
-    teleport,location,The location to teleport to when the ``/rg teleport`` command is used within the region
+    teleport,location,The location to teleport to when the ``/region teleport`` command is used with the region name
     spawn,location,The location to teleport to when a player dies within the region
-    
+
+.. tip::
+    As mentioned above, the teleport and spawn location flags default to "members", which means that only members can take advantage of them by default. Set the region group for the flag to change this.
+
 .. warning::
     The greeting and farewell message flags require that the "use player move event" option **not** be disabled in the :doc:`configuration <../config>`.
 
