@@ -262,7 +262,7 @@ Movement
     greeting,string,The message that appears in chat upon entering the region
     greeting-title,string,The title that appears upon entering the region. Including a newline (``\n``) will send a subtitle.
     farewell,string,The message that appears in chat upon leaving the region
-    farewell-title,string,The title that appears upon entering the region. Including a newline (``\n``) will send a subtitle.
+    farewell-title,string,The title that appears upon leaving the region. Including a newline (``\n``) will send a subtitle.
     enderpearl,state,Whether enderpearls can be used
     chorus-fruit-teleport,state,Whether chorus fruits can be used to teleport
     teleport,location,The location to teleport to when the ``/region teleport`` command is used with the region name

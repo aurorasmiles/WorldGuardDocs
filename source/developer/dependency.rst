@@ -112,7 +112,7 @@ While you have the same problem here where you can't even create a ``RegionHolde
         public void onEnable() {
             try {
                 new RegionHolder();
-            } catch (NoClassDefFoundException e) {
+            } catch (NoClassDefFoundError e) {
                 // Do something here
             }
         }
@@ -126,7 +126,7 @@ However, this issue does not apply in all cases. Chained method calls, starting 
         public void onEnable() {
             try {
                 boolean result = SomeClass.staticMethod();
-            } catch (NoClassDefFoundException e) {
+            } catch (NoClassDefFoundError e) {
                 // Do something here
             }
         }
