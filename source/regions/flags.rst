@@ -197,7 +197,7 @@ Mobs, Fire, and Explosions
 
     creeper-explosion,state,Whether creepers can do damage
     enderdragon-block-damage,state,Whether enderdragons can do block damage
-    ghast-fireball,state,Whether ghast fireballs can do damage
+    ghast-fireball,state,Whether ghast fireballs and wither skulls can do damage
     other-explosion,state,Whether explosions can do damage
     fire-spread,state,Whether fire can spread
     enderman-grief,state,Whether endermen will grief
@@ -207,7 +207,7 @@ Mobs, Fire, and Explosions
     deny-spawn,set of entity types,A list of entity types that cannot spawn
     entity-painting-destroy,state,Whether non-player entities can destroy paintings
     entity-item-frame-destroy,state,Whether non-player entities can destroy item frames
-    wither-damage,state,Whether withers can do damage
+    wither-damage,state,"Whether withers can do damage (with their body explosions - skull projectiles are handled by ghast-fireball as mentioned above)"
 
 .. topic:: Example: Preventing sheep and cows from spawning at spawn
 
@@ -238,6 +238,7 @@ Natural Events
     vine-growth,state,Whether vines (and kelp) will grow
     crop-growth,state,"Whether crops (wheat, potatoes, melons, etc) will grow"
     soil-dry,state,Whether soil will dry
+    coral-fade,state,Whether coral will die when not in water.
 
 .. warning::
     The ``fire-spread``, ``water-flow`` and ``liquid-flow`` flags require that the "high frequency flags" option be enabled in the :doc:`configuration <../config>`. This is because these events can be very frequent, requiring more region lookups, and potentially slowing down your server (or at least warming the server room a bit more).

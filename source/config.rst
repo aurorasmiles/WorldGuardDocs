@@ -279,6 +279,7 @@ dynamics.*
     disable-vine-growth,FALSE,"Whether the growth of vines and kelp should be disabled."
     disable-crop-growth,FALSE,"Whether the growth of wheat, carrots, melons, etc should be disabled."
     disable-soil-dehydration,FALSE,"Whether the dehydration of soil should be disabled."
+    disable-coral-block-fade,FALSE,"Whether coral should remain alive when not in water."
     snow-fall-blocks,[],"If set (as a list of block types), the only blocks on which snow can fall on would be the ones in the list."
 
 chest-protection.*
