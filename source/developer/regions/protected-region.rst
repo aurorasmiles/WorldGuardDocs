@@ -201,7 +201,7 @@ There are a few methods to perform spatial queries on a specific region.
 Testing Point Containment
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-``boolean contains(Vector)`` can be used to test whether a region contains a particular point.
+``boolean contains(BlockVector3)`` can be used to test whether a region contains a particular point.
 
 .. topic:: Example: Seeing whether a region contains (20, 0, 30)
 
