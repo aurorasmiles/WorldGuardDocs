@@ -8,4 +8,4 @@ If you have a question or have errors,
 
 If you have a feature request or bug report,
 
-* `Submit it to our issue tracker <https://dev.enginehub.org/youtrack/issues/WORLDGUARD>`_
+* `Submit it to our issue tracker <https://github.com/enginehub/worldguard/issues>`_
