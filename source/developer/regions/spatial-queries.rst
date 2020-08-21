@@ -22,7 +22,7 @@ The query cache stores the last query result for at most one or two seconds, whi
 .. code-block:: java
 
     RegionQuery query = container.createQuery();
-    ApplicableRegionSet set = query.getApplicableRegions(location);
+    ApplicableRegionSet set = query.getApplicableRegions(blockVector);
 
 .. topic:: Example: Getting regions at (10, 64, 100)
 
@@ -31,7 +31,7 @@ The query cache stores the last query result for at most one or two seconds, whi
         Location loc = new Location(world, 10, 64, 100);
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
-        ApplicableRegionSet set = query.getApplicableRegions(loc);
+        ApplicableRegionSet set = query.getApplicableRegions(loc.toVector().toBlockPoint());
 
 One particular feature of the cache is that it will **return virtual results** if region protection is disabled or region data failed to load:
 
@@ -56,9 +56,9 @@ Given an `RegionManager`, ``getApplicableRegions(Vector)`` can be used to perfor
 
         Location loc = new Location(world, 10, 64, 100);
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-        RegionManager regions = container.get(loc.getWorld());
+        RegionManager regions = container.get(world);
         // Check to make sure that "regions" is not null
-        ApplicableRegionSet set = regions.getApplicableRegions(loc);
+        ApplicableRegionSet set = regions.getApplicableRegions(loc.toVector().toBlockPoint());
 
 If the goal is to find a list of regions that overlap another, use ``getApplicableRegions(ProtectedRegion)`` on the manager. Because shape and the region are currently the same objects (coupled together), you have to use a dummy ID:
 

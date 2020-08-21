@@ -54,9 +54,12 @@ Owners and members (``region.getOwners()`` and ``region.getMembers()``) are sepa
     .. code-block:: java
 
         DefaultDomain members = region.getMembers();
-        members.addPlayer("sk89q");
         members.addPlayer(UUID.fromString("0ea8eca3-dbf6-47cc-9d1a-c64551ca975c"));
         members.addGroup("admins");
+
+.. warning::
+
+    Referring to players by name (instead of by UUID) should generally not be done as names can be changed. Offline mode is not explicitly supported and those who use it do so at their own risk. Methods in Domains that use names instead of UUIDs are marked deprecated.
 
 .. topic:: Example: Converting names to UUIDs in the background
 
@@ -179,12 +182,13 @@ Only 2D polygons are supported. These are polygons that have been extended verti
     int maxY = 54;
     ProtectedRegion region = new ProtectedPolygonalRegion("spawn", points, minY, maxY);
 
-The points can be in any order.
 
 Global Regions
 ~~~~~~~~~~~~~~
 
 Not to be confused with :doc:`../../regions/global-region`, global regions have no physical area. They do not contain any points. The global region *does* use the ``GlobalProtectedRegion``, but other regions can also utilize this class (users can create them by using the ``-g`` switch on ``/rg define``).
+
+These regions are usually used to create template regions for parenting.
 
 .. code-block:: java
 

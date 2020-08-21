@@ -17,6 +17,9 @@ Every world has separate lists of regions. To access the regions for a particula
 
     RegionManager regions = container.get(world);
 
+.. tip::
+    See :doc:`../native-objects` for how to covert Bukkit worlds.
+
 .. warning::
     The returned value **may be null** if region support is disabled or region data failed to load. WorldGuard may periodically attempt to load the data again.
 
@@ -58,7 +61,7 @@ Once you've created an instance of a :doc:`ProtectedRegion <protected-region>`, 
     RegionManager regions = container.get(world);
     regions.addRegion(region);
 
-Parent regions are automatically added. If there are existing regions with equivalent IDs, then the new regions will replace the previous regions..
+Parent regions are automatically added. If there are existing regions with equivalent IDs, then the new regions will replace the previous regions.
 
 Removing Regions
 ~~~~~~~~~~~~~~~~
