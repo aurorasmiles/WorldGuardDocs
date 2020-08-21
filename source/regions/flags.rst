@@ -144,7 +144,6 @@ Protection-Related
     interact,state,"Everything that involves 'using' a block or entity:
 
     * Whether doors, levers, etc. (but not inventories) can be used
-    * Whether inventories can be accessed
     * Whether vehicles (including animals) can be mounted
     * etc."
     block-break,state,Whether blocks can be mined
@@ -155,12 +154,15 @@ Protection-Related
     ride,state,Whether vehicles (including animals) can be mounted
     pvp,state,Whether player versus player combat is permitted
     sleep,state,Whether sleeping in a bed is permitted
+    respawn-anchors,state,Whether respawn anchors can be activated
     tnt,state,Whether TNT detonation or damage is permitted
     vehicle-place,state,"Whether vehicles (boats, minecarts) can be placed"
     vehicle-destroy,state,Whether vehicles can be destroyed
     lighter,state,Whether flint and steel can be used
     block-trampling,state,Whether farmland and turtle eggs can be trampled
     frosted-ice-form,state,Whether players with frost walker boots will form ice
+    item-frame-rotation,state,Whether items can be rotated within item frames
+    firework-damage,state,Whether fireworks can deal damage to entities
 
 .. warning::
     None of these flags are player-specific. For example, the block-break flag, if set to deny, **prevents pistons from breaking blocks**.
@@ -226,7 +228,7 @@ Natural Events
     lightning,state,Whether lightning can strike
     water-flow,state,Whether water can flow
     lava-flow,state,Whether lava can flow
-    snow-fall,state,Whether snow will fall
+    snow-fall,state,Whether snow will form tiles on the ground
     snow-melt,state,Whether snow will melt
     ice-form,state,Whether ice will form
     ice-melt,state,Whether ice will melt
@@ -294,14 +296,13 @@ Map Making
     deny-message,string,The message issued to players that are denied an action
     invincible,state,Whether players are invincible
     fall-damage,state,Whether entities receive fall damage
-    firework-damage,state,Whether entities receive damage from fireworks
     game-mode,gamemode,"The gamemode (survival, creative, adventure) that will be applied to players that enter the region"
     time-lock,string,"Time of day in ticks (between 0 and 24000) that players will see the world as while in the region. Use + or - for time relative to the world time."
     weather-lock,weather,Type of weather players will see when in the region. This does not affect world mechanics. Valid values are ``rain`` and ``clear``.
     natural-health-regen,state,Whether players should naturally regen health from being satiated or being in peaceful mode.
     natural-hunger-drain,state,Whether players should naturally lose hunger due to saturation/exhaustion levels.
     heal-delay,integer,The number of seconds between heals (if ``heal-amount`` is set). Set to 0 to disable.
-    heal-amount,integer,The amount of half hearts to heal (...or hurt if negative) the player at the rate of ``heal-delay``
+    heal-amount,integer,The amount of half hearts to heal (or hurt if negative) the player at the rate of ``heal-delay``
     heal-min-health,double,The minimum number of half hearts that damage (via ``heal-amount``) will not exceed
     heal-max-health,double,The maximum number of half hearts that healing (via ``heal-amount``) will not exceed
     feed-delay,integer,"See equivalent heal flag, except this is for food"
@@ -309,7 +310,7 @@ Map Making
     feed-min-hunger,integer,"See equivalent heal flag, except this is for food"
     feed-max-hunger,integer,"See equivalent heal flag, except this is for food"
     blocked-cmds,set of strings,A list of commands to block
-    allowed-cmds,set of strings,A list of commands to permit
+    allowed-cmds,set of strings,A list of commands to whitelist (any unallowed commands will be blocked)
 
 .. warning::
     The healing and feeding flags require that the "use player move event" option **not** be disabled in the :doc:`configuration <../config>`.
