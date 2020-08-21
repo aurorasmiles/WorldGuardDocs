@@ -13,9 +13,9 @@ Moderator
     :header: Permission, Explanation
     :widths: 15, 25
 
-    worldguard.notify.*,"Receive notification with the 'notify' :doc:`blacklist <blacklist/index>` action and the 'notify' :doc:`region flags <regions/flags>`."
+    worldguard.notify,"Receive notification with the 'notify' :doc:`blacklist <blacklist/index>` action and the 'notify' :doc:`region flags <regions/flags>`."
     worldguard.region.bypass.<world>,"Bypass region protection for a given world, except for PvP deny flags."
-    worldguard.chest-protection.override.*,"Bypass :doc:`chest-protection` and open protected chests."
+    worldguard.chest-protection.override,"Bypass :doc:`chest-protection` and open protected chests."
 
 .. warning::
     If you are op or have all permissions, you will implicitly have these protection bypass permissions and it will appear that protection does not work.
@@ -47,7 +47,7 @@ See the :doc:`commands` page for an explanation of some of these commands.
     worldguard.report.pastebin,"Be able to have a report or profile submitted to a pastebin service."
     worldguard.flushstates,"Be able to use ``/wg flushstates``."
     worldguard.running,"Be able to use ``/wg running``."
-    worldguard.debug.event.*,"Be able to use the event testing commands under ``/wg debug``. Those commands are used to simulate an action so you can trace down, for example, which plugin is blocking player versus player combat. However, this essentially allows a moderator to impersonate another player."
+    worldguard.debug.event,"Be able to use the event testing commands under ``/wg debug``. Those commands are used to simulate an action so you can trace down, for example, which plugin is blocking player versus player combat. However, this essentially allows a moderator to impersonate another player."
 
 Regions
 =======
@@ -72,9 +72,13 @@ Per-Region Commands
 
 The following commands support a base permission (such as ``worldguard.region.redefine``), but also allow you to use specific permissions that only apply if a player is an owner or member of a region:
 
-* ``worldguard.region.redefine.own.<region name>.*``
-* ``worldguard.region.redefine.member.<region name>.*``
-* ``worldguard.region.redefine.<region name>.*``
+* ``worldguard.region.redefine.own.<region name>``
+* ``worldguard.region.redefine.member.<region name>``
+* ``worldguard.region.redefine.<region name>``
+
+Permissions systems that support wildcard permissions can be used to grant permissions to all regions in any given category, e.g.:
+
+* ``worldguard.region.redefine.own.*``
 
 .. csv-table::
     :header: Permission, Explanation
@@ -115,13 +119,13 @@ However, rather than providing that encompassing permission, you can provide the
 
 * To determine *which regions* can have their flag changed by the player, any of the following permissions can be given (and they work like the permissions in the previous section):
 
-    * ``worldguard.region.flag.regions.own.<region name>.*``
-    * ``worldguard.region.flag.regions.member.<region name>.*``
-    * ``worldguard.region.flag.regions.<region name>.*``
+    * ``worldguard.region.flag.regions.own.<region name>``
+    * ``worldguard.region.flag.regions.member.<region name>``
+    * ``worldguard.region.flag.regions.<region name>``
 
 * However, to determine *which types of flags* can be set by the player, permissions of the following pattern can be given:
 
-    * ``worldguard.region.flag.flags.<flag name>.<region name>.*``
+    * ``worldguard.region.flag.flags.<flag name>.<region name>.<flag value>``
 
 .. topic:: Example: Letting players be able to only change flags on regions that they own, and limit the flags that they can change to ``use`` and ``chest-access``
 
