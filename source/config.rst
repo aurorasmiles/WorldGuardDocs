@@ -342,6 +342,8 @@ regions.*
     protect-against-liquid-flow,FALSE,"Whether fluid flows between regions should be blocked. This prevents one player from griefing another by having lava or water flow into the other player's region. This setting must be enabled in tandem with ``high-frequency-flags`` for it to take effect."
     max-claim-volume,30000,"The maximum number of blocks in a region that can be claimed with :doc:`self-serve region claiming <regions/claiming>`."
     claim-only-inside-existing-regions,FALSE,"Whether players can only claim within existing regions."
+	disable-bypass-by-default,FALSE,"Whether bypass permissions are disabled by default."
+	announce-bypass-status,FALSE,"Whether a hint for ``/region bypass`` should be displayed at login."
     max-region-count-per-player:,,"The maximum number of regions that can be claimed by a player (via :doc:`self-serve region claiming <regions/claiming>`). This setting can differ per permission-group if new entries are added below (like for 'default'). 'default' is the default limit. If a player is a member of several groups that are listed, then the player receives the highest limit."
     "    default",7,(See above.)
 
