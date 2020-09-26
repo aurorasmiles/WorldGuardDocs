@@ -51,8 +51,8 @@ Settings
     auto-invincible,FALSE,Give players with the ``worldguard.auto-invincible`` permission invincibility mode on join.
     auto-invincible-group,FALSE,Give players in the ``wg-invincible`` permission group invincibility mode on join.
     auto-no-drowning-group,FALSE,Give players in the ``wg-amphibious`` permission group water breathing mode on join.
-    use-player-move-event,TRUE,"Whether WorldGuard should use (a little) more CPU to handle features that require tracking player movement. This must be on healing, feeding, greeting, and some other :doc:`regions/flags`."
-    use-player-teleports,TRUE,Whether teleport events should be considered when tracking player movement. Teleport events do not occur necessarily because the player teleports; it may occur somewhat randomly.
+    use-player-move-event,TRUE,"Whether WorldGuard should use (a little) more CPU to handle features that require tracking player movement. This must be on to use healing, feeding, greeting, and some other :doc:`regions/flags`."
+    use-player-teleports,TRUE,Whether teleport events should be considered when tracking player movement. This should always be on if you are using the player move event and any of the flags that require that.
     host-keys,,A list of hostnames that players must connect from. See :doc:`host-keys`.
 
 security.*
@@ -86,6 +86,7 @@ event-handling.*
     interaction-whitelist,[],"A list of block types that should not be protected. For example, if chests were added to this list, then they would never be protected with :doc:`region protection <regions/index>`. This setting is useful primarily when non-vanilla functionality is present (game features added by other plugins or mods) and you don't want it blocked."
     emit-block-use-at-feet,[],"A list of items that, if used, will also require that the player have the permission to *theoretically* modify the block at his or her feet. This setting is useful primarily when there is some item from some plugin or mod that uses a projectile (that affects the world) but does not test permission with WorldGuard. However, this is not a proper solution because the player can still stand in an area where he or she has permission and shoot *into* the desired area."
     ignore-hopper-item-move-events,FALSE,"Disable protections relating to hoppers moving items to and from containers. This can be set to true to slightly improve performance if your server has many hoppers, but be warned that it will allow hoppers outside regions to pull items from inside regions if they are close enough to the border."
+    break-hoppers-on-denied-move,TRUE,"If a hopper attempts to pull an item and is denied (as long as the previous config setting is false), WorldGuard will break the hopper block to prevent it from continuously attempting to pull items."
 
 .. topic:: Example: Disabling protection on workbenches
 
@@ -242,8 +243,13 @@ crops.*
     :header: Setting, Default, Description
     :widths: 12, 5, 30
 
-    disable-creature-trampling,FALSE,"Disable the trampling of crops by creatures."
-    disable-player-trampling,FALSE,"Disable the trampling of crops by players."
+    disable-creature-trampling,FALSE,"Disable the trampling of farmland by creatures."
+    disable-player-trampling,FALSE,"Disable the trampling of farmland by players."
+
+turtle-egg.*
+~~~~~~~~~~~~
+
+Same options as the crops section, but for turtle eggs.
 
 weather.*
 ~~~~~~~~~
@@ -335,13 +341,14 @@ regions.*
     :widths: 18, 5, 26
 
     wand,leather,"The ID of the item that is used to right click a block to inspect the regions affecting it. By default, this item is cow leather. Before, it was string but Minecraft added a use for string."
-	disable-bypass-by-default,FALSE,"Whether bypass permissions are disabled by default."
-	announce-bypass-status,FALSE,"Whether a hint for ``/region bypass`` should be displayed at login."
+    disable-bypass-by-default,FALSE,"Whether bypass permissions are disabled by default."
+    announce-bypass-status,FALSE,"Whether a hint for ``/region bypass`` should be displayed at login."
     invincibility-removes-mobs,FALSE,"If enabled, if a player is attacked while he or she is invincible due to the invincibility :doc:`region flag <regions/flags>`, then the attacking mob is removed from the world."
     fake-player-build-override,TRUE,"Whether players with a name that start with ``[`` and end with ``]`` should bypass all protection. This is only the case with third-party plugins and mods that use 'fake players' in lieu of firing the proper events."
     explosion-flags-block-entity-damage,TRUE,"Whether the various ``-explosion`` :doc:`region flags <regions/flags>` should also disable entity damage when enabled."
     high-frequency-flags,FALSE,"Whether to handle frequently occurring events such as fire spread or fluid flow in regards to :doc:`region flags <regions/flags>` (such as ``fire-spread``, ``water-flow``, and ``lava-flow``). This is disabled by default because those mentioned flags are rarely used and this setting may result in a performance impact in certain scenarios (many, many players and many, many regions)."
     protect-against-liquid-flow,FALSE,"Whether fluid flows between regions should be blocked. This prevents one player from griefing another by having lava or water flow into the other player's region. This setting must be enabled in tandem with ``high-frequency-flags`` for it to take effect."
+    use-paper-entity-origin,FALSE,"When on a `Paper server <https://papermc.io>`_, this option will treat entities as members of the region where they spawned, not where they currently are. This will automatically prevent mobs that wander into regions from accidentally destroying it. (Note that this is separate from mobs that are targetting players in regions - that is still dependent on the player's permission, not the mob's.)"
     max-claim-volume,30000,"The maximum number of blocks in a region that can be claimed with :doc:`self-serve region claiming <regions/claiming>`."
     claim-only-inside-existing-regions,FALSE,"Whether players can only claim within existing regions."
     max-region-count-per-player:,,"The maximum number of regions that can be claimed by a player (via :doc:`self-serve region claiming <regions/claiming>`). This setting can differ per permission-group if new entries are added below (like for 'default'). 'default' is the default limit. If a player is a member of several groups that are listed, then the player receives the highest limit."
