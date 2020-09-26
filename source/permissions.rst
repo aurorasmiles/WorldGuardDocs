@@ -15,6 +15,7 @@ Moderator
 
     worldguard.notify,"Receive notification with the 'notify' :doc:`blacklist <blacklist/index>` action and the 'notify' :doc:`region flags <regions/flags>`."
     worldguard.region.bypass.<world>,"Bypass region protection for a given world, except for PvP deny flags."
+    worldguard.region.toggle-bypass,"Allows using the ``/rg bypass`` command to toggle the above behavior (still requires the bypass permission)."
     worldguard.chest-protection.override,"Bypass :doc:`chest-protection` and open protected chests."
 
 .. warning::
