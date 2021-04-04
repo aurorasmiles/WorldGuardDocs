@@ -180,7 +180,7 @@ fire.*
     :header: Setting, Default, Description
     :widths: 12, 5, 30
 
-    disable-lava-fire-spread,TRUE,Whether lava should be able to create fires.
+    disable-lava-fire-spread,FALSE,Whether lava should be able to create fires.
     disable-all-fire-spread,FALSE,Whether fire can spread.
     disable-fire-spread-blocks,[],"A list of block types that fire cannot spread to, or at least damage."
     lava-spread-blocks,[],"If set (as a list of block types), the only blocks on which lava could flow on (other than air) would be the ones in the list."
