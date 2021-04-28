@@ -22,7 +22,7 @@ The query cache stores the last query result for at most one or two seconds, whi
 .. code-block:: java
 
     RegionQuery query = container.createQuery();
-    ApplicableRegionSet set = query.getApplicableRegions(blockVector);
+    ApplicableRegionSet set = query.getApplicableRegions(loc);
 
 .. topic:: Example: Getting regions at (10, 64, 100)
 
@@ -31,7 +31,7 @@ The query cache stores the last query result for at most one or two seconds, whi
         Location loc = new Location(world, 10, 64, 100);
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
-        ApplicableRegionSet set = query.getApplicableRegions(loc.toVector().toBlockPoint());
+        ApplicableRegionSet set = query.getApplicableRegions(loc);
 
 One particular feature of the cache is that it will **return virtual results** if region protection is disabled or region data failed to load:
 
