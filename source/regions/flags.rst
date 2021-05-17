@@ -95,7 +95,7 @@ Conflicting Flags
 
 Sometimes, a certain location may have multiple overlapping regions with different values for the same flag. The following rules are used to determine which values are selected:
 
-* Regions will inherit the value of a flag from its parent, **if** the region did not have the flag set. 
+* Regions will inherit the value of a flag from its parent, **if** the region did not have the flag set. (Note that the ``build`` flag is set implicitly with membership.)
 * Higher priority regions will override lower-priority regions.
 * The global region is considered like any other region, except it is at the lowest possible priority.
 
@@ -168,6 +168,7 @@ Protection-Related
     frosted-ice-form,state,Whether players with frost walker boots will form ice
     item-frame-rotation,state,Whether items can be rotated within item frames
     firework-damage,state,Whether fireworks can deal damage to entities
+    use-anvil,state,Whether anvils can be used
 
 .. warning::
     None of these flags are player-specific. For example, the ``block-break`` flag, if set to deny, **prevents pistons from breaking blocks**.
@@ -193,7 +194,7 @@ Protection-Related
     * **How do I change a flag to only affect players?** You probably mean: how do you make a flag only affect *non-members*? Well, that's easy: use :ref:`region-groups`.
 
 .. tip::
-    Note: If the ``build`` flag is set to ``allow`` or ``deny``, it can still be overriden with a different flag (``block-break``, ``interact``, etc.).
+    Note: If the ``build`` flag is set to ``allow`` or ``deny``, it can still be overriden with a different flag (``block-break``, ``interact``, etc.). The ``build`` flag is set implicitly with membership.
 
 Mobs, Fire, and Explosions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -209,6 +210,7 @@ Mobs, Fire, and Explosions
     fire-spread,state,Whether fire can spread
     enderman-grief,state,Whether endermen will grief
     snowman-trails,state,Whether snowmen will create snow beneath them
+    ravager-grief,state,Whether ravagers will grief
     mob-damage,state,Whether mobs can hurt players
     mob-spawning,state,Whether mobs can spawn
     deny-spawn,set of entity types,A list of entity types that cannot spawn
@@ -275,6 +277,7 @@ Movement
     chorus-fruit-teleport,state,Whether chorus fruits can be used to teleport
     teleport,location,The location to teleport to when the ``/region teleport`` command is used with the region name
     spawn,location,The location to teleport to when a player dies within the region
+    teleport-message,string,The message issued to players that are teleported with ``/region teleport``
 
 .. tip::
     As mentioned above, the ``teleport`` and ``spawn`` location flags default to "members", which means that only members can take advantage of them by default. Set the region group for the flag to change this.
