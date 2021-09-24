@@ -118,11 +118,13 @@ As you may be aware, you cannot add entities or blocks as members to a region, s
     // inside -> inside = ALLOWED
     new RegionOverlapAssociation(inside).getAssociation(inside) == MEMBER
 
-    // inside -> deepInside = ALLOWED
-    new RegionOverlapAssociation(inside).getAssociation(deepInside) == MEMBER
+    // inside -> deepInside = BLOCKED
+    new RegionOverlapAssociation(inside).getAssociation(deepInside) == NON_MEMBER
 
     // inside -> outside = ALLOWED
     new RegionOverlapAssociation(inside).getAssociation(outside) == MEMBER
+
+Note that the ``nonplayer-protection-domains`` flag can override this behavior. The various ``test...`` and ``query...`` methods will handle this for you.
 
 To summarize:
 
