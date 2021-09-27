@@ -204,7 +204,7 @@ List
 
 Lists the regions that have been created. A number can be provided to show a certain page.
 
-If a player does have permission to list all regions but has permission to list his or her own (ones the player is a member or owner of), then the command will automatically only list the player's own regions.
+If a player doesn't have permission to list all regions but has permission to list their own (ones the player is a member or owner of), then the command will automatically only list the player's own regions.
 
 * ``-w <world>`` can be specified to run this command for a different world or from console
 * ``-n`` causes the command to search only by name rather than UUID and name
