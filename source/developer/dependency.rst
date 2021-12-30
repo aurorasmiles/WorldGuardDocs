@@ -21,7 +21,7 @@ Note that some :doc:`objects that WorldGuard uses <native-objects>` come from Wo
 * Maven repository: ``https://maven.enginehub.org/repo/``
 * Artifacts: ``com.sk89q.worldguard:worldguard-bukkit:VERSION`` (where VERSION is your desired version of WorldGuard); note that this contains the api in the ``worldguard-core`` artifact.
 
-The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`. Note that ``maven.sk89q.com`` is the same repository under a different domain. The enginehub domain is preferred.
+The Maven repository should be online 24/7, and is one of Minecraft's longest running Maven repositories. If it isn't, see :doc:`../support`.
 
 .. topic:: Example: Configuring a Maven pom.xml
 
