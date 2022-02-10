@@ -50,7 +50,7 @@ Regions
     :header: Command, Parameters, Explanation
     :widths: 8, 8, 25
 
-    /wg flushstates,,"Debugging command that clears information about players that is stored for the purpose of applying :doc:`region flags <regions/flags>`. For example, for the ``entry`` flag to work, the player's last 'block' is stored every time he or she moves, which is used to determine whether the player has entered a region. This command can be useful when a player is stuck inside or outside a region due to the ``entry`` or ``exit`` flags."
+    /wg flushstates [player],,"Debugging command that clears information about players that is stored for the purpose of applying :doc:`region flags <regions/flags>`. For example, for the ``entry`` flag to work, the player's last 'block' is stored every time he or she moves, which is used to determine whether the player has entered a region. This command can be useful when a player is stuck inside or outside a region due to the ``entry`` or ``exit`` flags, especially after changes in membership, permission groups, etc. The optional player argument will reset states only for the provided player; if not supplied, all players' flag states will be reset."
 
 Additional region commands can be found in the :doc:`regions section <regions/index>`.
 
