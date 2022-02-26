@@ -9,7 +9,9 @@ Some of these commands may run in the background and then later return results. 
 Either ``/region`` or ``/rg`` can be used for commands. Some sub-commands have multiple aliases (for example, ``/rg d`` can be used a shortcut to ``/rg define``).
 
 .. tip::
-    You can use most of these commands from console, but you may need to specify the ``-w`` flag (when available).
+    You can use almost all of these commands from console, but you may need to specify the ``-w`` flag (when available).
+
+    You can also use the `//world <https://worldedit.enginehub.org/en/latest/commands/#command-//world>`_ command from WorldEdit to set the target world (both from console and in-game).
 
 Creating and Removing Regions
 =============================
@@ -19,7 +21,7 @@ Define
 
 .. code-block:: text
 
-    /rg define [-n] [-g] <id> <owner1> [<owner2>] [... <ownerN>]
+    /rg define [-w <world>] [-g] <id> <owner1> [<owner2>] [... <ownerN>]
     /rg create (...)
     /rg d (...)
 
@@ -28,7 +30,6 @@ Creates a new region with a given ID and an optional list of owners. Your curren
 Region IDs are case-insensitive. Only one region can exist with a given name (per-world).
 
 * ``-g`` will create a new "global" region (not the same as the :doc:`global-region`) that has no physical space, which is useful for creating template regions (see :doc:`priorities`)
-* ``-n`` will store the given owner names as names, rather than converting them to UUIDs
 
 .. topic:: Example: Creating a new "shop" region with "sk89q" and "wizjany" as owners
     
@@ -50,7 +51,6 @@ Removes a region.
 
 If the specified region has child regions, then either ``-u`` or ``-f`` must be specified. Both options cannot be specified together.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
 * ``-u`` changes child regions of the specified region to have no parent
 * ``-f`` removes child regions of the specified region
 
@@ -59,7 +59,7 @@ Redefine
 
 .. code-block:: text
     
-    /rg redefine [-g]
+    /rg redefine [-w <world>] [-g]
     /rg update (...) 
     /rg move (...) 
 
@@ -84,14 +84,11 @@ Add Member
 
 .. code-block:: text
 
-    /rg addmember [-w <world>] [-n] <id> <members...>
+    /rg addmember [-w <world>] <id> <members...>
     /rg addmem (...)
     /rg am (...)
 
 Adds any number of members to a region. Using ``g:<member>`` will add a permission group instead of a player.
-
-* ``-w <world>`` can be specified to run this command for a different world or from console
-* ``-n`` tells WorldGuard to add players as names instead of UUIDs. Players added as names only will lose their membership if they change their Minecraft name.
 
 .. topic:: Example: Adding the "builder" group and the player "sk89q" as members of a "spawn" region of the "lobby" world.
 
@@ -104,13 +101,10 @@ Add Owner
 
 .. code-block:: text
 
-    /rg addowner [-w <world>] [-n] <id> <owners...>
+    /rg addowner [-w <world>] <id> <owners...>
     /rg ao (...)
 
 Adds any number of owners to a region. Using ``g:<owner>`` will add a permission group instead of a player.
-
-* ``-w <world>`` can be specified to run this command for a different world or from console
-* ``-n`` tells WorldGuard to add players as names instead of UUIDs. Players added as names only will lose their ownership if they change their Minecraft name.
 
 .. topic:: Example: Adding the "admins" group and the player "eduardo" as members of a "spawn" region of the "lobby" world.
 
@@ -123,15 +117,13 @@ Remove Member
 
 .. code-block:: text
 
-    /rg removemember [-w <world>] [-n] [-a] <id> <members...>
+    /rg removemember [-w <world>] [-a] <id> <members...>
     /rg remmember (...)
     /rg remmem (...)
     /rg rm (...)
 
 Removes any number of members from a region. As in the add command, use ``g:<member>`` to specify a permission group.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
-* ``-n`` will remove a player who was added by name instead of UUID.
 * ``-a`` will remove all members from the region, ignoring the <members...> argument
 
 Remove Owner
@@ -139,13 +131,11 @@ Remove Owner
 
 .. code-block:: text
 
-    /rg removeowner [-w <world>] [-n] [-a] <id> <owners...>
+    /rg removeowner [-w <world>] [-a] <id> <owners...>
     /rg ro (...)
 
 Removes any number of owners from a region. As in the add command, use ``g:<owner>`` to specify a permission group.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
-* ``-n`` will remove a player who was added by name instead of UUID.
 * ``-a`` will remove all owners from the region, ignoring the <owners...> argument
 
 Getting Information
@@ -172,7 +162,6 @@ Information
 
 Displays information about a specified region, or if no region is specified, the region that you are currently in. If you are in several regions, then a list will shown instead.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
 * ``-s`` causes the command to select the region (see ``/rg select``)
 * ``-u`` causes UUIDs to be shown rather than player's last seen names
 
@@ -200,15 +189,15 @@ List
 
 .. code-block:: text
 
-    /rg list [-n] [-p <player>] [-w <world>] [<page>]
+    /rg list [-i <id search>] [-p <player>] [-w <world>] [<page>]
 
 Lists the regions that have been created. A number can be provided to show a certain page.
 
 If a player doesn't have permission to list all regions but has permission to list their own (ones the player is a member or owner of), then the command will automatically only list the player's own regions.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
-* ``-n`` causes the command to search only by name rather than UUID and name
 * ``-p <player>`` can be specified to filter on regions that the given player is a member or owner of
+* ``-i <id search>`` can be specified to filter region IDs containing the search text
+* ``-s`` can be specified to match only regions which physically intersect your WorldEdit selection
 
 .. topic:: Example: Listing regions that "sk89q" is a member or owner of
     
@@ -232,7 +221,6 @@ To unset a flag, don't specify a value.
 
 To set a flag to a blank value, use ``-e``. This is useful for setting flags like ``greeting`` to a blank message to override the flag set in a different, larger, and lower priority region. If ``-e`` is specified in addition to a value, the value is discarded.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
 * ``-g <group>`` specifies the region group (see :doc:`flags`)
 * ``-e`` sets an empty value
 
@@ -267,8 +255,6 @@ Sets the priority of a region. See :doc:`priorities` for more information.
 
 The default priority of a region is 0.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
-
 Parent
 ~~~~~~
 
@@ -281,8 +267,6 @@ Parent
 Sets the parent of a region. See :doc:`priorities` for more information.
 
 To unset a parent priority, specify no parent.
-
-* ``-w <world>`` can be specified to run this command for a different world or from console
 
 .. topic:: Example: Setting the parent of "plot1" to "mall"
 
@@ -304,14 +288,12 @@ Teleport
 
 .. code-block:: text
 
-    /rg teleport [-s] <id>
+    /rg teleport [-c] [-s] <id>
 
 Teleports yourself to the location specified by either the ``spawn`` or ``teleport`` :doc:`flags <flags>`.
 
 * ``-s`` selects the spawn flag rather than the teleport flag
-
-.. note::
-    It is currently not possible to teleport to a region that does not have either of these flags set. Issue `WORLDGUARD-2671 <https://dev.enginehub.org/youtrack/issue/WORLDGUARD-2671>`_ to fix this is pending.
+* ``-c`` teleports you to the geometric center of the region even if neither flag is set. This requires you to be in spectator mode.
 
 Management Commands
 ===================
@@ -328,8 +310,6 @@ Reloads the region data from file or database. If recent changes were made in-ga
 
 The load operation occurs in the background and will not pause the server. If the command is used before a previous load has completed, the new load will be queued. There is a limit to the maximum number of operations that can be queued.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
-
 Save
 ~~~~
 
@@ -345,7 +325,6 @@ Saves the region data to disk.
 
 The save operation occurs in the background and will not pause the server.  If the command is used before a previous save has completed, the new save will be queued. There is a limit to the maximum number of operations that can be queued.
 
-* ``-w <world>`` can be specified to run this command for a different world or from console
 
 Migrate Database
 ~~~~~~~~~~~~~~~~
@@ -379,6 +358,23 @@ Migrate UUID
 Converts player names in the region data to Mojang UUIDs.
 
 Names that have no corresponding UUIDs will either be removed or left remaining depending on the :doc:`../config` (the setting is ``keep-names-that-lack-uuids``).
+
+.. warning::
+    Be sure to make a backup before running migration.
+
+.. warning::
+    This command does not run in the background and will pause the entire server. If your server software has server pause detection, this may kill the server during migration and abort the migration process.
+
+Migrate Region Heights
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: text
+
+    /rg migrateheights
+
+Extends regions that were physically defined from min y <= 0 to max y >= 255 (i.e. the world limits pre-MC 1.18) to the new world height limits.
+
+Useful for updating from 1.17 or before to 1.18 or later if you had a lot of regions which were defined at the world limits. Note that if you intentionally had regions beyond the world limits before 1.18, you will need to move them beyond the new world limits manually.
 
 .. warning::
     Be sure to make a backup before running migration.
