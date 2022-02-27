@@ -21,6 +21,8 @@ Region data can be stored using either:
 .. warning::
     SQL support for region storage was contributed by a third-party developer and despite large rewrites, there are major issues with using it. It is highly recommended to never use SQL for storing your WorldGuard regions.
 
+    **If you are already using SQL for region storage, you should migrate back to YAML using the migrate command covered below. SQL support for region storage will be removed from WorldGuard in a future version.**
+
 Switching Drivers
 =================
 
