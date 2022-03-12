@@ -9,7 +9,8 @@ API Versions
 
 Within major versions (5.x, 6.x, 7.x), WorldGuard's API is extremely stable. Deprecation tends to occur over a period of at least 3 months, but more typically over at 6 months.
 
-Currently, we recommend that you use some recent version of 7.x. The API had a partial overhaul in 6.x to fix some long-standing problems without breaking a significant amount of backwards compatibility. Version 7.x has a large refactoring to reduce platform dependence and add Minecraft 1.13 compatibility.
+The currently supported version of the API is 7.x. Older versions of the API (and of Minecraft) no longer receive updates or support. You can use the version selector in the bottom-right-hand corner of this page to access older versions of the documentation,
+but there may be changes or errors.
 
 Build Script Dependency
 =======================
@@ -73,14 +74,16 @@ If you choose to make it a soft dependency instead, WorldGuard will load first i
 Accessing WorldGuard From Your Plugin
 =====================================
 
-Most WorldGuard APIs can be accessed using the ``WorldGuard.getInstance()`` method, however some methods require a copy of the WorldGuardPlugin for your platform.
+Most WorldGuard APIs can be accessed using the ``WorldGuard.getInstance()`` method.
 
-On Bukkit, you can access this via ``WorldGuardPlugin.inst()``.
+Adapting players can be done via the ``wrapPlayer`` method on ``WorldGuardPlugin.inst()``. See :doc:`native-objects` for details.
+
+Note that you should keep :doc:`internal-apis` in mind while accessing parts of WorldGuard.
 
 Classpath Woes with Soft Dependencies
 =====================================
 
-If you are using WorldGuard as hard dependency, you do not need to worry about WorldGuard clases potentially not existing at runtime. However, this is a concern if you are merely soft-depending on WorldGuard.
+If you are using WorldGuard as hard dependency, you do not need to worry about WorldGuard classes potentially not existing at runtime. However, this is a concern if you are merely soft-depending on WorldGuard.
 
 For example, if you tried to do:
 

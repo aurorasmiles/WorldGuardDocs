@@ -11,10 +11,10 @@ For legacy reasons and future cross-platform support, WorldGuard uses its own in
 
     WorldGuardPlugin.inst().wrapPlayer(player);
 
-Vectors
-=======
+Other Types
+===========
 
-Many operations need WorldEdit vectors, worlds, and so on. Bukkit's ``Location``, ``World``, and other objects can be converted to WorldEdit objects using methods in ``com.sk89q.worldedit.bukkit.BukkitAdapter``.
+Many operations need WorldEdit locations, worlds, and so on. Bukkit's ``Location``, ``World``, and other objects can be converted to WorldEdit objects using methods in ``com.sk89q.worldedit.bukkit.BukkitAdapter``.
 
 .. code-block:: java
 

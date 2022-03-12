@@ -11,3 +11,4 @@ You can access WorldGuard's data through its API, as documented here.
     dependency
     regions/index
     native-objects
+    internal-apis

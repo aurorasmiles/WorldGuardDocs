@@ -14,6 +14,7 @@
 
 import sys
 import os
+import datetime
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -48,7 +49,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'WorldGuard'
-copyright = u'2015-2019, WorldGuard Team'
+copyright = u'2015-' + str(datetime.date.today().year) + u', WorldGuard Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -296,7 +297,7 @@ texinfo_documents = [
 epub_title = u'WorldGuard Documentation'
 epub_author = u'WorldGuard Team'
 epub_publisher = u'WorldGuard Team'
-epub_copyright = u'2019, WorldGuard Team'
+epub_copyright = str(datetime.date.today().year) + u', WorldGuard Team'
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = u'WorldGuard Documentation'
