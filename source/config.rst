@@ -203,12 +203,13 @@ mobs.*
     block-enderdragon-portal-creation,FALSE,"Whether the ability of the Enderdragon to create a portal should be disabed."
     block-fireball-explosions,FALSE,"Whether the effects of fireball explosions should be disabled."
     block-fireball-block-damage,FALSE,"Whether block damage caused by fireball block damage should be disabled."
-    anti-wolf-dumbness,FALSE,"Whether the wolf should be invincible in a number of situations, including, but not limited to, walking into lava and getting stuck. WHen wolves were first introduced into the game, Minecraft had very poor path finding and so wolves would frequently walk into lava or fire. However, as the AI of helper mobs in Minecraft have still much to improve, this setting may still prove to be useful."
+    anti-wolf-dumbness,FALSE,"Whether the wolf should be invincible in a number of situations, including, but not limited to, walking into lava and getting stuck. When wolves were first introduced into the game, Minecraft had very poor path finding and so wolves would frequently walk into lava or fire. However, as the AI of helper mobs in Minecraft have still much to improve, this setting may still prove to be useful."
     allow-tamed-spawns,TRUE,"Whether tamable mobs (wolves, horses, cats, etc.) should be spawnable."
     disable-enderman-griefing,FALSE,"Whether the ability of Endermen to pick up and place blocks should be disabled."
     disable-snowman-trails,FALSE,"Whether the feature of snowmen placing snow trails should be disabled."
     block-painting-destroy,FALSE,"Whether the ability of mobs to break paintings should be disabled."
-    block-item-frame-destroy,FALSE,"Whether the ability of mobs to item frames should be disabled."
+    block-item-frame-destroy,FALSE,"Whether the ability of mobs to break item frames should be disabled."
+    block-armor-stand-destroy,FALSE,"Whether the ability of mobs to break armor stands should be disabled." 
     block-plugin-spawning,TRUE,"Whether mobs spawned by plugins should be blocked when needed to apply some of these configuration options or to protect areas of the world."
     block-above-ground-slimes,FALSE,"Whether slimes spawning above ground should be disabled."
     block-other-explosions,FALSE,"Whether miscellaneous explosions should be disabled."
@@ -289,6 +290,7 @@ dynamics.*
     disable-crop-growth,FALSE,"Whether the growth of wheat, carrots, melons, etc should be disabled."
     disable-soil-dehydration,FALSE,"Whether the dehydration of soil should be disabled."
     disable-coral-block-fade,FALSE,"Whether coral should remain alive when not in water."
+    disable-copper-block-fade,FALSE,"Whether the oxidation of copper blocks should be disabled."
     snow-fall-blocks,[],"If set (as a list of block types), the only blocks on which snow can fall on would be the ones in the list."
 
 chest-protection.*
@@ -337,7 +339,7 @@ regions.*
 ~~~~~~~~~
 
 .. hint::
-    You cannot override ``use-scheduler`` nor ``use-creature-spawn-event`` per-world.
+    You cannot override ``use-creature-spawn-event`` per-world.
 
 .. csv-table::
     :header: Setting, Default, Description
@@ -374,7 +376,6 @@ regions.*
         :widths: 18, 5, 26
 
         enable,TRUE,"Whether support for defining regions should be enabled."
-        use-scheduler,TRUE,"Whether to use a scheduler, which is critical to many WorldGuard's functions (heal, feed, and game mode :doc:`region flags <regions/flags>`, for example). Disabling it is not advised."
         use-creature-spawn-event,TRUE,"Whether the creature move event should be handled for applying some mob-related :doc:`region flags <regions/flags>`."
 
 regions.uuid-migration.*
