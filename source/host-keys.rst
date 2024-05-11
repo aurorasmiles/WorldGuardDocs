@@ -14,7 +14,7 @@ How It Works
 
 When a player connects to a server with an address, say ``play.example.com``, Minecraft will tell the server that the player connected with that address. A moderator could connect to a special, secret ``secretmod.play.example.com`` address, and the server could easily check whether the address used by the moderator started with ``secretmod``.
 
-The host keys feature allows you to configure an an accepted address for certain players. If a player on the list connects with an incorrect address, he or she is kicked immediately.
+The host keys feature allows you to configure an an accepted address for certain players. If a player on the list connects with an incorrect address, they are kicked immediately.
 
 Configuration
 =============
