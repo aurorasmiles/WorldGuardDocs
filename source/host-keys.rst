@@ -35,7 +35,7 @@ To make this work, you have to make ``bagels.play.example.com`` and ``manoverboa
 
 Rather, it is recommended that you setup "wildcard addresses." An example of a wildcard address may be ``*.play.example.com``, which would mean that *any* prefix would work (``aa.play.example.com``, ``ab.play.example.com``, ``ac.play.example.com``, etc.).
 
-.. tip:: If you don't have a domain name or can't set a wildcard address, you can use `xip.io <http://xip.io/>`_.
+.. tip:: If you don't have a domain name or can't set a wildcard address, you can use `sslip.io <https://sslip.io/>`_.
 
 Alternatives
 ============
