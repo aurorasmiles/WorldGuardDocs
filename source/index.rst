@@ -40,9 +40,9 @@ Documentation
 Links
 =====
 
--  `WorldGuard Homepage <http://www.enginehub.org/worldguard>`_
--  `Downloads for Bukkit <http://dev.bukkit.org/bukkit-plugins/worldguard/files/>`_
--  `Experimental Builds <http://builds.enginehub.org/job/worldguard?branch=master>`_
+-  `WorldGuard Homepage <https://www.enginehub.org/worldguard>`_
+-  `Downloads for Bukkit <https://dev.bukkit.org/bukkit-plugins/worldguard/files/>`_
+-  `Experimental Builds <https://builds.enginehub.org/job/worldguard?branch=master>`_
 -  `Discord Server <https://discord.gg/enginehub/>`_
 
 Indices and Tables

@@ -5,7 +5,7 @@ Quick Start
 Selecting Areas
 ===============
 
-To create a region, you need to tell WorldGuard the physical area. `WorldEdit <http://www.enginehub.org/worldedit>`_ is used for this purpose.
+To create a region, you need to tell WorldGuard the physical area. `WorldEdit <https://www.enginehub.org/worldedit>`_ is used for this purpose.
 
 .. topic:: New to WorldEdit?
 
