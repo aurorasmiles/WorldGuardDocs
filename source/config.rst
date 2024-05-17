@@ -53,6 +53,9 @@ Settings
     auto-no-drowning-group,FALSE,Give players in the ``wg-amphibious`` permission group water breathing mode on join.
     use-player-move-event,TRUE,"Whether WorldGuard should use (a little) more CPU to handle features that require tracking player movement. This must be on to use healing, feeding, greeting, and some other :doc:`regions/flags`."
     use-player-teleports,TRUE,Whether teleport events should be considered when tracking player movement. This should always be on if you are using the player move event and any of the flags that require that.
+    use-particle-effects,TRUE,Whether WorldGuard should display particle effects when an action is cancelled.
+    disable-permission-cache,FALSE,"WorldGuard caches certain permission checks to improve performance with slower permission plugins. If you encounter issues with slow permission updates when using a modern permissions plugin, try setting this option to ``TRUE``."
+    custom-metrics-charts,TRUE,Reports some additional statistics to `bStats <https://bstats.org/plugin/bukkit/WorldGuard/3283>`_.
     host-keys,,A list of hostnames that players must connect from. See :doc:`host-keys`.
 
 security.*
@@ -64,6 +67,7 @@ security.*
 
     deop-everyone-on-join,FALSE,Clear op status from all players that join.
     block-in-game-op-command,FALSE,Block the /op command from being used in-game.
+    host-keys-allow-forge-clients,FALSE,Allow players using Forge to join when using :doc:`host-keys`.
 
 build-permission-nodes.*
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -73,7 +77,7 @@ build-permission-nodes.*
     :widths: 12, 5, 30
 
     enable,FALSE,A feature that lets you block building based on giving players the proper permissions. See :doc:`build-perms`.
-    deny-message,,"Concerning build permissions, this is the message that is sent when permission is denied. If a message is not set, a default one is used."
+    deny-message,"&eSorry, but you are not permitted to do that here.","Concerning build permissions, this is the message that is sent when permission is denied. If a message is not set, a default one is used."
 
 event-handling.*
 ~~~~~~~~~~~~~~~~
@@ -115,6 +119,7 @@ gameplay.*
 
     block-potions,[],A list of potion types that cannot be used. The list of possible potion types can be `found in Bukkit <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html>`_.
     block-potions-overly-reliably,FALSE,Whether WorldGuard should try extra hard to block the list of potions mentioned in `block-potions`. This is generally not needed and enabling this may block more than you want.
+    disable-conduit-effects,FALSE,Whether WorldGuard should disable effects from conduits.
 
 .. topic:: Example: Blocking the use of night vision and speed potions
 
@@ -214,6 +219,7 @@ mobs.*
     block-above-ground-slimes,FALSE,"Whether slimes spawning above ground should be disabled."
     block-other-explosions,FALSE,"Whether miscellaneous explosions should be disabled."
     block-zombie-door-destruction,FALSE,"Whether the ability for zombies to break doors should be disabled."
+    block-vehicle-entry,FALSE,"Whether mobs should be blocked from entering vehicles."
     block-creature-spawn,[],"A list of entity types that should not spawn."
 
 player-damage.*
@@ -253,6 +259,11 @@ turtle-egg.*
 
 Same options as the crops section, but for turtle eggs.
 
+sniffer-egg.*
+~~~~~~~~~~~~~
+
+Same options as the crops section, but for sniffer eggs.
+
 weather.*
 ~~~~~~~~~
 
@@ -265,6 +276,7 @@ weather.*
     disable-thunderstorm,FALSE,"Whether thunderstorms should never start."
     disable-weather,FALSE,"Whether weather events (including thunderstorms) should never start."
     disable-pig-zombification,FALSE,Whether the "zombification" of pigs when they are struck by lightning should be disabled.
+    disable-villager-witchification,FALSE,Whether the "witchification" of villagers when they are struck by lightning should be disabed.
     disable-powered-creepers,FALSE,Whether the possibility of creepers becoming powered when they are struck by lightning should be disabled.
     always-raining,FALSE,"Whether it should always be raining or snowing."
     always-thundering,FALSE,"Whether it should always be thundering."
@@ -296,12 +308,15 @@ dynamics.*
 chest-protection.*
 ~~~~~~~~~~~~~~~~~~
 
+.. warning::
+    These settings are not included in the config by default. Sign-based chest protection is deprecated for removal in a future version. See :doc:`chest-protection` for details.
+
 .. csv-table::
     :header: Setting, Default, Description
     :widths: 12, 5, 30
 
     enable,FALSE,"Enables :doc:`chest-protection`."
-    disable-off-check,FALSE,"Even if chest protection is off, WorldGuard will block the creation of signs with ``[Lock]`` on them so that if chest protection is later enabled, players cannot have preemptively lock chests that they did not own to begin with. This option, if set to ``true``, disables this check when chest protection is off."
+    disable-off-check,TRUE,"Even if chest protection is off, WorldGuard will block the creation of signs with ``[Lock]`` on them so that if chest protection is later enabled, players cannot have preemptively lock chests that they did not own to begin with. This option, if set to ``true``, disables this check when chest protection is off."
 
 blacklist.*
 ~~~~~~~~~~~
@@ -325,7 +340,7 @@ These settings determine what the "log" action in the :doc:`blacklist/index` doe
     "    enable",TRUE,Whether logging to the console should be enabled.
     database:,
     "    enable",FALSE,Whether logging to a database should be enabled.
-    "    dsn",jdbc:mysql://localhost:3306/minecraft,The connection string for the database. ``minecraft`` in the default is the name of the database.
+    "    dsn",``jdbc:mysql://localhost:3306/minecraft``,The connection string for the database. ``minecraft`` in the default is the name of the database.
     "    user",root,The username to connect to the database with.
     "    pass",,The password to connect to the database with.
     "    table",blacklist_events,The table to use.
@@ -345,7 +360,7 @@ regions.*
     :header: Setting, Default, Description
     :widths: 18, 5, 26
 
-    wand,leather,"The ID of the item that is used to right click a block to inspect the regions affecting it. By default, this item is cow leather. Before, it was string but Minecraft added a use for string."
+    wand,minecraft:leather,"The ID of the item that is used to right click a block to inspect the regions affecting it. By default, this item is cow leather. Before, it was string but Minecraft added a use for string."
     disable-bypass-by-default,FALSE,"Whether bypass permissions are disabled by default."
     announce-bypass-status,FALSE,"Whether a hint for ``/region bypass`` should be displayed at login."
     invincibility-removes-mobs,FALSE,"If enabled, if a player is attacked while they are invincible due to the invincibility :doc:`region flag <regions/flags>`, then the attacking mob is removed from the world."
@@ -356,6 +371,10 @@ regions.*
     use-paper-entity-origin,FALSE,"When on a `Paper server <https://papermc.io>`_, this option will treat entities as members of the region where they spawned, not where they currently are. This will automatically prevent mobs that wander into regions from accidentally destroying it. (Note that this is separate from mobs that are targetting players in regions - that is still dependent on the player's permission, not the mob's.)"
     max-claim-volume,30000,"The maximum number of blocks in a region that can be claimed with :doc:`self-serve region claiming <regions/claiming>`."
     claim-only-inside-existing-regions,FALSE,"Whether players can only claim within existing regions."
+    cancel-chat-without-recipients,FALSE,Whether chat messages without recipients (for example when all online players are in regions where ``receive-chat`` is set to ``deny``) should be cancelled.
+    nether-portal-protection,TRUE,Whether any portal travel that might lead to portal creation in a protected area should be blocked.
+    set-parent-on-claim,,A region ID that newly created regions with :doc:`self-serve region claiming <regions/claiming>` automatically get assigned as `parent <../regions/priorities/#inheritance>`_.
+    location-flags-only-inside-regions,FALSE,Whether locations for location-type :doc:`regions/flags` have to be whithin the corresponding region.
     max-region-count-per-player:,,"The maximum number of regions that can be claimed by a player (via :doc:`self-serve region claiming <regions/claiming>`). This setting can differ per permission-group if new entries are added below (like for 'default'). 'default' is the default limit. If a player is a member of several groups that are listed, then the player receives the highest limit."
     "    default",7,(See above.)
 
@@ -398,6 +417,9 @@ UUID migration can be run repeatedly (with repeated changing of the setting) and
 regions.sql.*
 ~~~~~~~~~~~~~
 
+.. warning::
+    These settings are not included in the config by default. SQL support for WorldGuard region storage is deprecated and marked for removal in a future version. Please migrate to YAML storage. See :doc:`regions/storage` for more information.
+
 .. hint::
     You cannot override these settings per-world.
 
@@ -406,7 +428,7 @@ regions.sql.*
     :widths: 8, 15, 15
 
     use,FALSE,Whether MySQL should be used to store data (see :doc:`regions/storage`).
-    dsn,jdbc:mysql://localhost/worldguard,The connection string for the database. ``worldguard`` in the default is the name of the database.
+    dsn,``jdbc:mysql://localhost/worldguard``,The connection string for the database. ``worldguard`` in the default is the name of the database.
     username,worldguard,The username to connect to the database with.
     password,worldguard,The password to connect to the database with.
     table-prefix,,The table prefix.
