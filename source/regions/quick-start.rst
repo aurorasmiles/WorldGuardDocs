@@ -36,7 +36,7 @@ The newly created region **automatically prevents building** within it. To let s
 
 Either players or permission groups can be a member or owner. To specify a permission group, prefix the name of the group with ``g:``. The relevant add and remove commands are illustrated below::
 
-    /rg addmember town Notch sk89q g:builders
+    /rg addmember town wizjany sk89q g:builders
     /rg addowner town sk89q
     /rg removemember town g:builders
     /rg removeowner town sk89q
@@ -45,7 +45,7 @@ Full documentation for these commands can be found on the :doc:`commands` page.
 
 Lastly, when you create a region, you can also conveniently specify the owners::
 
-    /rg define town Notch sk89q g:builders
+    /rg define town wizjany sk89q g:builders
 
 Region data is periodically saved, so you do not need to use a save command.
 
