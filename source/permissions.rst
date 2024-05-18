@@ -17,6 +17,12 @@ Moderator
     worldguard.region.bypass.<world>,"Bypass region protection for a given world, except for PvP deny flags."
     worldguard.region.toggle-bypass,"Allows using the ``/rg bypass`` command to toggle the above behavior (still requires the bypass permission)."
     worldguard.chest-protection.override,"Bypass :doc:`chest-protection` and open protected chests."
+    worldguard.god.override-regions,"Allows keeping invincibility when inside regions with ``invincibility`` set to ``DENY``."
+    worldguard.auto-invincible,"Automatically receive invincibility when joininng if the config option ``auto-invincible`` is enabled."
+    worldguard.override.potions,"Allows using potions/effects that are blocked with the ``blocked-potions`` config option."
+    worldguard.override.lighter,"Allows using flint and steel or fireballs when ``ignition.block-lighter`` is enabled in the config."
+    worldguard.override.infinite-stack,"Bypasses the ``protection.remove-infinite-stacks`` config option."
+
 
 .. warning::
     If you are op or have all permissions, you will implicitly have these protection bypass permissions and it will appear that protection does not work.
@@ -61,16 +67,17 @@ Regions
     worldguard.region.save,"Be able to use  ``/rg save``."
     worldguard.region.migratedb,"Be able to use  ``/rg migratedb``."
     worldguard.region.migrateuuid,"Be able to use  ``/rg migrateuuid``."
+    worldguard.region.migrateheights,"Be able to use ``/rg migrateheights``."
     worldguard.region.define,"Be able to use  ``/rg define``."
     worldguard.region.claim,"Be able to use  ``/rg claim``."
     worldguard.region.unlimited,"Bypass claiming limits."
     worldguard.region.list,"Be able to use  ``/rg list``."
     worldguard.region.list.own,"Be able to use  ``/rg list`` and have it show one own's regions."
 
-Per-Region Commands
-~~~~~~~~~~~~~~~~~~~
+Per-Region Permissions
+~~~~~~~~~~~~~~~~~~~~~~
 
-The following commands support a base permission (such as ``worldguard.region.redefine``), but also allow you to use specific permissions that only apply if a player is an owner or member of a region (note that an owner is also a member):
+The following permissions support a base permission (such as ``worldguard.region.redefine``), but also allow you to use specific permissions that only apply if a player is an owner or member of a region (note that an owner is also a member):
 
 * ``worldguard.region.redefine.own.<region name>``
 * ``worldguard.region.redefine.member.<region name>``
@@ -91,10 +98,12 @@ Permissions systems that support wildcard permissions can be used to grant permi
     worldguard.region.select.*,"Be able to use  ``/rg select``."
     worldguard.region.info.*,"Be able to use  ``/rg info`` and ``/rg flags``."
     worldguard.region.teleport.*,"Be able to use  ``/rg teleport``."
+    worldguard.region.teleportcenter.*,"Be able to use ``/rg teleport -c`` when in spectator mode."
     worldguard.region.addmember.*,"Be able to use  ``/rg addmember``."
     worldguard.region.addowner.*,"Be able to use  ``/rg addowner``."
     worldguard.region.removemember.*,"Be able to use  ``/rg removemember``."
     worldguard.region.removeowner.*,"Be able to use  ``/rg removeowner``."
+    worldguard.region.locationoverride.*,"Bypasses the ``regions.location-flags-only-inside-regions`` config option."
 
 .. topic:: Example: Letting players look up information on only regions that they own
     
