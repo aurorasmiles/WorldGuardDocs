@@ -6,20 +6,20 @@ The blacklist allows an action (or several) to be performed whenever a player do
 
 * Blocking players from mining gold ore
 * Notifying all administrators when a diamond block is found
-* Telling the player a message when they place an enchantment table
+* Sending the player a message when they place an enchantment table
 
 An example of a blacklist file is:
 
 .. code-block:: ini
 
     # Deny lava buckets
-    [lavabucket]
+    [lava_bucket]
     ignore-groups=admins,mods
     on-use=deny,tell
     message=Sorry, you can't use lava buckets!
 
     # Deny some ore
-    [goldore,ironore]
+    [gold_ore,iron_ore]
     ignore-groups=admins
     on-break=deny,tell,notify
 
@@ -58,9 +58,9 @@ Lines starting with ``#`` are ignored by WorldGuard. You can use this to place n
 Matching Syntax
 ~~~~~~~~~~~~~~~
 
-Items and blocks can be matched by either their (legacy) ID number or by specifying one of the entries on `Bukkit's material list <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_. Multiple items and blocks can be matched by separating each entry by a comma::
+Items and blocks can be matched by specifying one of the entries on `Bukkit's material list <https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/Material.html>`_. Multiple items and blocks can be matched by separating each entry by a comma::
     
-    [wood,brick,glass]
+    [oak_wood,brick,glass]
 
 Events
 ======
@@ -81,6 +81,7 @@ The available events are listed below.
     on-drop,When the player drops the matched item
     on-acquire,When the player acquires the matched item
     on-dispense,When a dispenser dispenses the matched item
+    on-equip,When the player equips the matched item
 
 When specifying an event, a list of "actions" must be specified afterwards, as illustrated below::
 
@@ -136,11 +137,11 @@ Switching the blacklist to whitelist mode (via the :doc:`../config`) will invert
 Examples
 ========
 
-.. topic:: Example: Blocking all bucket use
+.. topic:: Example: Blocking some bucket use
 
     .. code-block:: ini
 
-        [lavabucket,waterbucket,bucket]
+        [lava_bucket,water_bucket,bucket]
         on-use=deny,tell
 
 .. topic:: Example: Kicking players using TNT and notify administrators
@@ -169,7 +170,7 @@ With the ``log`` action, messages can be logged to several places:
 * File
 * Database
 
-These log targets can be enabled or disabled in the :doc:`../config`. Multiple log targets can be enabled at one time. By default, only the console log target is enabled.
+These log targets can be enabled or disabled in the :doc:`config`. Multiple log targets can be enabled at one time. By default, only the console log target is enabled.
 
 Console Logging
 ~~~~~~~~~~~~~~~
@@ -179,7 +180,7 @@ Console logging merely prints the log entries to the server console.
 File Logging
 ~~~~~~~~~~~~
 
-File logging writes the log entries to a file. In the :doc:`../config`, the path for the log file can be specified with special variables in it (like today's date), so you can have logs automatically rotated every day.
+File logging writes the log entries to a file. In the :doc:`config`, the path for the log file can be specified with special variables in it (like today's date), so you can have logs automatically rotated every day.
 
 The following variables can be used:
 
