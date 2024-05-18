@@ -7,7 +7,7 @@ WorldGuard has a host of functions for server owners, server map makers, regular
 * :doc:`Create zones in your world <regions/index>` that only permit mods or certain players from building within
 * Set :doc:`additional game rules <config>` on your server (deny wither block damage, falling damage, etc.)
 * Set :doc:`game rules on specific areas <regions/flags>` (food regen, health regen, disable PvP, TNT, control mob damage) in your world
-* :doc:`Blacklist certain items <blacklist/index>` and blocks so they can't be used
+* :doc:`Blacklist certain items <blacklist>` and blocks so they can't be used
 * Dump useful statistics and information about your server (/wg report -p)
 * CPU profile your server (/wg profile -p)
 * Add :doc:`useful commands <commands>` like an immediate "STOP ALL FIRE SPREAD" command.
@@ -28,7 +28,7 @@ Documentation
     config
     permissions
     commands
-    blacklist/index
+    blacklist
     regions/index
     chest-protection
     developer/index
