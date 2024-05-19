@@ -2,7 +2,7 @@
 Common Scenarios
 ================
 
-These are common scenarios that you may come across. Some of these scenarios have been already been described in some other pages.
+These are common scenarios that you may come across. Some of these scenarios have already been described in some other pages.
 
 .. contents::
     :local:
@@ -87,7 +87,7 @@ First, make sure you are on WorldGuard 7.0.1+. Earlier versions of WorldGuard re
 How do I allow breaking of only certain block types?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sorry, this is not supported per region yet! However, this can either be done per world in whitelist mode as described in :doc:`../blacklist/index` or using :doc:`../build-perms`.
+Sorry, this is not supported per region yet! However, this can either be done per world in whitelist mode as described in :doc:`../blacklist` or using :doc:`../build-perms`.
 
 Plot Setups
 ===========
