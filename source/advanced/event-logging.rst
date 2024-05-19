@@ -40,14 +40,14 @@ To simplify matters, WorldGuard funnels the Bukkit events into it a more fundame
 * Piston push → Interact with a block
 * Push retract → Interact with a block
 
-Parts of WorldGuard, like region protection, only then need to handle "interact with a block," "interact with an entity," and so on and determine whether a block or entity can be placed, broken, or interacted with.
+Parts of WorldGuard, like region protection, then only need to handle "interact with a block," "interact with an entity," and so on and determine whether a block or entity can be placed, broken, or interacted with.
 
 Tracking Cause
 ==============
 
 Another important facet of figuring out whether something should be permitted is to determine *who* is doing it.
 
-What can make this complex is that causes are something indirect. For example, if a player shoots an arrow at another player, the immediate cause --- the arrow --- is not the true cause; rather, the player is. Another example is the act of placing a block of gravel in way so it falls down: the block that ends up on the ground is caused by (1) the falling gravel block entity, which was caused by the (2) original gravel block, which was originally caused by (3) a player.
+What can make this complex is that causes are something indirect. For example, if a player shoots an arrow at another player, the immediate cause --- the arrow --- is not the true cause; rather, the player is. Another example is the act of placing a block of gravel in a way so it falls down: the block that ends up on the ground is caused by (1) the falling gravel block entity, which was caused by the (2) original gravel block, which was originally caused by (3) a player.
 
 Keep in mind that a cause could be a player, or it could be a block (pistons) or entity (Endermen or Creepers).
 
