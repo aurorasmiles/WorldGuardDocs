@@ -4,26 +4,26 @@ Region Flags
 
 Regions can have flags set upon it. Some uses of flags include:
 
-* Blocking player versus combat with the ``pvp`` flag
+* Blocking player versus player combat with the ``pvp`` flag
 * Denying entry to a region using the ``entry`` flag
 * Disabling the melting of snow using the ``snow-melt`` flag
 * Blocking players within the region from receiving chat using the ``receive-chat`` flag
 * Halting the growth of vines by using the ``vine-growth`` flag
 
-A region can have several different flags set at one time, although a certain flag can only have one value at a time. Flags are defined using the ``/region flag`` command, as illustrated below for the "spawn" region and "hospital" regions::
+A region can have several different flags set at one time, although a certain flag can only have one value at a time. Flags are defined using the ``/region flag`` (alternatively ``/rg flag``) command, as illustrated below for the "spawn" region and "hospital" regions::
 
     /region flag spawn pvp deny
     /region flag spawn greeting Welcome to spawn!
-    /region flag hospital heal-amount 2
-    /region flag hospital heal-delay 1
+    /rg flag hospital heal-amount 2
+    /rg flag hospital heal-delay 1
 
 Remove a flag by not specifying a value::
 
-    /region flag spawn pvp
+    /rg flag spawn pvp
 
 List flags by using the "flags" command::
 
-    /region flags spawn
+    /rg flags spawn
 
 The output of this command is interactive in-game. Click flag values to change them, and the arrows at the bottom to navigate through pages.
 
@@ -37,13 +37,21 @@ The output of this command is interactive in-game. Click flag values to change t
 Region Groups
 =============
 
-Sometimes, it may be desired for a flag to only apply to a certain group of players rather than everyone that should enter the region. This can be achieved by specifying an additional "region group" when defining the flag, of which there are several options:
+Sometimes, it may be desired for a flag to only apply to a certain group of players rather than everyone that should enter the region. This can be achieved by specifying an additional "region group" when defining the flag.
 
-* all (everyone)
-* members
-* owners
-* nonmembers
-* nonowners
+Region groups describe the (non-)membership of players to a region. They are handled by WorldGuard internally, and are entirely unrelated to permission groups.
+
+The following region groups exist:
+
+.. csv-table::
+    :header: Region Group, Description
+    :widths: 5, 20
+
+    all,Everyone
+    members,Members and owners of the region
+    owners,Owners of the region
+    nonmembers,Everyone who `isn't` an owner or member of the region
+    nonowners,Everyone who `isn't` an owner of the region
 
 The group can be specified using the ``-g`` marker as illustrated below::
 
@@ -60,7 +68,7 @@ It is **not** possible to set the same flag to different values for more than on
 Types of Flags
 ==============
 
-Each flag is of a certain type that determines what kind of values it may take. For example, the *heal-amount* flag is an numeric flag, so you can only set numeric values for it.
+Each flag is of a certain type that determines what kind of values it may take. For example, the ``heal-amount`` flag is an integer flag, so you can only set integer values for it.
 
 .. csv-table::
     :header: Type, Kind of values
@@ -81,7 +89,7 @@ Internally, there are more types, but it should generally not be of concern.
 
     They may also accept color codes, either in the old style ``&[0-9a-f]`` or ```[RrYyGgCcBbPp012w]`` for dark-red, red, dark yellow, yellow, etc., and ``[&`][klmnox]`` for obfuscated, bold, strikethrough, underline, and italic text.
 
-    They may also accept some replacements, such as ``%name%`` for the player's name, ``%world%`` for world name, and ``%online%`` for player count.
+    They may also accept some replacements, such as ``%name%`` for the player's name, ``%world%`` for world name, ``%online%`` for player count, ``%id%`` for the player's UUID, and ``%health%`` for the player's current health.
 
 .. topic:: Example: Using string formatting options
 
@@ -161,7 +169,7 @@ Protection-Related
     * Whether doors, levers, etc. (but not inventories) can be used
     * Whether vehicles (including animals) can be mounted
     * etc."
-    block-break,state,Whether blocks can be mined
+    block-break,state,Whether blocks can be broken
     block-place,state,Whether blocks can be placed
     use,state,"Whether doors, levers, etc. (but not inventories) can be used"
     damage-animals,state,"Whether players can harm friendly animals (cows, sheep, etc)"
@@ -170,11 +178,11 @@ Protection-Related
     pvp,state,Whether player versus player combat is permitted
     sleep,state,Whether sleeping in a bed is permitted
     respawn-anchors,state,Whether respawn anchors can be activated
-    tnt,state,Whether TNT detonation or damage is permitted
+    tnt,state,Whether TNT detonation or block damage is permitted
     vehicle-place,state,"Whether vehicles (boats, minecarts) can be placed"
     vehicle-destroy,state,Whether vehicles can be destroyed
-    lighter,state,Whether flint and steel can be used
-    block-trampling,state,Whether farmland and turtle eggs can be trampled
+    lighter,state,Whether flint and steel or a fire charge can be used
+    block-trampling,state,Whether farmland and turtle or sniffer eggs can be trampled
     frosted-ice-form,state,Whether players with frost walker boots will form ice
     item-frame-rotation,state,Whether items can be rotated within item frames
     firework-damage,state,Whether fireworks can deal damage to entities
@@ -214,17 +222,17 @@ Mobs, Fire, and Explosions
     :header: Flag, Type, description
     :widths: 10, 5, 30
 
-    creeper-explosion,state,Whether creepers can do damage
-    enderdragon-block-damage,state,Whether enderdragons can do block damage
+    creeper-explosion,state,Whether creeper explosions can do damage
+    enderdragon-block-damage,state,Whether enderdragons can do block damage (destroy blocks)
     ghast-fireball,state,Whether ghast fireballs and wither skulls can do damage
     other-explosion,state,Whether explosions can do damage
     fire-spread,state,Whether fire can spread
-    enderman-grief,state,Whether endermen will grief
-    snowman-trails,state,Whether snowmen will create snow beneath them
-    ravager-grief,state,Whether ravagers will grief
+    enderman-grief,state,Whether endermen will break/place blocks
+    snowman-trails,state,Whether snow golem will create snow beneath them
+    ravager-grief,state,Whether ravagers will break blocks
     mob-damage,state,Whether mobs can hurt players
-    mob-spawning,state,Whether mobs can spawn
-    deny-spawn,set of entity types,A list of entity types that cannot spawn
+    mob-spawning,state,"Whether mobs can spawn, including 'manually' spawning via commands, spawn eggs, or similar methods"
+    deny-spawn,set of entity types,A list of entity types that cannot spawn, including 'manually' spawning via commands, spawn eggs, or similar methods"
     entity-painting-destroy,state,Whether non-player entities can destroy paintings
     entity-item-frame-destroy,state,Whether non-player entities can destroy item frames
     wither-damage,state,"Whether withers can do damage (with their body explosions - skull projectiles are handled by ghast-fireball as mentioned above)"
@@ -260,10 +268,11 @@ Natural Events
     sculk-growth,state,"Whether sculk (sculk and sculk vines) will grow"
     crop-growth,state,"Whether crops (wheat, potatoes, melons, etc) will grow"
     soil-dry,state,Whether soil will dry
-    coral-fade,state,Whether coral will die when not in water.
+    coral-fade,state,Whether coral will die when not in water
+    copper-fade,state,Whether copper will fade
 
 .. warning::
-    The ``fire-spread``, ``water-flow``, ``lava-flow``, and ``leaf-decay`` flags require that the "high frequency flags" option be enabled in the :doc:`configuration <../config>`. This is because these events can be very frequent, requiring more region lookups, and potentially slowing down your server (or at least warming the server room a bit more).
+    The ``fire-spread``, ``water-flow``, ``lava-flow`` and ``lava-fire`` flags require that the "high frequency flags" option be enabled in the :doc:`configuration <../config>`. This is because these events can be very frequent, requiring more region lookups, and potentially slowing down your server (or at least warming the server room a bit more).
 
 Movement
 ~~~~~~~~
@@ -272,8 +281,8 @@ Movement
     :header: Flag, Type, description
     :widths: 10, 5, 30
 
-    entry,state,Whether players can enter the region
-    exit,state,Whether players can exit the region
+    entry,state,Whether players (by default non-members) can enter the region
+    exit,state,Whether players (by default non-members) can exit the region
     exit-via-teleport,state,"Whether players can exit the region via teleport.
     
     This only takes effect if the player is otherwise denied exiting the region"
@@ -289,7 +298,7 @@ Movement
     enderpearl,state,Whether enderpearls can be used
     chorus-fruit-teleport,state,Whether chorus fruits can be used to teleport
     teleport,location,The location to teleport to when the ``/region teleport`` command is used with the region name
-    spawn,location,The location to teleport to when a player dies within the region
+    spawn,location,The location to spawn or teleport to when a player (by default member) dies within the region
     teleport-message,string,The message issued to players that are teleported with ``/region teleport``
 
 .. tip::
@@ -303,9 +312,9 @@ Movement
 
 .. topic:: Example: Preventing non-members of a "secret_club" region from entering it
     
-    The key is to set the region group to "nonmembers"::
+    Since entry defaults to "nonmembers", you don't need to explicitly set it here::
 
-        /rg flag secret_club entry -g nonmembers deny
+        /rg flag secret_club entry deny
 
 Map Making
 ~~~~~~~~~~
@@ -370,3 +379,6 @@ Miscellaneous
     send-chat,state,Whether players can send chat
     receive-chat,state,Whether players can receive chat
     potion-splash,state,Whether potions can have splash effects
+
+.. note::
+    WorldGuard can only limit chat or commands on the server WorldGuard is running on. If you are using some sort of proxy that handles commands or the chat, WorldGuard won't be able to affect that.
