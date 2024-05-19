@@ -52,10 +52,10 @@ Do **not** set the ``build`` flag.
 How can I only deny exit for non-members?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You want to set the region group of the flag (note that this is the default)::
+Since non-members is the default for ``entry`` and ``exit`` you don't need to set region groups::
 
     /rg addmember example_region sk89q
-    /rg flag example_region exit -g nonmembers deny
+    /rg flag example_region exit deny
 
 How can I let players exit one side of an exit=deny region?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -146,7 +146,7 @@ Problems
 Why don't pistons work?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Did you set the ``build`` flag? You probably do not want to do that. Be sure to remove it::
+Did you set the ``build`` flag? You **shouldn't** do that. Be sure to remove it::
 
     /rg flag __global__ build
 
