@@ -26,7 +26,7 @@ If those solutions do not help you, you will need to look through your startup l
 * If you use a game server host, use its log viewer.
 * You can also open up "latest.log" in the logs folder of your server directory. (On older versions of Minecraft, the log file was "server.log" in the root directory.)
 
-If you are unable to discover the problem from reading the server log, you can :doc:`ask for help or submit a bug report <../support>`.
+If you are unable to discover the problem from reading the server log, you can :doc:`ask for help <../support>`.
 
 How old is WorldGuard?
 ~~~~~~~~~~~~~~~~~~~~~~
