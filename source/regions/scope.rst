@@ -34,8 +34,6 @@ Some sensible defaults are used that permit certain activities from non-members:
 
 These exceptions can be removed globally or per-region by adjusting :doc:`flags`.
 
-However, hoppers are one exception that cannot be changed. A hopper adjacent to a protected region can place items into a chest inside the region, so chests should not be placed on the edge of regions. This behavior is used because the preivous situation (where hoppers were protected) was a source of frequent confusion, though the exception may be removed in the future.
-
 Additional exceptions can also be added per-region by adjusting flags, or globally by using the ``interaction-whitelist`` option in the :doc:`../config`.
 
 .. topic:: Example: Allowing everyone to use doors, levels, buttons, and pressure plates even in protected regions
