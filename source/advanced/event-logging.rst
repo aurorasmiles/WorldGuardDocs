@@ -71,19 +71,15 @@ To use this mode, specify ``-Dworldguard.debug.listener=true`` on the command li
 
     If your batch file reads like::
 
-        @ECHO OFF
-        SET BINDIR=%~dp0
-        CD /D "%BINDIR%"
-        "%ProgramFiles(x86)%\Java\jre7\bin\java.exe" -Xincgc -Xmx1G -jar craftbukkit.jar
-        PAUSE
+        @echo off
+        java -Xmx4096M -Xms4096M -jar server.jar nogui
+        pause
 
     You'd add ``-Dworldguard.debug.listener=true`` like so::
 
-        @ECHO OFF
-        SET BINDIR=%~dp0
-        CD /D "%BINDIR%"
-        "%ProgramFiles(x86)%\Java\jre7\bin\java.exe" -Dworldguard.debug.listener=true -Xincgc -Xmx1G -jar craftbukkit.jar
-        PAUSE
+        @echo off
+        java -Xmx4096M -Xms4096M -Dworldguard.debug.listener=true -jar server.jar nogui
+        pause
 
     The option can go anywhere after "java.exe" but before "-jar". In this case, the example puts it right after java.exe.
 
