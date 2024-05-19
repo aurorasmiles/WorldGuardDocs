@@ -9,7 +9,7 @@ WorldGuard optimizes for two types of spatial queries:
 
 Spatial queries can be performed using an instance of a :doc:`RegionManager <managers>`, but they can also be performed through a special query cache. In either case, a returned ``ApplicableRegionSet`` object will be returned that contains a list of regions, as well as additional methods to perform :doc:`flag-calculation`.
 
-It's also possible to, given a list of regions, to create your own ``ApplicableRegionSet``. This is useful if you want to :doc:`test the value of flags <flag-calculation>` and you have already a list of regions to test with (and the regions do not even need to overlap).
+It's also possible to, given a list of regions, to create your own ``ApplicableRegionSet``. This is useful if you want to :doc:`test the value of flags <flag-calculation>` and you already have a list of regions to test with (and the regions do not even need to overlap).
 
 Getting an ApplicableRegionSet
 ==============================
