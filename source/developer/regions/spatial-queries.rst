@@ -101,11 +101,10 @@ If your interest is in getting the list of regions, ``ApplicableRegionSet`` impl
 
 .. topic:: Example: Getting a list of regions
 
-    Google's Guava library has ``Lists.newArrayList(Iterable)`` to create an ``ArrayList`` from an ``Iterable``.
-
     .. code-block:: java
 
-        List<ProtectedRegion> region = Lists.newArrayList(set);
+        List<ProtectedRegion> region = new ArrayList<>();
+        set.forEach(region::add);
 
 If you are performing a spatial query to check protection or flags, see either :doc:`protection-query` or :doc:`flag-calculation`.
 

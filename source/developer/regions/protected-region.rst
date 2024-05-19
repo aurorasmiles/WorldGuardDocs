@@ -41,7 +41,7 @@ Vectors are used for referring to locations --- these vector objects are from Wo
 
         if (region instanceof ProtectedPolygonalRegion) {
             ProtectedPolygonalRegion polygon = (ProtectedPolygonalRegion) region;
-            List<BlockVector2D> points = polygon.getPoints();
+            List<BlockVector2> points = polygon.getPoints();
         }
 
 Domains
@@ -174,7 +174,7 @@ Only 2D polygons are supported. These are polygons that have been extended verti
 
 .. code-block:: java
 
-    List<BlockVector2> points = Lists.newArrayList(); // Call from Guava
+    List<BlockVector2> points = new ArrayList<>();
     points.add(BlockVector2.at(3, 4));
     points.add(BlockVector2.at(0, 0));
     points.add(BlockVector2.at(19, 3));
