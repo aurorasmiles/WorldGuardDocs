@@ -130,6 +130,9 @@ gameplay.*
 simulation.sponge.*
 ~~~~~~~~~~~~~~~~~~~
 
+.. warning::
+    These settings are not included in the config by default. This feature is deprecated and marked for removal in a future version.
+
 .. csv-table::
     :header: Setting, Default, Description
     :widths: 12, 5, 30
@@ -309,7 +312,7 @@ chest-protection.*
 ~~~~~~~~~~~~~~~~~~
 
 .. warning::
-    These settings are not included in the config by default. Sign-based chest protection is deprecated for removal in a future version. See :doc:`chest-protection` for details.
+    These settings are not included in the config by default. Sign-based chest protection is deprecated and marked for removal in a future version. See :doc:`chest-protection` for details.
 
 .. csv-table::
     :header: Setting, Default, Description
@@ -330,7 +333,7 @@ blacklist.*
 blacklist.logging.*
 ~~~~~~~~~~~~~~~~~~~
 
-These settings determine what the "log" action in the :doc:`blacklist/index` does. Several logging targets can be enabled simultaneously.
+These settings determine what the "log" action in the :doc:`blacklist` does. Several logging targets can be enabled simultaneously.
 
 .. csv-table::
     :header: Setting, Default, Description
@@ -375,6 +378,7 @@ regions.*
     nether-portal-protection,TRUE,Whether any portal travel that might lead to portal creation in a protected area should be blocked.
     set-parent-on-claim,,A region ID that newly created regions with :doc:`self-serve region claiming <regions/claiming>` automatically get assigned as `parent <../regions/priorities/#inheritance>`_.
     location-flags-only-inside-regions,FALSE,Whether locations for location-type :doc:`regions/flags` have to be whithin the corresponding region.
+    titles-always-use-default-times,TRUE,Set this to true if you use greeting/farewell titles and another plugin makes the titles disappear too quickly.
     max-region-count-per-player:,,"The maximum number of regions that can be claimed by a player (via :doc:`self-serve region claiming <regions/claiming>`). This setting can differ per permission-group if new entries are added below (like for 'default'). 'default' is the default limit. If a player is a member of several groups that are listed, then the player receives the highest limit."
     "    default",7,(See above.)
 
