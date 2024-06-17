@@ -20,6 +20,8 @@ Rules
 * **Overlap prevention:** The region to be claimed cannot overlap another region that the player is not an owner of.
 * **Overlap only owned:** If ``regions.claim-only-inside-existing-regions`` is enabled, the region must overlap another region that the player is an owner of. Note that the region to be claimed does *not* need to be fully contained within another region (see `Issue #753 <https://github.com/EngineHub/WorldGuard/issues/753>`_).
 
+.. note::
+    At this time, polygonal regions are not fully supported. See `Issue #1537 <https://github.com/EngineHub/WorldGuard/issues/1537>`_.
 
 Other Commands
 ==============
