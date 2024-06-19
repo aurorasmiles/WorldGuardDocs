@@ -28,7 +28,7 @@ The query cache stores the last query result for at most one or two seconds, whi
 
     .. code-block:: java
 
-        Location loc = new Location(world, 10, 64, 100);
+        Location loc = new com.sk89q.worldedit.util.Location(world, 10, 64, 100); // can also be adapted from Bukkit, as mentioned above
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
         ApplicableRegionSet set = query.getApplicableRegions(loc);
@@ -54,7 +54,7 @@ Given an `RegionManager`, ``getApplicableRegions(Vector)`` can be used to perfor
 
     .. code-block:: java
 
-        Location loc = new Location(world, 10, 64, 100);
+        Location loc = new com.sk89q.worldedit.util.Location(world, 10, 64, 100); // can also be adapted from Bukkit, as mentioned above
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionManager regions = container.get(world);
         // Check to make sure that "regions" is not null
@@ -91,7 +91,7 @@ The provided regions do not need to overlap.
 Using a ApplicableRegionSet
 ===========================
 
-If your interest is in getting the list of regions, ``ApplicableRegionSet`` implements ``Iterable<ProtectedRegion>`` so you can loop over it:
+If your interest is in getting the list of regions, ``ApplicableRegionSet`` implements ``Iterable<ProtectedRegion>`` so you can loop over it. However, looping over regions to do explicit checks may not account for things such as priorities, flag defaults, inheritance, and the global region. It is always preferable to do protection or flag checks via the dedicated query methods, as covered by :doc:`protection-query` and :doc:`flag-calculation`.
 
 .. code-block:: java
 
@@ -105,6 +105,3 @@ If your interest is in getting the list of regions, ``ApplicableRegionSet`` impl
 
         List<ProtectedRegion> region = new ArrayList<>();
         set.forEach(region::add);
-
-If you are performing a spatial query to check protection or flags, see either :doc:`protection-query` or :doc:`flag-calculation`.
-
