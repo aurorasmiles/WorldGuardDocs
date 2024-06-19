@@ -374,7 +374,7 @@ regions.*
     use-paper-entity-origin,FALSE,"When on a `Paper server <https://papermc.io>`_, this option will treat entities as members of the region where they spawned, not where they currently are. This will automatically prevent mobs that wander into regions from accidentally destroying it. (Note that this is separate from mobs that are targetting players in regions - that is still dependent on the player's permission, not the mob's.)"
     max-claim-volume,30000,"The maximum number of blocks in a region that can be claimed with :doc:`self-serve region claiming <regions/claiming>`."
     claim-only-inside-existing-regions,FALSE,"Whether players can only claim within existing regions."
-    cancel-chat-without-recipients,FALSE,Whether chat messages without recipients (for example when all online players are in regions where ``receive-chat`` is set to ``deny``) should be cancelled.
+    cancel-chat-without-recipients,FALSE,Whether chat messages without recipients (for example when all online players are in regions where ``receive-chat`` is set to ``deny``) should be cancelled. Turning this on may prevent external chat sinks (e.g. a Discord bridge plugin) from showing these messages.
     nether-portal-protection,TRUE,Whether any portal travel that might lead to portal creation in a protected area should be blocked.
     set-parent-on-claim,,A region ID that newly created regions with :doc:`self-serve region claiming <regions/claiming>` automatically get assigned as `parent <../regions/priorities/#inheritance>`_.
     location-flags-only-inside-regions,FALSE,Whether locations for location-type :doc:`regions/flags` have to be whithin the corresponding region.

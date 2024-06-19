@@ -68,7 +68,7 @@ Additional exceptions can also be added per-region by adjusting flags, or global
 Blocks and Entities
 ===================
 
-One very important feature of how WorldGuard protects regions is how it handles blocks and entities. Players can obviously be added as a member of a protected region, but WorldGuard see blocks and entities the same way: they can also be a member of a region.
+One very important feature of how WorldGuard protects regions is how it handles blocks and entities. Players can obviously be added as a member of a protected region, but WorldGuard sees blocks and entities the same way: they can also be a member of a region.
 
 However, entities and blocks cannot be explicitly added as member to a region. Instead, an entity or block is considered a member of a region if *it's within the region*. That's why, for example, a piston from outside a protected region cannot push into the region. It's because the piston is considered a non-member, and of course, someone or something that isn't a member cannot change blocks. On the other hand, a piston within a protected region can push blocks within the region because it's considered a member of the region.
 
