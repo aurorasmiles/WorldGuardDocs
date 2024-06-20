@@ -5,11 +5,11 @@ Quick Start
 Selecting Areas
 ===============
 
-To create a region, you need to tell WorldGuard the physical area. `WorldEdit <http://www.enginehub.org/worldedit>`_ is used for this purpose.
+To create a region, you need to tell WorldGuard the physical area. `WorldEdit <https://www.enginehub.org/worldedit>`_ is used for this purpose.
 
 .. topic:: New to WorldEdit?
 
-    You can read `WorldEdit's quick start tutorial <https://worldedit.rtfd.io/en/latest/quickstart/>`_ to learn how to select areas with WorldEdit.
+    You can read `WorldEdit's quick start tutorial <https://worldedit.enginehub.org/en/latest/quickstart/>`_ to learn how to select areas with WorldEdit.
 
 Regions can take the shape of:
 
@@ -36,7 +36,7 @@ The newly created region **automatically prevents building** within it. To let s
 
 Either players or permission groups can be a member or owner. To specify a permission group, prefix the name of the group with ``g:``. The relevant add and remove commands are illustrated below::
 
-    /rg addmember town Notch sk89q g:builders
+    /rg addmember town wizjany sk89q g:builders
     /rg addowner town sk89q
     /rg removemember town g:builders
     /rg removeowner town sk89q
@@ -45,13 +45,14 @@ Full documentation for these commands can be found on the :doc:`commands` page.
 
 Lastly, when you create a region, you can also conveniently specify the owners::
 
-    /rg define town Notch sk89q g:builders
+    /rg define town wizjany sk89q g:builders
 
-Region data is periodically saved, so you do not need to use a save command.
+.. hint::
+    Your changes to regions will automatically be saved after a small delay. However, region data can be force saved using ``/rg save``. All saves are done in the background and will not pause the server.
 
 .. topic:: Example: Creating a spawn region where only the build team can build
     
-    1. Select the area of spawn.
+    1. Select the area of spawn using WorldEdit.
     2. Create a region named "spawn"::
 
         /rg define spawn
@@ -60,8 +61,6 @@ Region data is periodically saved, so you do not need to use a save command.
 
         /rg addmember spawn g:builders
 
-.. hint::
-    Your changes to regions will automatically be saved after a small delay. However, region data can be force saved using ``/rg save``. All saves are done in the background and will not pause the server.
 
 Other Commands
 ~~~~~~~~~~~~~~
@@ -78,7 +77,7 @@ You can view a list of regions::
 
     /rg list
 
-You can change the shape of an existing region::
+You can change the shape or size of an existing region::
 
     /rg redefine town
 
@@ -107,6 +106,9 @@ Regions can overlap in WorldGuard, which provides a lot of flexibility but can b
     3. Set the ``build`` flag to ``allow``, which permits building for all players and overrides spawn because spawn doesn't have the build flag explicitly set::
 
         /rg flag mine build allow
+
+.. warning::
+    The ``build`` flag has some additional properties and we generally recommend not to change it, unless you know what you are doing. See the :doc:`region flag overview <flags>` for more information.
 
 Flags
 ~~~~~

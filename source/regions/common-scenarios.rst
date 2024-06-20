@@ -2,7 +2,7 @@
 Common Scenarios
 ================
 
-These are common scenarios that you may come across. Some of these scenarios have been already been described in some other pages.
+These are common scenarios that you may come across. Some of these scenarios have already been described in some other pages.
 
 .. contents::
     :local:
@@ -52,10 +52,10 @@ Do **not** set the ``build`` flag.
 How can I only deny exit for non-members?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You want to set the region group of the flag (note that this is the default)::
+Since non-members is the default for ``entry`` and ``exit`` you don't need to set region groups::
 
     /rg addmember example_region sk89q
-    /rg flag example_region exit -g nonmembers deny
+    /rg flag example_region exit deny
 
 How can I let players exit one side of an exit=deny region?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -87,7 +87,7 @@ First, make sure you are on WorldGuard 7.0.1+. Earlier versions of WorldGuard re
 How do I allow breaking of only certain block types?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Sorry, this is not supported per region yet! However, this can either be done per world in whitelist mode as described in :doc:`../blacklist/index` or using :doc:`../build-perms`.
+Sorry, this is not supported per region yet! However, this can either be done per world in whitelist mode as described in :doc:`../blacklist` or using :doc:`../build-perms`.
 
 Plot Setups
 ===========
@@ -146,7 +146,7 @@ Problems
 Why don't pistons work?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Did you set the ``build`` flag? You probably do not want to do that. Be sure to remove it::
+Did you set the ``build`` flag? You **shouldn't** do that. Be sure to remove it::
 
     /rg flag __global__ build
 

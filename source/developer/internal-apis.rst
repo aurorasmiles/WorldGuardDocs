@@ -12,4 +12,4 @@ and any of the following types:
    - ``com.sk89q.worldguard.internal``
    - ``com.sk89q.worldguard.commands``
    - ``com.sk89q.worldguard.util``
-- Anything explicitly marked as internal (in javadocs).
+- Anything explicitly marked as internal (in `JavaDocs <https://enginehub.org/documentation>`_).

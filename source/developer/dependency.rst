@@ -60,7 +60,7 @@ The Maven repository should be online 24/7, and is one of Minecraft's longest ru
 Modifying plugin.yml
 ====================
 
-First, it is important that you specify WorldGuard as a "depend" or "softdepend" in your plugin.yml file so that Bukkit knows to make sure that WorldGuard is loaded before your plugin:
+First, it is important that you specify WorldGuard as a "depend" or "softdepend" in your plugin.yml file, so that Bukkit knows to make sure that WorldGuard is loaded before your plugin:
 
 .. code-block:: yaml
 

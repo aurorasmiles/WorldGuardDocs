@@ -113,4 +113,4 @@ Each user row will either have a UUID or name set.
 High-Latency Environment
 ========================
 
-Data is loaded and saved in its entirety and in the background, so a slow hard disk or a remote MySQL server should not pose too much issue.
+Data is loaded and saved in its entirety and in the background, so a slow hard disk or a remote MySQL server should not pose too much of an issue.

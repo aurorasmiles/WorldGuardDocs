@@ -148,8 +148,10 @@ There is also:
     .. code-block:: java
 
         private RegionAssociable createRegionAssociable(Object cause) {
-            if (cause instanceof Player) {
-                return WorldGuardPlugin.inst().wrapPlayer((Player) cause);
+            if (!cause.isKnown()) {
+                return Associables.constant(Association.NON_MEMBER);
+            } else if (cause instanceof Player player) {
+                return WorldGuardPlugin.inst().wrapPlayer(player);
             } else if (cause instanceof Entity entity) {
                 RegionQuery query = WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery();
                 WorldConfiguration config = WorldGuard.getInstance().getPlatform().getGlobalStateManager().get(BukkitAdapter.adapt(entity.getWorld()));

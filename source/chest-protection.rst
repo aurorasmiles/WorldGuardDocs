@@ -8,13 +8,14 @@ WorldGuard provides rudimentary self-serve chest protection that a player may ut
     Chest protection in WorldGuard does not support UUIDs, so users will not be able to access chests if they change names.
     It also operates independently of regions and other protection.
 
-    **It is highly recommended to not use this feature in WorldGuard, but use a dedicated plugin such as LWC Extended if you need single-block, sign-based protection.
-    The feature will be removed from WorldGuard in a future version.**
+    **It is highly recommended to not use this feature in WorldGuard. This feature will be removed from WorldGuard in a future version.**
+
+    Use a dedicated plugin such as `LWC Extended <https://github.com/pop4959/LWCX>`_ if you need single-block protection.
 
 Getting Started
 ===============
 
-Chest protection must first be enabled in the :doc:`config`. With it disabled, chest protection will not be active but it will still not be possible to make "lock signs" (however, this can also be disabled in the configuration).
+Chest protection must first be enabled in the :doc:`config`. With it disabled, chest protection will not be active but it will still not be possible to make "lock signs" (however, this is disabled in the configuration in modern WorldGuard versions).
 
 A sign is protected as long as a *special sign is placed under a chest*. This sign:
 

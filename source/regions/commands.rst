@@ -21,8 +21,9 @@ Define
 
 .. code-block:: text
 
-    /rg define [-w <world>] [-g] <id> <owner1> [<owner2>] [... <ownerN>]
+    /rg define [-w <world>] [-g] <id> [<owner1>] [<owner2>] [... <ownerN>]
     /rg create (...)
+    /rg def (...)
     /rg d (...)
 
 Creates a new region with a given ID and an optional list of owners. Your current WorldEdit selection is used for the area of the region.
@@ -119,6 +120,7 @@ Remove Member
 
     /rg removemember [-w <world>] [-a] <id> <members...>
     /rg remmember (...)
+    /rg removemem (...)
     /rg remmem (...)
     /rg rm (...)
 
@@ -132,6 +134,7 @@ Remove Owner
 .. code-block:: text
 
     /rg removeowner [-w <world>] [-a] <id> <owners...>
+    /rg remowner
     /rg ro (...)
 
 Removes any number of owners from a region. As in the add command, use ``g:<owner>`` to specify a permission group.
@@ -146,11 +149,11 @@ Select
 
 .. code-block:: text
 
-    /rg select <id>
+    /rg select [-w <world>] [<id>]
     /rg sel (...)
     /rg s (...)
 
-Replaces your current WorldEdit selection with the area of an existing region.
+Replaces your current WorldEdit selection with the area of an existing region. If no region is specified, it tries to select the region that you are currently in.
 
 Information
 ~~~~~~~~~~~
@@ -214,6 +217,7 @@ Flag
 .. code-block:: text
 
     /rg flag <id> <flag> [-w <world>] [-g <group>] [-e] [<value>]
+    /rg f (...)
 
 Sets a flag on a region (see :doc:`flags` for more information).
 
@@ -288,7 +292,8 @@ Teleport
 
 .. code-block:: text
 
-    /rg teleport [-c] [-s] <id>
+    /rg teleport [-w <world>] [-c] [-s] <id>
+    /rg tp (...)
 
 Teleports yourself to the location specified by either the ``spawn`` or ``teleport`` :doc:`flags <flags>`.
 
@@ -370,9 +375,9 @@ Migrate Region Heights
 
 .. code-block:: text
 
-    /rg migrateheights
+    /rg migrateheights [-w <world>]
 
-Extends regions that were physically defined from min y <= 0 to max y >= 255 (i.e. the world limits pre-MC 1.18) to the new world height limits.
+Extends regions of the current or specified world that were physically defined from min y <= 0 to max y >= 255 (i.e. the world limits pre-MC 1.18) to the new world height limits.
 
 Useful for updating from 1.17 or before to 1.18 or later if you had a lot of regions which were defined at the world limits. Note that if you intentionally had regions beyond the world limits before 1.18, you will need to move them beyond the new world limits manually.
 

@@ -22,7 +22,7 @@ In addition, WorldGuard supports mod-added custom blocks and entities (with some
 
 Water flow and lava flow protection is disabled by default, but it can be enabled in the :doc:`../config`.
 
-.. tip:: If you find a way to bypass protection, please `file a ticket on the issue tracker <https://dev.enginehub.org/youtrack/issues/WORLDGUARD>`_.
+.. tip:: If you find a way to bypass protection, please `file a ticket on the issue tracker <https://github.com/EngineHub/WorldGuard/issues>`_.
 
 Exceptions
 ==========
@@ -33,8 +33,6 @@ Some sensible defaults are used that permit certain activities from non-members:
 * XP drops are permitted.
 
 These exceptions can be removed globally or per-region by adjusting :doc:`flags`.
-
-However, hoppers are one exception that cannot be changed. A hopper adjacent to a protected region can place items into a chest inside the region, so chests should not be placed on the edge of regions. This behavior is used because the preivous situation (where hoppers were protected) was a source of frequent confusion, though the exception may be removed in the future.
 
 Additional exceptions can also be added per-region by adjusting flags, or globally by using the ``interaction-whitelist`` option in the :doc:`../config`.
 
@@ -70,19 +68,19 @@ Additional exceptions can also be added per-region by adjusting flags, or global
 Blocks and Entities
 ===================
 
-One very important feature of how WorldGuard protects regions is how it handles blocks and entities. Players can obviously be either be added as a member of a protected region, but WorldGuard see blocks and entities the same way: they can either also be a member of a region.
+One very important feature of how WorldGuard protects regions is how it handles blocks and entities. Players can obviously be added as a member of a protected region, but WorldGuard sees blocks and entities the same way: they can also be a member of a region.
 
 However, entities and blocks cannot be explicitly added as member to a region. Instead, an entity or block is considered a member of a region if *it's within the region*. That's why, for example, a piston from outside a protected region cannot push into the region. It's because the piston is considered a non-member, and of course, someone or something that isn't a member cannot change blocks. On the other hand, a piston within a protected region can push blocks within the region because it's considered a member of the region.
 
 WorldGuard also attempts to track the true *cause* of an event. For example, if a gravel block is placed above a protected region so that it falls into the protected region, WorldGuard considers the final placed block (that would exist after the gravel fell to the ground) to have been placed by the *falling block entity*, and the falling block entity to have been created by *the original gravel block high up*. (It's not as easy to determine who placed the original gravel block, however.) Because the original gravel block started outside the region, it cannot fall into the protected region because the original block was not a member.
 
-.. hint::
+.. warning::
     When the ``build`` flag is set to ``deny`` on a region, no one can build and pistons don't work. That's because the build flag will even prevent members from building, as as detailed above, pistons can be regular members of a region like any other player.
 
 Mod and Plugin Support
 ======================
 
-Some mods add new game mechanics, such as by adding new blocks, new items, new entities, or by adding new behavior to existing blocks, items, or entities. Mods be be written as Bukkit plugins or as mods for other modding platforms (such as Forge or LiteLoader).
+Some mods add new game mechanics, such as new blocks, new items, new entities, or new behavior for existing blocks, items, or entities. Mods can be written as Bukkit plugins or as mods for other modding platforms (such as NeoForge or Fabric).
 
 Generally, Bukkit plugins tend to be better at respecting protection added by other Bukkit plugins, but this is not always the case. Non-Bukkit mods, however, tend to have extremely poor support. This section concerns mods that do not properly respect mods and plugins that aim to restrict access to an area, like WorldGuard.
 
@@ -100,7 +98,7 @@ However, WorldGuard cannot protect blocks or entities that open GUIs on the clie
 
 In addition, WorldGuard inherently cannot effectively control actions (like dig blocks) on behalf of custom blocks or entities (such as a theoretical block mining drone), at least with high granularity. Base Minecraft itself does have blocks that can affect the world (like the piston), but the Bukkit team (or the maintainer of the server software that you use) properly notifies plugins when base game blocks change the world. However, mod-added blocks and entities rarely do so, so WorldGuard is unable to deal with those cases.
 
-Some mods "fake" a player in order to perform some actions on behalf of blocks and entities. The convention for these fake players is have their name be of the format ``[ModName]``. However, this information is rarely useful beyond identifying which mod is making the change, which makes it impossible for WorldGuard to determine whether an action should be permitted or denied. To allow the mods to work at all in protected areas, fake players are given a free pass and can bypass all protection. This behavior can be disabled by setting ``fake-player-build-override`` in the :doc:`../config` but doing so prevents mods of this nature from working within a protected area.
+Some mods "fake" a player in order to perform some actions on behalf of blocks and entities. The convention for these fake players is have their name be of the format ``[ModName]``. However, this information is rarely useful beyond identifying which mod is making the change, which makes it impossible for WorldGuard to determine whether an action should be permitted or denied. To allow the mods to work at all in protected areas, fake players are given a free pass and can bypass all protection. This behavior can be disabled by setting ``fake-player-build-override`` in the :doc:`../config`, but doing so prevents mods of this nature from working within a protected area.
 
 Projectiles (and magic mods with projectile effects) are a major concern. This is because the mod likely does not notify plugins of effects of the projectile. WorldGuard has a workaround -- the ``emit-block-use-at-feet`` setting in the :doc:`../config` that lets you configure a list of item types -- that will *pretend* that listed items are trying to change the block at a player's feet. That effectively prevents a player *in* a protected region from firing his or her weapon because the player will be prevented from using the item in the region, but it does not prevent the player from firing into the protected region from *outside*.
 

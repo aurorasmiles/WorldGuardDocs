@@ -17,8 +17,8 @@ Why don't any commands work?
 
 If no commands work, it may because WorldGuard failed to start:
 
-* Make sure that you are running Bukkit (or a server software that supports Bukkit). Use the ``version`` command in console or in-game and make sure that the response has "Bukkit" or "CraftBukkit" in it.
-* Make sure that you have `WorldEdit <http://www.enginehub.org/worldedit>`_ installed.
+* Make sure that you are running a server software that supports Bukkit, like `Spigot <https://spigotmc.org>`_ or `Paper <https://papermc.io>`_. Use the ``version`` command in console or in-game and to check what server software you are running.
+* Make sure that you have the proper version of `WorldEdit <https://www.enginehub.org/worldedit>`_ for your version of Minecraft installed.
 * Make sure that you have the proper version of WorldGuard for your version of Minecraft.
 
 If those solutions do not help you, you will need to look through your startup log:
@@ -26,7 +26,7 @@ If those solutions do not help you, you will need to look through your startup l
 * If you use a game server host, use its log viewer.
 * You can also open up "latest.log" in the logs folder of your server directory. (On older versions of Minecraft, the log file was "server.log" in the root directory.)
 
-If you are unable to discover the problem from reading the server log, you can :doc:`ask for help or submit a bug report <../support>`.
+If you are unable to discover the problem from reading the server log, you can :doc:`ask for help <../support>`.
 
 How old is WorldGuard?
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -55,7 +55,7 @@ If it does not immediately appear to be WorldGuard,
 
 * Make sure that Minecraft's "spawn protection" is not on. Spawn protection prevents anyone from making any changes within a certain radius of a world's spawn point. To adjust spawn protection, change the ``spawn-protection`` setting in the server.properties file to ``0``.
 * Make sure that you are not testing in adventure mode.
-* Update your version of CraftBukkit/Spigot/Paper.
+* Update your version of your server software (like Spigot or Paper).
 
 If those steps do not help, there's a simple command in WorldGuard that can simulate an action on behalf of a player and then report the plugin that blocked the action. Use the "testbreak" and "testplace" commands described on the :doc:`commands` page to identify the plugin.
 
@@ -100,7 +100,7 @@ Why is protection not working? Players receive NO message.
 * You have set some other relevant flag (``pvp``, ``ride``, etc.) on the region to "allow."
 * The item in question is from a mod or a third-party plugin (see :doc:`regions/scope`).
 * WorldGuard does not yet protect that particular thing that you are trying to do. This is not the case for simple block place or break. Please make sure that you are using the latest version of WorldGuard, and if it's still a problem, :doc:`file a bug report <support>`.
-* There is a bug in your version of CraftBukkit/Spigot/Paper.
+* There is a bug in your version of your server software.
 
 .. _can-build-with-message:
 
@@ -113,7 +113,7 @@ If WorldGuard is blocking an action, it's still possible for a different plugin 
 
 You can use the "testbreak" and "testplace" commands described in :doc:`commands` to identify the causing plugin. If you see any plugin above WorldGuard on the list with "ALLOW" next to its line, then that plugin is the cause.
 
-Another possibility is that your version of CraftBukkit/Spigot/Paper has a bug. Be sure to use the latest available version. If you still cannot figure out the cause, :doc:`look into getting help <support>`.
+Another possibility is that your version of your server software (like Spigot or Paper) has a bug. Be sure to use the latest available version. If you still cannot figure out the cause, :doc:`look into getting help <support>`.
 
 Region Protection
 =================
