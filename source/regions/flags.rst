@@ -232,7 +232,7 @@ Mobs, Fire, and Explosions
     ravager-grief,state,Whether ravagers will break blocks
     mob-damage,state,Whether mobs can hurt players
     mob-spawning,state,"Whether mobs can spawn, including 'manually' spawning via commands, spawn eggs, or similar methods"
-    deny-spawn,set of entity types,A list of entity types that cannot spawn, including 'manually' spawning via commands, spawn eggs, or similar methods"
+    deny-spawn,set of entity types,"A list of entity types that cannot spawn, including 'manually' spawning via commands, spawn eggs, or similar methods"
     entity-painting-destroy,state,Whether non-player entities can destroy paintings
     entity-item-frame-destroy,state,Whether non-player entities can destroy item frames
     wither-damage,state,"Whether withers can do damage (with their body explosions - skull projectiles are handled by ghast-fireball as mentioned above)"
