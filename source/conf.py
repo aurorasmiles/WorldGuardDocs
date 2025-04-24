@@ -112,15 +112,21 @@ html_theme_options = {
     "discord_url": "https://discord.gg/enginehub",
     "github_url": "https://github.com/EngineHub/WorldGuard",
     "globaltoc_expand_depth": 2,
-    "nav_links_align": "right",
+    "nav_links_align": "left",
     "nav_links": [
+        {
+            "title": "Developed by EngineHub",
+            "url": "https://enginehub.org",
+            "summary": "The EngineHub.org website",
+            "external": True,
+        },
         {
             "title": "<iconify-icon icon='simple-icons:githubsponsors' style='color: #db61a2;'></iconify-icon> Sponsored by users like you!",
             "url": "https://github.com/sponsors/EngineHub?o=esb",
+            "summary": "Our GitHub sponsors page",
             "external": True,
         },
-    ]
-    
+    ],
 }
 
 html_sidebars = {
